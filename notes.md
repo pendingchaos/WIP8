@@ -1,0 +1,1 @@
+- Seperate blend equations and functions can be emulated when not available by drawing the object 2 times (one rgb pass and one alpha pass).
