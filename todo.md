@@ -1,0 +1,18 @@
+- Remove the SDL2 dependency.
+- Resources should only be created with the resource manager.
+- Teach my program that it is not über-fast.
+- Something like Horde3D's pipelines.
+- Allow the mesh to define stuff.
+- Dirty flags to reduce shader and VAO lookups in the GLBackend.
+- Lighting.
+- More flexible meshes.
+- Allow #includes in GLSL.
+- Scene loading.
+- Instanced rendering.
+- Texture compression.
+- Support more versions of OpenGL.
+- Particle systems.
+- Font rendering.
+- Stencil framebuffers.
+- More mesh formats on mesh aabb calculation.
+- A C api.
