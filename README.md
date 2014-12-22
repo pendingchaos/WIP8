@@ -2,7 +2,12 @@
 
 A work in progress using C++ and OpenGL.
 
-The program requires SDL2, SOIL, glm, JsonCPP, libdl, the c standard library, the c++ standard library, and an OpenGL 3.3 implementation.
+The program has only been tested on Linux and should only run on Linux.
+The program requires SDL2, SOIL, glm, JsonCPP, libdl, a c standard library implementation, a c++ standard library implementation, and an OpenGL 3.3 implementation.
+
+Most of them can be install by running this command:
+sudo yum install SDL2-devel SOIL-devel glm-devel jsoncpp-devel
+The rest should already be installed.
 
 To compile go to the directory (in a terminal) containing all the files then run:
 
