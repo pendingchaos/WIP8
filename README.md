@@ -2,6 +2,8 @@
 
 A work in progress using C++ and OpenGL.
 
+The program requires SDL2, SOIL, glm, JsonCPP, libdl, the c standard library, the c++ standard library, and an OpenGL 3.3 implementation.
+
 To compile go to the directory (in a terminal) containing all the files then run:
 
 python scripts/compile.py
