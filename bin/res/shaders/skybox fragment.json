@@ -1,0 +1,9 @@
+{
+    "type": "shader",
+    
+    "shader":
+    {
+        "type": "fragment",
+        "filename": "res/shaders/skybox.fs"
+    }
+}

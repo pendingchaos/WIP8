@@ -1,0 +1,33 @@
+{
+    "type": "model",
+    
+    "external resources":
+    {
+        "dragonlod1": "res/meshes/dragonlod1.json",
+        "dragonlod2": "res/meshes/dragonlod2.json",
+        "dragonlod3": "res/meshes/dragonlod3.json",
+        "material": "res/materials/dragon.json"
+    },
+    
+    "model":
+    {   
+        "lods":
+        [
+            {
+                "mesh": "dragonlod1",
+                "material": "material",
+                "distance": 5.0
+            },
+            {
+                "mesh": "dragonlod2",
+                "material": "material",
+                "distance": 10.0
+            },
+            {
+                "mesh": "dragonlod3",
+                "material": "material",
+                "distance": 15.0
+            }
+        ]
+    }
+}

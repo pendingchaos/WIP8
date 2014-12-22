@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="WIP8" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug 64 bit gcc">
+				<Option output="bin/WIP8-64-debug-gcc" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj-64/debug/gcc" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-m64" />
+					<Add option="-DTRACK_MEMORY" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add directory="/usr/lib64" />
+				</Linker>
+			</Target>
+			<Target title="Release 64 bit gcc">
+				<Option output="bin/WIP8-64-release-gcc" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj-64/release/gcc" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-m64" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add directory="/usr/lib64" />
+				</Linker>
+			</Target>
+			<Target title="Debug 32 bit gcc">
+				<Option output="bin/WIP8-32-debug-gcc" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj-32/debug/gcc" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-m32" />
+					<Add option="-DTRACK_MEMORY" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-m32" />
+					<Add directory="/usr/lib" />
+				</Linker>
+			</Target>
+			<Target title="Release 32 bit gcc">
+				<Option output="bin/WIP8-32-release-gcc" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj-32/release/gcc" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-m32" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-m32" />
+					<Add directory="/usr/lib" />
+				</Linker>
+			</Target>
+			<Target title="Debug 64 bit clang">
+				<Option output="bin/WIP8-64-debug-clang" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj-64/debug/clang" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-m64" />
+					<Add option="-DTRACK_MEMORY" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add directory="/usr/lib64" />
+				</Linker>
+			</Target>
+			<Target title="Release 64 bit clang">
+				<Option output="bin/WIP8-64-release-clang" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj-64/release/clang" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-m64" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add directory="/usr/lib64" />
+				</Linker>
+			</Target>
+			<Target title="Debug 32 bit clang">
+				<Option output="bin/WIP8-32-debug-clang" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj-32/debug/clang" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-m32" />
+					<Add option="-DTRACK_MEMORY" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-m32" />
+					<Add directory="/usr/lib" />
+				</Linker>
+			</Target>
+			<Target title="Release 32 bit clang">
+				<Option output="bin/WIP8-32-release-clang" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj-32/release/clang" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-m32" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-m32" />
+					<Add directory="/usr/lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-DGL_GLEXT_PROTOTYPES" />
+			<Add directory="include" />
+		</Compiler>
+		<Linker>
+			<Add option="-rdynamic" />
+			<Add library="SDL2" />
+			<Add library="GL" />
+			<Add library="SOIL" />
+			<Add library="m" />
+			<Add library="stdc++" />
+			<Add library="c" />
+			<Add library="jsoncpp" />
+			<Add library="dl" />
+		</Linker>
+		<Unit filename="bin/res/shaders/entity.fs" />
+		<Unit filename="bin/res/shaders/entity.vs" />
+		<Unit filename="bin/res/shaders/quad.fs" />
+		<Unit filename="bin/res/shaders/quad.vs" />
+		<Unit filename="bin/res/shaders/skybox.fs" />
+		<Unit filename="bin/res/shaders/skybox.vs" />
+		<Unit filename="include/GL/glbackend.h" />
+		<Unit filename="include/GL/glextensions.h" />
+		<Unit filename="include/GL/glpersistentvertexbuffer.h" />
+		<Unit filename="include/GL/glrendertarget.h" />
+		<Unit filename="include/GL/glshader.h" />
+		<Unit filename="include/GL/gltexture.h" />
+		<Unit filename="include/GL/glubo.h" />
+		<Unit filename="include/GL/glvertexbuffer.h" />
+		<Unit filename="include/awm.h" />
+		<Unit filename="include/backend.h" />
+		<Unit filename="include/entity.h" />
+		<Unit filename="include/geometry/aabb.h" />
+		<Unit filename="include/material.h" />
+		<Unit filename="include/mesh.h" />
+		<Unit filename="include/model.h" />
+		<Unit filename="include/renderer.h" />
+		<Unit filename="include/rendertarget.h" />
+		<Unit filename="include/resource.h" />
+		<Unit filename="include/resourcemanager.h" />
+		<Unit filename="include/scene.h" />
+		<Unit filename="include/shader.h" />
+		<Unit filename="include/texture.h" />
+		<Unit filename="include/transform.h" />
+		<Unit filename="include/ubo.h" />
+		<Unit filename="include/utils/crash.h" />
+		<Unit filename="include/utils/memory.h" />
+		<Unit filename="include/utils/utils.h" />
+		<Unit filename="include/vertexbuffer.h" />
+		<Unit filename="notes.txt" />
+		<Unit filename="src/GL/glbackend.cpp" />
+		<Unit filename="src/GL/glextensions.cpp" />
+		<Unit filename="src/GL/glpersistentvertexbuffer.cpp" />
+		<Unit filename="src/GL/glrendertarget.cpp" />
+		<Unit filename="src/GL/glshader.cpp" />
+		<Unit filename="src/GL/gltexture.cpp" />
+		<Unit filename="src/GL/glubo.cpp" />
+		<Unit filename="src/GL/glvertexbuffer.cpp" />
+		<Unit filename="src/awm.cpp" />
+		<Unit filename="src/backend.cpp" />
+		<Unit filename="src/entity.cpp" />
+		<Unit filename="src/geometry/aabb.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/material.cpp" />
+		<Unit filename="src/mesh.cpp" />
+		<Unit filename="src/model.cpp" />
+		<Unit filename="src/renderer.cpp" />
+		<Unit filename="src/rendertarget.cpp" />
+		<Unit filename="src/resource.cpp" />
+		<Unit filename="src/resourcemanager.cpp" />
+		<Unit filename="src/scene.cpp" />
+		<Unit filename="src/shader.cpp" />
+		<Unit filename="src/texture.cpp" />
+		<Unit filename="src/transform.cpp" />
+		<Unit filename="src/ubo.cpp" />
+		<Unit filename="src/utils/crash.cpp" />
+		<Unit filename="src/utils/memory.cpp" />
+		<Unit filename="src/utils/utils.cpp" />
+		<Unit filename="src/vertexbuffer.cpp" />
+		<Unit filename="todo.txt" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

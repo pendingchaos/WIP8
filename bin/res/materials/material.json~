@@ -1,0 +1,39 @@
+{
+    "type": "material",
+    
+    "external resources":
+    {
+        "entity shader": "res/shaders/entity.fs",
+        "diffuse texture": "res/texture/diffuse texture.json",
+        "normal texture": "res/texture/normal texture.json",
+        "specular texture": "res/texture/specular texture.json",
+        "enviroment texture": "res/texture/enviroment texture.json"
+    },
+    
+    "material":
+    {
+        "passes":
+        [
+            {
+                "shader": "entity shader",
+                "uniforms":
+                {
+                    "ambientAmount": 0.1,
+                    "specularExponent": 8.0,
+                    "diffuseColor": [1.0, 1.0, 1.0, 1.0],
+                    "diffuseTexture": "diffuse texture",
+                    "normalTexture": "normal texture",
+                    "specularTexture": "specular texture",
+                    "enviromentMap": "enviroment texture"
+                },
+                "defines":
+                {
+                    "STIPPLED_ALPHA": "0",
+                    "NORMAL_MAP": "1",
+                    "SPECULAR_MAP": "1",
+                    "ENVIROMENT_MAP": "1"
+                }
+            }
+        ]
+    }
+}

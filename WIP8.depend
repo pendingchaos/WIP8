@@ -1,0 +1,639 @@
+# depslib dependency file v1.0
+1417705263 source:/home/rugrats/Documents/CPP/WIP8/src/engine/game/game.cpp
+	"engine/game/game.h"
+
+1417705213 /home/rugrats/Documents/CPP/WIP8/include/engine/game/game.h
+	<SDL2/SDL_timer.h>
+	<unordered_map>
+	<typeindex>
+	<stdexcept>
+	"engine/game/system.h"
+
+1417476553 /home/rugrats/Documents/CPP/WIP8/include/engine/game/system.h
+
+1417477268 source:/home/rugrats/Documents/CPP/WIP8/src/engine/game/system.cpp
+	"engine/game/system.h"
+
+1417649164 source:/home/rugrats/Documents/CPP/WIP8/src/engine/input/inputsystem.cpp
+	"inputsystem.h"
+
+1417650954 /home/rugrats/Documents/CPP/WIP8/include/engine/input/inputsystem.h
+	<unordered_map>
+	<string>
+	<stdexcept>
+	<SDL2/SDL_keyboard.h>
+	<SDL2/SDL_mouse.h>
+	"engine/game/system.h"
+
+1417733518 source:/home/rugrats/Documents/CPP/WIP8/src/engine/render/rendercomponent.cpp
+	"rendercomponent.h"
+
+1417733467 /home/rugrats/Documents/CPP/WIP8/include/engine/render/rendercomponent.h
+	<glm/glm.hpp>
+	"engine/scene/component.h"
+
+1417476563 /home/rugrats/Documents/CPP/WIP8/include/engine/scene/component.h
+
+1417790102 source:/home/rugrats/Documents/CPP/WIP8/src/engine/render/rendersystem.cpp
+	"engine/render/rendersystem.h"
+	"engine/render/mesh.h"
+	"engine/render/material.h"
+
+1417790564 /home/rugrats/Documents/CPP/WIP8/include/engine/render/rendersystem.h
+	<GL/gl.h>
+	<iostream>
+	<map>
+	"engine/scene/scenesystem.h"
+	"engine/scene/entity.h"
+	"engine/scene/transform.h"
+	"engine/render/shader.h"
+	"engine/render/glextensions.h"
+
+1417790376 /home/rugrats/Documents/CPP/WIP8/include/engine/scene/scenesystem.h
+	<vector>
+	<algorithm>
+	<stdexcept>
+	"engine/scene/entity.h"
+	"engine/render/mesh.h"
+	"engine/render/material.h"
+
+1417790516 /home/rugrats/Documents/CPP/WIP8/include/engine/scene/entity.h
+	<unordered_map>
+	<typeindex>
+	<stdexcept>
+	"engine/scene/transform.h"
+	"engine/render/mesh.h"
+	"engine/render/material.h"
+
+1417790495 /home/rugrats/Documents/CPP/WIP8/include/engine/scene/transformcomponent.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+
+1417733025 source:/home/rugrats/Documents/CPP/WIP8/src/engine/render/vertexbuffer.cpp
+	"engine/render/vertexbuffer.h"
+	"engine/render/rendersystem.h"
+
+1417736737 /home/rugrats/Documents/CPP/WIP8/include/engine/render/vertexbuffer.h
+	<GL/gl.h>
+
+1417477176 source:/home/rugrats/Documents/CPP/WIP8/src/engine/scene/component.cpp
+	"engine/scene/component.h"
+
+1417790503 source:/home/rugrats/Documents/CPP/WIP8/src/engine/scene/entity.cpp
+	"engine/scene/entity.h"
+
+1417790179 source:/home/rugrats/Documents/CPP/WIP8/src/engine/scene/scenesystem.cpp
+	"engine/scene/scenesystem.h"
+
+1417790498 source:/home/rugrats/Documents/CPP/WIP8/src/engine/scene/transformcomponent.cpp
+	"engine/scene/transformcomponent.h"
+
+1417651054 source:/home/rugrats/Documents/CPP/WIP8/src/engine/scene/updatecomponent.cpp
+	"engine/scene/updatecomponent.h"
+
+1417651023 /home/rugrats/Documents/CPP/WIP8/include/engine/scene/updatecomponent.h
+	<vector>
+	"engine/scene/component.h"
+	"engine/scene/entity.h"
+
+1417651125 source:/home/rugrats/Documents/CPP/WIP8/src/engine/scene/updatesystem.cpp
+	"updatesystem.h"
+
+1417564992 /home/rugrats/Documents/CPP/WIP8/include/engine/scene/updatesystem.h
+	<vector>
+	"engine/game/game.h"
+	"engine/game/system.h"
+	"engine/scene/updatecomponent.h"
+	"engine/scene/scenesystem.h"
+
+1417719548 source:/home/rugrats/Documents/CPP/WIP8/src/engine/window/windowsystem.cpp
+	"engine/window/windowsystem.h"
+
+1417705433 /home/rugrats/Documents/CPP/WIP8/include/engine/window/windowsystem.h
+	<cstring>
+	<cstdio>
+	<SDL2/SDL_video.h>
+	<SDL2/SDL_events.h>
+	"engine/game/system.h"
+	"engine/game/game.h"
+
+1419266845 source:/home/rugrats/Documents/CPP/WIP8/src/main.cpp
+	<glm/glm.hpp>
+	<SDL2/SDL.h>
+	<cstdio>
+	<cstring>
+	<cmath>
+	"entity.h"
+	"transform.h"
+	"scene.h"
+	"renderer.h"
+	"vertexbuffer.h"
+	"shader.h"
+	"mesh.h"
+	"texture.h"
+	"material.h"
+	"model.h"
+	"awm.h"
+	"rendertarget.h"
+	"resource.h"
+	"resourcemanager.h"
+	"utils/memory.h"
+	"utils/crash.h"
+	"utils/utils.h"
+	"GL/glbackend.h"
+
+1417708779 source:/home/rugrats/Documents/CPP/WIP8/src/engine/render/glextensions.cpp
+	"engine/render/glextensions.h"
+
+1417709318 /home/rugrats/Documents/CPP/WIP8/include/engine/render/glextensions.h
+	<SDL2/SDL_video.h>
+
+1417719865 source:/home/rugrats/Documents/CPP/WIP8/src/engine/render/shader.cpp
+	"shader.h"
+
+1417736265 /home/rugrats/Documents/CPP/WIP8/include/engine/render/shader.h
+	<GL/gl.h>
+
+1417733286 source:/home/rugrats/Documents/CPP/WIP8/src/engine/render/mesh.cpp
+	"engine/render/mesh.h"
+
+1417733239 /home/rugrats/Documents/CPP/WIP8/include/engine/render/mesh.h
+	"engine/render/vertexbuffer.h"
+	"engine/render/shader.h"
+
+1417733449 source:/home/rugrats/Documents/CPP/WIP8/src/engine/render/material.cpp
+	"engine/render/material.h"
+
+1417733428 /home/rugrats/Documents/CPP/WIP8/include/engine/render/material.h
+	"engine/render/shader.h"
+
+1417790525 /home/rugrats/Documents/CPP/WIP8/include/engine/scene/transform.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+
+1417790530 source:/home/rugrats/Documents/CPP/WIP8/src/engine/scene/transform.cpp
+	"engine/scene/transform.h"
+
+1419197006 source:/home/rugrats/Documents/CPP/WIP8/src/shader.cpp
+	"shader.h"
+	"utils/memory.h"
+	"renderer.h"
+
+1419181064 /home/rugrats/Documents/CPP/WIP8/include/shader.h
+	<glm/glm.hpp>
+	<map>
+	<string>
+	"texture.h"
+	"resource.h"
+
+1417790643 source:/home/rugrats/Documents/CPP/WIP8/src/glextensions.cpp
+	"glextensions.h"
+
+1417709318 /home/rugrats/Documents/CPP/WIP8/include/glextensions.h
+	<SDL2/SDL_video.h>
+
+1419194316 source:/home/rugrats/Documents/CPP/WIP8/src/material.cpp
+	"material.h"
+
+1419194147 /home/rugrats/Documents/CPP/WIP8/include/material.h
+	<map>
+	<cstring>
+	<glm/glm.hpp>
+	"shader.h"
+	"resource.h"
+	"texture.h"
+
+1419163029 source:/home/rugrats/Documents/CPP/WIP8/src/mesh.cpp
+	"mesh.h"
+	"renderer.h"
+	"vertexbuffer.h"
+	"utils/memory.h"
+
+1419160223 /home/rugrats/Documents/CPP/WIP8/include/mesh.h
+	<string>
+	"resource.h"
+	"shader.h"
+	"geometry/aabb.h"
+
+1419161294 /home/rugrats/Documents/CPP/WIP8/include/vertexbuffer.h
+
+1419161235 source:/home/rugrats/Documents/CPP/WIP8/src/transform.cpp
+	"transform.h"
+	<algorithm>
+
+1419161225 /home/rugrats/Documents/CPP/WIP8/include/transform.h
+	<vector>
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+
+1419160131 source:/home/rugrats/Documents/CPP/WIP8/src/entity.cpp
+	"entity.h"
+
+1419160118 /home/rugrats/Documents/CPP/WIP8/include/entity.h
+	"transform.h"
+	"model.h"
+	"resource.h"
+
+1417790677 source:/home/rugrats/Documents/CPP/WIP8/src/scenesystem.cpp
+	"scenesystem.h"
+
+1417790708 /home/rugrats/Documents/CPP/WIP8/include/scenesystem.h
+	<vector>
+	<algorithm>
+	<stdexcept>
+	"entity.h"
+	"mesh.h"
+	"material.h"
+
+1417790852 /home/rugrats/Documents/CPP/WIP8/include/rendersystem.h
+	<GL/gl.h>
+	<iostream>
+	<map>
+	"scene.h"
+	"entity.h"
+	"transform.h"
+	"shader.h"
+	"glextensions.h"
+
+1417790675 source:/home/rugrats/Documents/CPP/WIP8/src/rendersystem.cpp
+	"rendersystem.h"
+	"mesh.h"
+	"material.h"
+
+1419161289 source:/home/rugrats/Documents/CPP/WIP8/src/vertexbuffer.cpp
+	"vertexbuffer.h"
+
+1419162155 /home/rugrats/Documents/CPP/WIP8/include/scene.h
+	<vector>
+	<glm/glm.hpp>
+	"resource.h"
+	"model.h"
+	"transform.h"
+	"texture.h"
+
+1419162152 source:/home/rugrats/Documents/CPP/WIP8/src/scene.cpp
+	"scene.h"
+	<algorithm>
+	"utils/memory.h"
+	"renderer.h"
+	"entity.h"
+
+1419203636 /home/rugrats/Documents/CPP/WIP8/include/renderer.h
+	<map>
+	<string>
+	"resource.h"
+	"shader.h"
+	"texture.h"
+	"material.h"
+	"backend.h"
+
+1419203621 source:/home/rugrats/Documents/CPP/WIP8/src/renderer.cpp
+	"renderer.h"
+	<SOIL/SOIL.h>
+	"utils/memory.h"
+	"scene.h"
+	"resourcemanager.h"
+	"entity.h"
+	"vertexbuffer.h"
+
+1419161613 source:/home/rugrats/Documents/CPP/WIP8/src/awm.cpp
+	"awm.h"
+	<SDL2/SDL_rwops.h>
+	<glm/glm.hpp>
+	<iostream>
+	"utils/memory.h"
+	"utils/utils.h"
+	"renderer.h"
+	"resource.h"
+	"shader.h"
+	"mesh.h"
+	"vertexbuffer.h"
+
+1419159678 /home/rugrats/Documents/CPP/WIP8/include/awm.h
+
+1419163011 source:/home/rugrats/Documents/CPP/WIP8/src/texture.cpp
+	"texture.h"
+
+1419161159 /home/rugrats/Documents/CPP/WIP8/include/texture.h
+	"resource.h"
+
+1419163058 source:/home/rugrats/Documents/CPP/WIP8/src/model.cpp
+	"model.h"
+	<algorithm>
+
+1419160293 /home/rugrats/Documents/CPP/WIP8/include/model.h
+	<vector>
+	"mesh.h"
+	"material.h"
+	"resource.h"
+
+1419092123 source:/home/rugrats/Documents/CPP/WIP8/src/GL/glrenderer.cpp
+	"GL/glrenderer.h"
+	"mesh.h"
+	"material.h"
+	"shader.h"
+	"resourcemanager.h"
+
+1419092096 /home/rugrats/Documents/CPP/WIP8/include/GL/glrenderer.h
+	<iostream>
+	<map>
+	<cstdlib>
+	"utils/memory.h"
+	"entity.h"
+	"transform.h"
+	"texture.h"
+	"renderer.h"
+	"scene.h"
+	"GL/glextensions.h"
+	"geometry/aabb.h"
+	"geometry/frustum.h"
+	"GL/glvertexbuffer.h"
+	"GL/glpersistentvertexbuffer.h"
+	"GL/glshader.h"
+	"GL/gltexture.h"
+	"GL/glrendertarget.h"
+	"GL/glubo.h"
+	"GL/glbackend.h"
+
+1419092193 source:/home/rugrats/Documents/CPP/WIP8/src/GL/glvertexbuffer.cpp
+	"GL/glvertexbuffer.h"
+
+1419090521 /home/rugrats/Documents/CPP/WIP8/include/GL/glvertexbuffer.h
+	<GL/gl.h>
+	"vertexbuffer.h"
+
+1419181052 source:/home/rugrats/Documents/CPP/WIP8/src/GL/glshader.cpp
+	"GL/glshader.h"
+	<GL/gltexture.h>
+	<GL/glubo.h>
+
+1419181046 /home/rugrats/Documents/CPP/WIP8/include/GL/glshader.h
+	<GL/gl.h>
+	"resource.h"
+	"shader.h"
+	"texture.h"
+
+1419089804 source:/home/rugrats/Documents/CPP/WIP8/src/GL/gltexture.cpp
+	"GL/gltexture.h"
+
+1419161171 /home/rugrats/Documents/CPP/WIP8/include/GL/gltexture.h
+	<GL/gl.h>
+	"texture.h"
+
+1419092189 source:/home/rugrats/Documents/CPP/WIP8/src/GL/glpersistentvertexbuffer.cpp
+	"GL/glpersistentvertexbuffer.h"
+
+1419161770 /home/rugrats/Documents/CPP/WIP8/include/GL/glpersistentvertexbuffer.h
+	<GL/gl.h>
+	"GL/glvertexbuffer.h"
+
+1419266793 source:/home/rugrats/Documents/CPP/WIP8/src/resourcemanager.cpp
+	"resourcemanager.h"
+	<iostream>
+	<cstdio>
+	<string>
+	<sstream>
+	"utils/memory.h"
+	"texture.h"
+	"model.h"
+	"mesh.h"
+	"shader.h"
+	"material.h"
+	"awm.h"
+	"renderer.h"
+
+1419160869 /home/rugrats/Documents/CPP/WIP8/include/resourcemanager.h
+	<unordered_map>
+	<jsoncpp/json/reader.h>
+	"resource.h"
+
+1418213129 /home/rugrats/Documents/CPP/WIP8/include/resourcegetter.h
+	<string>
+	<unordered_map>
+
+1418833415 source:/home/rugrats/Documents/CPP/WIP8/src/texturegetter.cpp
+	"texturegetter.h"
+
+1418649005 /home/rugrats/Documents/CPP/WIP8/include/texturegetter.h
+	<string>
+	<unordered_map>
+	<map>
+	<tuple>
+	"texture.h"
+	"renderer.h"
+
+1419000646 source:/home/rugrats/Documents/CPP/WIP8/src/shadergetter.cpp
+	"shadergetter.h"
+	"renderer.h"
+
+1418917867 /home/rugrats/Documents/CPP/WIP8/include/shadergetter.h
+	<string>
+	<map>
+	<utility>
+	<unordered_map>
+	"shader.h"
+
+1419160729 source:/home/rugrats/Documents/CPP/WIP8/src/rendertarget.cpp
+	"rendertarget.h"
+	"utils/memory.h"
+	"renderer.h"
+
+1419180375 /home/rugrats/Documents/CPP/WIP8/include/rendertarget.h
+	<glm/glm.hpp>
+	"resource.h"
+	"texture.h"
+
+1419180469 source:/home/rugrats/Documents/CPP/WIP8/src/GL/glrendertarget.cpp
+	"GL/glrendertarget.h"
+	<algorithm>
+	"utils/memory.h"
+	"renderer.h"
+	<GL/gltexture.h>
+
+1419180433 /home/rugrats/Documents/CPP/WIP8/include/GL/glrendertarget.h
+	<GL/gl.h>
+	<vector>
+	"rendertarget.h"
+	"backend.h"
+
+1419161268 /home/rugrats/Documents/CPP/WIP8/include/utils.h
+	<vector>
+	<string>
+	<glm/glm.hpp>
+
+1419161275 source:/home/rugrats/Documents/CPP/WIP8/src/utils.cpp
+	"utils.h"
+	<execinfo.h>
+	<cxxabi.h>
+	<dlfcn.h>
+	<cstdlib>
+
+1418600326 source:/home/rugrats/Documents/CPP/WIP8/src/aabb.cpp
+	"aabb.h"
+
+1418600097 /home/rugrats/Documents/CPP/WIP8/include/aabb.h
+	<glm/glm.hpp>
+	<algorithm>
+	"utils.h"
+
+1418598582 source:/home/rugrats/Documents/CPP/WIP8/src/plane.cpp
+	"plane.h"
+
+1418598531 /home/rugrats/Documents/CPP/WIP8/include/plane.h
+	<glm/glm.hpp>
+	"utils.h"
+
+1418600469 source:/home/rugrats/Documents/CPP/WIP8/src/frustum.cpp
+	"frustum.h"
+
+1418598657 /home/rugrats/Documents/CPP/WIP8/include/frustum.h
+	<glm/glm.hpp>
+	"plane.h"
+	"aabb.h"
+
+1418641458 source:/home/rugrats/Documents/CPP/WIP8/src/ubo.cpp
+	"ubo.h"
+
+1419161248 /home/rugrats/Documents/CPP/WIP8/include/ubo.h
+	<glm/glm.hpp>
+
+1419162002 source:/home/rugrats/Documents/CPP/WIP8/src/GL/glubo.cpp
+	"GL/glubo.h"
+	<GL/gl.h>
+	"GL/glvertexbuffer.h"
+
+1419162112 /home/rugrats/Documents/CPP/WIP8/include/GL/glubo.h
+	"ubo.h"
+
+1418837634 source:/home/rugrats/Documents/CPP/WIP8/src/memory.cpp
+	"memory.h"
+
+1418838034 /home/rugrats/Documents/CPP/WIP8/include/memory.h
+	<cstddef>
+	<cstdint>
+	<cstring>
+	<cstdio>
+	<cstdlib>
+	<endian.h>
+
+1419202324 source:/home/rugrats/Documents/CPP/WIP8/src/geometry/aabb.cpp
+	"geometry/aabb.h"
+	<algorithm>
+	"utils/utils.h"
+
+1419202325 /home/rugrats/Documents/CPP/WIP8/include/geometry/aabb.h
+	<glm/glm.hpp>
+
+1419203316 source:/home/rugrats/Documents/CPP/WIP8/src/geometry/frustum.cpp
+	"geometry/frustum.h"
+	"geometry/aabb.h"
+
+1419202553 /home/rugrats/Documents/CPP/WIP8/include/geometry/frustum.h
+	<glm/glm.hpp>
+	"plane.h"
+
+1419202935 /home/rugrats/Documents/CPP/WIP8/include/geometry/plane.h
+	<glm/glm.hpp>
+
+1419175603 source:/home/rugrats/Documents/CPP/WIP8/src/utils/memory.cpp
+	"utils/memory.h"
+	<cstdio>
+	<cstddef>
+	<cstdint>
+	<cstring>
+	<endian.h>
+	"utils/utils.h"
+
+1419161462 /home/rugrats/Documents/CPP/WIP8/include/utils/memory.h
+	<cstdlib>
+
+1419202964 source:/home/rugrats/Documents/CPP/WIP8/src/geometry/plane.cpp
+	"geometry/plane.h"
+	"utils/utils.h"
+
+1417709318 /home/rugrats/Documents/CPP/WIP8/include/GL/glextensions.h
+	<SDL2/SDL_video.h>
+
+1418847348 source:/home/rugrats/Documents/CPP/WIP8/src/GL/glextensions.cpp
+	"GL/glextensions.h"
+
+1418925126 source:/home/rugrats/Documents/CPP/WIP8/src/content.cpp
+	"content.h"
+
+1418925080 /home/rugrats/Documents/CPP/WIP8/include/content.h
+	<string>
+	<cstdio>
+	<cstddef>
+	<jsoncpp/json/reader.h>
+	"memory.h"
+	"renderer.h"
+	"texture.h"
+	"texturegetter.h"
+
+1419245791 /home/rugrats/Documents/CPP/WIP8/include/resource.h
+	<cstddef>
+	<typeindex>
+
+1419244991 source:/home/rugrats/Documents/CPP/WIP8/src/resource.cpp
+	"resource.h"
+
+1419160106 source:/home/rugrats/Documents/CPP/WIP8/src/backend.cpp
+	"backend.h"
+
+1419160098 /home/rugrats/Documents/CPP/WIP8/include/backend.h
+	<glm/glm.hpp>
+	"shader.h"
+	"mesh.h"
+	"material.h"
+	"resource.h"
+
+1419195843 source:/home/rugrats/Documents/CPP/WIP8/src/GL/glbackend.cpp
+	"GL/glbackend.h"
+	<iostream>
+	"utils/memory.h"
+	"scene.h"
+	"GL/glvertexbuffer.h"
+	"GL/glpersistentvertexbuffer.h"
+	"GL/glshader.h"
+	"GL/gltexture.h"
+	"GL/glrendertarget.h"
+	"GL/glubo.h"
+
+1419161700 /home/rugrats/Documents/CPP/WIP8/include/GL/glbackend.h
+	<vector>
+	<GL/gl.h>
+	"backend.h"
+	"GL/glextensions.h"
+
+1419161540 source:/home/rugrats/Documents/CPP/WIP8/src/utils/utils.cpp
+	"utils/utils.h"
+	<execinfo.h>
+	<cxxabi.h>
+	<dlfcn.h>
+	<cstdlib>
+
+1419201818 /home/rugrats/Documents/CPP/WIP8/include/utils/utils.h
+	<vector>
+	<string>
+	<glm/glm.hpp>
+
+1419171162 /home/rugrats/Documents/CPP/WIP8/include/utils/crash.h
+
+1419175167 source:/home/rugrats/Documents/CPP/WIP8/src/utils/crash.cpp
+	"utils/crash.h"
+	<cstdio>
+	<signal.h>
+	"utils/utils.h"
+
+1419265173 source:/home/rugrats/Documents/CPP/WIP8/src/jsonparser.cpp
+	"jsonparser.h"
+	<sstream>
+	"utils/memory.h"
+
+1419264142 /home/rugrats/Documents/CPP/WIP8/include/jsonparser.h
+	<bitset>
+	<vector>
+	<string>
+	<unordered_map>
+	<jsoncpp/json/reader.h>
+

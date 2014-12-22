@@ -1,0 +1,10 @@
+{
+    "external data":
+    {
+        "model":
+        {
+            "type": "model",
+            "path": "res/models/model.json"
+        }
+    },
+}

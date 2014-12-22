@@ -1,0 +1,17 @@
+{
+    "type": "mesh",
+    
+    "external resources":
+    {
+        "entity shader": "res/shaders/entity vertex.json"
+    },
+    
+    "mesh":
+    {
+        "shader": "entity shader",
+        "awm filename": "res/meshes/dragonlod1.awm",
+        
+        "cull face": "back",
+        "front face winding": "clockwise"
+    }
+}

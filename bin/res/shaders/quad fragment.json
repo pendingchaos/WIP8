@@ -1,0 +1,9 @@
+{
+    "type": "shader",
+    
+    "shader":
+    {
+        "type": "fragment",
+        "filename": "res/shaders/quad.fs"
+    }
+}

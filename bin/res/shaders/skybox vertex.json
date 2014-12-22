@@ -1,0 +1,9 @@
+{
+    "type": "shader",
+    
+    "shader":
+    {
+        "type": "vertex",
+        "filename": "res/shaders/skybox.vs"
+    }
+}

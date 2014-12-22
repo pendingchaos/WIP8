@@ -1,0 +1,16 @@
+{
+    "type": "texture",
+    
+    "texture":
+    {
+        "type": "2d",
+        "filename": "res/textures/albedo texture.png",
+        "generate mipmaps": true,
+        "linear mipmapping": true,
+        "anisotropy": "max",
+        "min filter": "linear",
+        "mag filter": "linear",
+        "wrap u": "repeat",
+        "wrap t": "repeat"
+    }
+}
