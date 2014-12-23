@@ -8,7 +8,6 @@
 - Scene loading.
 - Instanced rendering.
 - Texture compression.
-- Support more versions of OpenGL.
 - Particle systems.
 - Font rendering.
 - Stencil framebuffers.
