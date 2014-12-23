@@ -3,7 +3,7 @@
 A work in progress using C++ and OpenGL.
 
 The program has only been tested on Linux and should only run on Linux.
-The program requires a c++11 compiler, SDL2, SOIL, glm, JsonCPP, libdl, a c standard library implementation, a c++ standard library implementation, and an OpenGL 3.3 implementation.
+The program requires a c++11 compiler, SDL2, SOIL, glm, JsonCPP, libdl, a c standard library implementation, a c++ standard library implementation, and an OpenGL implementation supporting OpenGL 2.1 or higher.
 
 Most of them can be install by running this command:
 
