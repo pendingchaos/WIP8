@@ -15,4 +15,5 @@
 - Font rendering.
 - Stencil framebuffers.
 - More mesh formats on mesh aabb calculation.
+- Terrain rendering.
 - A C api.
