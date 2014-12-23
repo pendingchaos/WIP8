@@ -20,3 +20,7 @@ python scripts/compile.py
 ```
 
 If you have Code::Blocks or an IDE that can open Code::Blocks projects, you can open WIP8.cbp and compile using that IDE.
+
+Screenshot:
+
+![screenshot](https://raw.githubusercontent.com/pendingchaos/WIP8/master/screenshot.png)
