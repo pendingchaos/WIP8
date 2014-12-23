@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 
 #include <iostream>
+#include <cstdio>
 
 #include "utils/memory.h"
 #include "utils/utils.h"
@@ -17,12 +18,12 @@ Mesh *loadAWM(Renderer *renderer,
               ResPtr<Shader> vertexShader,
               const char *filename)
 {
-    SDL_RWops *ops = SDL_RWFromFile(filename, "rb");
+    FILE *file = std::fopen(filename, "rb");
 
-    char m1 = SDL_ReadU8(ops);
-    char m2 = SDL_ReadU8(ops);
-    char m3 = SDL_ReadU8(ops);
-    char m4 = SDL_ReadU8(ops);
+    unsigned char m1 = readUInt8(file);
+    unsigned char m2 = readUInt8(file);
+    unsigned char m3 = readUInt8(file);
+    unsigned char m4 = readUInt8(file);
 
     Mesh *mesh = NULL;
 
@@ -34,7 +35,7 @@ Mesh *loadAWM(Renderer *renderer,
         std::cout << "Invalid AWM file: " << filename << std::endl;
     } else
     {
-        unsigned int numVertices = SDL_ReadLE32(ops);
+        unsigned int numVertices = readUInt32(file);
 
         mesh = NEW(Mesh, vertexShader, Mesh::Triangles, numVertices, numVertices);
 
@@ -62,14 +63,14 @@ Mesh *loadAWM(Renderer *renderer,
 
         for (unsigned int i=0; i<numVertices; i++)
         {
-            SDL_RWread(ops, &positions[i], sizeof(glm::vec3), 1);
+            std::fread(&positions[i], sizeof(glm::vec3), 1, file);
 
-            SDL_RWread(ops, &uvs[i], sizeof(glm::vec2), 1);
+            std::fread(&uvs[i], sizeof(glm::vec2), 1, file);
 
-            SDL_RWread(ops, &normals[i], sizeof(glm::vec3), 1);
+            std::fread(&normals[i], sizeof(glm::vec3), 1, file);
 
             unsigned char rcolor[4];
-            SDL_RWread(ops, rcolor, 4, 1);
+            std::fread(rcolor, 4, 1, file);
 
             colors[i] = glm::vec4(rcolor[0]/255.0f, rcolor[1]/255.0f, rcolor[2]/255.0f, rcolor[3]/255.0f);
 
@@ -112,7 +113,7 @@ Mesh *loadAWM(Renderer *renderer,
         mesh->calculateAABB();
     }
 
-    SDL_RWclose(ops);
+    std::fclose(file);
 
     return mesh;
 }
