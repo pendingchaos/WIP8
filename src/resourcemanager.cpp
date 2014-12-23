@@ -68,6 +68,69 @@ ResPtr<Resource> ResourceManager::load(std::string filename)
     return ResPtr<Resource>(pos->second);
 }
 
+ResPtr<Texture> ResourceManager::createTexture(Texture::Type type)
+{
+    Texture *texture = mRenderer->createTexture(type);
+
+    std::stringstream name;
+    name << texture;
+
+    mResources.emplace(name.str(), texture);
+
+    return ResPtr<Texture>(texture);
+}
+
+ResPtr<Model> ResourceManager::createModel()
+{
+    Model *model = NEW(Model);
+
+    std::stringstream name;
+    name << model;
+
+    mResources.emplace(name.str(), model);
+
+    return ResPtr<Model>(model);
+}
+
+ResPtr<Shader> ResourceManager::createShader(CompiledShader::Type type, std::string source)
+{
+    Shader *shader = NEW(Shader, mRenderer, type, source);
+
+    std::stringstream name;
+    name << shader;
+
+    mResources.emplace(name.str(), shader);
+
+    return ResPtr<Shader>(shader);
+}
+
+ResPtr<Mesh> ResourceManager::createMesh(ResPtr<Shader> shader,
+                                         Mesh::Primitive primitive,
+                                         unsigned int numVertices,
+                                         unsigned int numIndices)
+{
+    Mesh *mesh = NEW(Mesh, shader, primitive, numVertices, numIndices);
+
+    std::stringstream name;
+    name << mesh;
+
+    mResources.emplace(name.str(), mesh);
+
+    return ResPtr<Mesh>(mesh);
+}
+
+ResPtr<Material> ResourceManager::createMaterial(ResPtr<Shader> shader)
+{
+    Material *material = NEW(Material, shader);
+
+    std::stringstream name;
+    name << material;
+
+    mResources.emplace(name.str(), material);
+
+    return ResPtr<Material>(material);
+}
+
 std::string readFile(std::string filename)
 {
     FILE *file = std::fopen(filename.c_str(), "r");

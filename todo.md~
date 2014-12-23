@@ -1,4 +1,5 @@
 - Remove the SDL2 dependency.
+- Resources should only be created with the resource manager.
 - Teach my program that it is not über-fast. (the fps sometimes flickers to 1000)
 - Something like Horde3D's pipelines.
 - Allow the mesh to define stuff.
@@ -14,5 +15,4 @@
 - Font rendering.
 - Stencil framebuffers.
 - More mesh formats on mesh aabb calculation.
-- Terrain rendering.
 - A C api.

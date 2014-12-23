@@ -191,7 +191,7 @@
 		<Unit filename="include/utils/memory.h" />
 		<Unit filename="include/utils/utils.h" />
 		<Unit filename="include/vertexbuffer.h" />
-		<Unit filename="notes.txt" />
+		<Unit filename="notes.md" />
 		<Unit filename="src/GL/glbackend.cpp" />
 		<Unit filename="src/GL/glextensions.cpp" />
 		<Unit filename="src/GL/glpersistentvertexbuffer.cpp" />
@@ -221,7 +221,7 @@
 		<Unit filename="src/utils/memory.cpp" />
 		<Unit filename="src/utils/utils.cpp" />
 		<Unit filename="src/vertexbuffer.cpp" />
-		<Unit filename="todo.txt" />
+		<Unit filename="todo.md" />
 		<Extensions>
 			<code_completion />
 			<debugger />

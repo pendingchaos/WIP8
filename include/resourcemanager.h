@@ -2,17 +2,18 @@
 #define RESOURCEMANAGER_H
 
 #include <unordered_map>
+#include <string>
 
 #include <jsoncpp/json/reader.h>
 
 #include "resource.h"
+#include "texture.h"
+#include "model.h"
+#include "shader.h"
+#include "mesh.h"
+#include "material.h"
 
 class Renderer;
-class Texture;
-class Model;
-class Shader;
-class Mesh;
-class Material;
 
 class ResourceManager
 {
@@ -28,6 +29,19 @@ class ResourceManager
         void deleteUnusedResources();
 
         ResPtr<Resource> load(std::string filename);
+
+        ResPtr<Texture> createTexture(Texture::Type type);
+
+        ResPtr<Model> createModel();
+
+        ResPtr<Shader> createShader(CompiledShader::Type type, std::string source);
+
+        ResPtr<Mesh> createMesh(ResPtr<Shader> shader,
+                                Mesh::Primitive primitive,
+                                unsigned int numVertices,
+                                unsigned int numIndices=0);
+
+        ResPtr<Material> createMaterial(ResPtr<Shader> shader);
     private:
         Renderer *mRenderer;
 

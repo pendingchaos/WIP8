@@ -105,7 +105,7 @@ int main()
     ResPtr<Model> model = resMgr->load("res/models/dragon.json").cast<Model>();
 
 
-    Mesh *quadMesh = NEW(Mesh, resMgr->load("res/shaders/quad vertex.json").cast<Shader>(), Mesh::Triangles, 6);
+    ResPtr<Mesh> quadMesh = resMgr->createMesh(resMgr->load("res/shaders/quad vertex.json").cast<Shader>(), Mesh::Triangles, 6);
     VertexBuffer *quadVB = quadMesh->addPositions(renderer, MeshComponent(2, MeshComponent::Float32))->getVertexBuffer();
 
     quadVB->alloc(sizeof(glm::vec2)*6);
@@ -118,19 +118,19 @@ int main()
     quadPositions[5] = glm::vec2( 1.0f,  1.0f);
     quadVB->unmap();
 
-    DeferredShadingMaterial *quadMaterial = NEW(DeferredShadingMaterial,
-                                                resMgr,
-                                                framebuffer->getColorTexture(0),
-                                                framebuffer->getColorTexture(1),
-                                                framebuffer->getColorTexture(2),
-                                                framebuffer->getColorTexture(3),
-                                                framebuffer->getColorTexture(4),
-                                                framebuffer->getColorTexture(5),
-                                                scene);
 
-    quadMaterial->setLightDirection(glm::vec3(-1.0f, 1.0f, 1.0f));
+    ResPtr<Material> quadMaterial = resMgr->createMaterial(
+    resMgr->load("res/shaders/quad fragment.json").cast<Shader>());
+    quadMaterial->mUniforms["colorTexture"] = framebuffer->getColorTexture(0);
+    quadMaterial->mUniforms["depthTexture"] = framebuffer->getColorTexture(1);
+    quadMaterial->mUniforms["normalTexture"] = framebuffer->getColorTexture(2);
+    quadMaterial->mUniforms["materialTexture"] = framebuffer->getColorTexture(3);
+    quadMaterial->mUniforms["ambientTexture"] = framebuffer->getColorTexture(4);
+    quadMaterial->mUniforms["specularTexture"] = framebuffer->getColorTexture(5);
+    quadMaterial->mUniforms["lightDirection"] = glm::vec3(0.0f);
 
-    Model *quadModel = NEW(Model);
+
+    ResPtr<Model> quadModel = resMgr->createModel();
     quadModel->mLODs.push_back(LOD(quadMesh, quadMaterial, 0.0f));
     quadModel->sortLODs();
 
@@ -247,9 +247,10 @@ int main()
 
         entity->mTransform.rotate(45.0f*t, glm::vec3(0.0f, 1.0f, 0.0f));
 
-        //material->mAlpha = std::max(std::sin(t), 0.1f);
-
         renderer->render(textureTarget, scene);
+
+        quadMaterial->mUniforms["lightDirection"]
+        = glm::mat3(scene->mViewTransform.getMatrix()) * glm::vec3(-1.0f, 1.0f, -1.0f);
 
         renderer->render(target, quadScene);
 
@@ -274,14 +275,6 @@ int main()
     DELETE(Scene, scene);
 
     DELETE(Renderer, renderer);
-
-    //!!! Resources not created in the resource manager should be deleted __AFTER__ the renderer.
-    //TODO: quadMaterial is dereferencing an invalid texture.
-    DELETE(Model, quadModel);
-
-    DELETE(Mesh, quadMesh);
-
-    DELETE(DeferredShadingMaterial, quadMaterial);
 
     SDL_GL_DeleteContext(context);
     SDL_DestroyWindow(window);
