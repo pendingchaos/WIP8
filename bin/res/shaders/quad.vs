@@ -1,4 +1,10 @@
-in vec2 position;
+#if CORE
+#define attribute in
+#else
+#define out varying
+#endif
+
+attribute vec2 position;
 
 out vec2 frag_uv;
 

@@ -1,8 +1,11 @@
 #include "renderer.h"
 
+#include <sstream>
+
 #include <SOIL/SOIL.h>
 
 #include "utils/memory.h"
+#include "GL/glutils.h"
 #include "scene.h"
 #include "resourcemanager.h"
 #include "entity.h"
@@ -48,7 +51,31 @@ CompiledShader *Renderer::createShader(CompiledShader::Type type,
 {
     const char **sources = NEW_ARRAY(const char *, defines.size()+2);
 
-    sources[0] = "#version 330 core\n";
+    unsigned int glslMajor;
+    unsigned int glslMinor;
+
+    getGLSLVersion(glslMajor, glslMinor);
+
+    std::stringstream ss;
+    ss << "#version ";
+    ss << glslMajor * 100 + glslMinor * 10;
+    ss << "\n#define GLSLMAJOR ";
+    ss << glslMajor;
+    ss << "\n#define GLSLMINOR ";
+    ss << glslMinor;
+    ss << "\n";
+
+    if (glslMajor >= 1 and glslMinor >= 4)
+    {
+        ss << "#define CORE 1\n";
+    } else
+    {
+        ss << "#define CORE 0\n";
+    }
+
+    std::string source0 = ss.str();
+
+    sources[0] = source0.c_str();
 
     unsigned int i=0;
     for (std::map<std::string, std::string>::iterator it = defines.begin();
@@ -77,6 +104,8 @@ CompiledShader *Renderer::createShader(CompiledShader::Type type,
     DELETE_ARRAY(const char *, sources);
 
     source.size();
+
+    source0.clear();
 
     return shader;
 }

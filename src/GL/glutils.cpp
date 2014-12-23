@@ -13,6 +13,8 @@ void getOpenGLVersion(unsigned int& major, unsigned int& minor)
 void getGLSLVersion(unsigned int& major, unsigned int& minor)
 {
     std::sscanf((const char *)glGetString(GL_SHADING_LANGUAGE_VERSION), "%d.%d", &major, &minor);
+
+    minor /= 10;
 }
 
 bool isExtensionSupported(const char *name)

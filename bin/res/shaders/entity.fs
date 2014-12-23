@@ -1,5 +1,9 @@
 #define TO_LINEAR(color) pow((color), vec4(2.2, 2.2, 2.2, 1.0))
 
+#if !CORE
+#define in varying
+#endif
+
 in vec4 frag_color;
 in vec2 frag_uv;
 in vec3 frag_normal_worldSpace;
@@ -7,12 +11,29 @@ in vec3 frag_position_viewSpace;
 in vec3 frag_position_worldSpace;
 in vec3 frag_tangent_worldSpace;
 
-layout (location = 0) out vec4 out_color;
-layout (location = 1) out float out_depth;
-layout (location = 2) out vec3 out_normal;
-layout (location = 3) out vec2 out_material;
-layout (location = 4) out vec3 out_ambient;
-layout (location = 5) out vec3 out_specular;
+#if CORE
+layout (location = 0) out vec4 out0; //out_color;
+layout (location = 1) out float out1; //out_depth;
+layout (location = 2) out vec3 out2; //out_normal;
+layout (location = 3) out vec2 out3; //out_material;
+layout (location = 4) out vec3 out4; //out_ambient;
+layout (location = 5) out vec3 out5; //out_specular;
+#else
+#define out0 gl_FragData[0]
+#define out1 gl_FragData[1].x
+#define out2 gl_FragData[2].xyz
+#define out3 gl_FragData[3].xy
+#define out4 gl_FragData[4].xyz
+#define out5 gl_FragData[5].xyz
+#endif
+
+#if CORE
+#define texture2D(tex, uv) texture(tex, uv)
+#define textureCube(tex, dir) texture(tex, dir)
+
+#define texture2DLod(tex, uv, lod) textureLod(tex, uv, lod)
+#define textureCubeLod(tex, dir, lod) textureLod(tex, dir, lod)
+#endif
 
 uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
@@ -68,8 +89,8 @@ vec3 getNormalWorldSpace()
 
 void stipple(float alpha)
 {
-    int index = int(gl_FragCoord.x) % 8 +
-                int(gl_FragCoord.y) % 8 * 8;
+    int index = int(mod(int(gl_FragCoord.x), 8)) +
+                int(mod(int(gl_FragCoord.y), 8)) * 8;
 
     /*mat4 thresholdMatrix = mat4
     (
@@ -79,7 +100,7 @@ void stipple(float alpha)
       16.0 / 17.0,  8.0 / 17.0, 14.0 / 17.0,  6.0 / 17.0
     );
 
-    if (alpha - thresholdMatrix[int(gl_FragCoord.x) % 4][int(gl_FragCoord.y) % 4] < 0)*/
+    if (alpha - thresholdMatrix[mod(int(gl_FragCoord.x), 4)][mod(int(gl_FragCoord.y), 4)] < 0)*/
 
     int thresholdMatrix[64] = int[64](1, 49, 13, 61, 4, 52, 16, 64,
                                       33, 17, 45, 29, 36, 20, 48, 32,
@@ -102,29 +123,29 @@ void main()
     stipple(lodStipple);
 
     #ifdef ALBEDO_TEXTURE
-    out_color = TO_LINEAR(texture(albedoTexture, frag_uv)) * frag_color * vec4(diffuseColor, 1.0);
+    out0 = TO_LINEAR(texture2D(albedoTexture, frag_uv)) * frag_color * vec4(diffuseColor, 1.0);
     #else
-    out_color = frag_color * vec4(diffuseColor, 1.0);
+    out0 = frag_color * vec4(diffuseColor, 1.0);
     #endif
 
     #if STIPPLED_ALPHA
-    out_color.a *= alpha;
+    out0.a *= alpha;
 
-    if (out_color.a != 1.0f)
+    if (out0.a != 1.0f)
     {
-        stipple(out_color.a);
+        stipple(out0.a);
     }
     #endif
 
-    out_depth = frag_position_viewSpace.z;
+    out1 = frag_position_viewSpace.z;
 
     vec3 normal_worldSpace = getNormalWorldSpace();
     vec3 normal_viewSpace = normalize(vec3(viewNormalMatrix * vec4(normal_worldSpace, 1.0)));
 
-    out_normal = (normal_viewSpace + 1.0) / 2.0;
+    out2 = (normal_viewSpace + 1.0) / 2.0;
 
     #if SPECULAR_TEXTURE
-    float specular = texture(specularTexture, frag_uv).r;
+    float specular = texture2D(specularTexture, frag_uv).r;
     #else
     float specular = 1.0f;
     #endif
@@ -132,22 +153,22 @@ void main()
     #ifdef ENVIROMENT_TEXTURE
     vec3 viewDir = normalize(frag_position_worldSpace - vec3(inverse(viewMatrix) * vec4(0.0, 0.0, 0.0, 1.0)));
 
-    //out_color = TO_LINEAR(texture(enviromentMap, normalize(reflect(viewDir, normal_worldSpace))));
+    //out0 = TO_LINEAR(textureCube(enviromentMap, normalize(reflect(viewDir, normal_worldSpace))));
 
     float IOR = 1.05;
 
-    out_color = TO_LINEAR(texture(enviromentMap, normalize(refract(viewDir, normal_worldSpace, 1.0 / IOR))));
+    out0 = TO_LINEAR(textureCube(enviromentMap, normalize(refract(viewDir, normal_worldSpace, 1.0 / IOR))));
     #endif
 
-    out_material = vec2(specularExponent / 256.0, 1.0);
+    out3 = vec2(specularExponent / 256.0, 1.0);
 
     #ifdef ENVIROMENT_TEXTURE
-    out_ambient = vec3(ambientAmount);
+    out4 = vec3(ambientAmount);
 
-    out_specular = mix(TO_LINEAR(textureLod(enviromentMap, normalize(reflect(viewDir, normal_worldSpace)), 15.0)).rgb, vec3(1.0), 0.25) * specular;
+    out5 = mix(TO_LINEAR(textureCube(enviromentMap, normalize(reflect(viewDir, normal_worldSpace)), 15.0)).rgb, vec3(1.0), 0.25) * specular;
     #else
-    out_ambient = vec3(ambientAmount);
+    out4 = vec3(ambientAmount);
 
-    out_specular = vec3(specular);
+    out5 = vec3(specular);
     #endif
 }

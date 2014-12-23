@@ -1,4 +1,10 @@
-in vec3 position;
+#if CORE
+#define attribute in
+#else
+#define out varying
+#endif
+
+attribute vec3 position;
 
 out vec3 frag_position_worldSpace;
 

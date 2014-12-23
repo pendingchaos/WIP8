@@ -53,6 +53,7 @@ ResPtr<Resource> ResourceManager::load(std::string filename)
 
         try
         {
+            std::cout << "Loading resource: " << filename << std::endl;
             resource = _load(filename);
         } catch (const std::exception& err)
         {

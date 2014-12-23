@@ -3,6 +3,8 @@
 #ifdef TRACK_MEMORY
 #include <cstdio>
 
+#include "utils/utils.h"
+
 FILE *logFile = NULL;
 FILE *binaryLogFile = NULL;
 #endif
@@ -15,8 +17,7 @@ void initMemorySystem()
     logFile = std::fopen("memory.log", "w");
     binaryLogFile = std::fopen("memory.blog", "wb");
 
-    unsigned int pointerSize = htole32(__WORDSIZE/8);
-    std::fwrite(&pointerSize, 4, 1, binaryLogFile);
+    writeUInt32(binaryLogFile, __WORDSIZE/8);
     #endif
 }
 
@@ -41,8 +42,6 @@ void deinitMemorySystem()
 #include <cstring>
 #include <endian.h>
 
-#include "utils/utils.h"
-
 typedef enum Action
 {
     AllocateAction,
@@ -63,42 +62,20 @@ void writeEntry(Action action,
                 std::size_t typeSize,
                 const std::vector<std::string>& backtrace)
 {
-    action = htole32(action);
-    line = htole32(line);
-
-    #if __WORDSIZE == 64
-    pointer = htole64(pointer);
-    amount = htole64(amount);
-    typeSize = htole64(typeSize);
-    #elif __WORDSIZE == 32
-    pointer = htole32(pointer);
-    amount = htole32(amount);
-    typeSize = htole32(typeSize);
-    #endif
-
-    std::fwrite(&action, 4, 1, binaryLogFile);
-
-    std::fwrite(file, std::strlen(file)+1, 1, binaryLogFile);
-
-    std::fwrite(&line, 4, 1, binaryLogFile);
-
-    std::fwrite(function, std::strlen(function)+1, 1, binaryLogFile);
-
-    std::fwrite(&pointer, __WORDSIZE/8, 1, binaryLogFile);
-
-    std::fwrite(&amount, __WORDSIZE/8, 1, binaryLogFile);
-
-    std::fwrite(type, std::strlen(type)+1, 1, binaryLogFile);
-
-    std::fwrite(&typeSize, __WORDSIZE/8, 1, binaryLogFile);
-
-    unsigned int backtraceSize = htole32(backtrace.size());
-    std::fwrite(&backtraceSize, 4, 1, binaryLogFile);
+    writeUInt32(binaryLogFile, action);
+    writeCString(binaryLogFile, file);
+    writeUInt32(binaryLogFile, line);
+    writeCString(binaryLogFile, function);
+    writeSizet(binaryLogFile, (std::size_t)pointer);
+    writeSizet(binaryLogFile, amount);
+    writeCString(binaryLogFile, type);
+    writeSizet(binaryLogFile, typeSize);
+    writeUInt32(binaryLogFile, backtrace.size());
 
     for (std::vector<std::string>::const_iterator it = backtrace.begin();
          it != backtrace.end(); ++it)
     {
-        std::fwrite(it->c_str(), it->size()+1, 1, binaryLogFile);
+        writeCString(binaryLogFile, it->c_str());
     }
 }
 

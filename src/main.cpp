@@ -59,6 +59,48 @@ class DeferredShadingMaterial : public Material
         Scene *mScene;
 };
 
+typedef struct Version
+{
+    unsigned int major;
+    unsigned int minor;
+} Version;
+
+static const Version versions[] = {{3, 3},
+                                   {3, 2},
+                                   {3, 1},
+                                   {3, 0},
+                                   {2, 1}};
+
+SDL_GLContext createContext(SDL_Window *window, unsigned int versionIndex=0)
+{
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, versions[versionIndex].major);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, versions[versionIndex].minor);
+
+    SDL_GLContext context = SDL_GL_CreateContext(window);
+
+    return context;
+
+    if (context == NULL)
+    {
+        if (versionIndex == sizeof(versions)/sizeof(Version)-1)
+        {
+            std::cout << "Unable to create an OpenGL context." << std::endl;
+            std::exit(1);
+        }
+
+        return createContext(window, versionIndex+1);
+    }
+
+    std::cout << "Created an OpenGL "
+              << versions[versionIndex].major
+              << '.'
+              << versions[versionIndex].minor
+              << " context."
+              << std::endl;
+
+    return context;
+}
+
 int main()
 {
     initCrashSystem();
@@ -75,10 +117,7 @@ int main()
                                           |SDL_WINDOW_RESIZABLE
                                           |SDL_WINDOW_SHOWN);
 
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-
-    SDL_GLContext context = SDL_GL_CreateContext(window);
+    SDL_GLContext context = createContext(window);
 
     SDL_GL_SetSwapInterval(0);
 

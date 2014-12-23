@@ -1,8 +1,6 @@
 #ifndef GLEXTENSIONS_H
 #define GLEXTENSIONS_H
 
-#include <SDL2/SDL_video.h>
-
 class GLExtensions
 {
     public:

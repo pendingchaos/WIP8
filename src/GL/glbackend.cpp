@@ -80,8 +80,16 @@ void debugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsiz
 
 GLBackend::GLBackend()
 {
-    glEnable(GL_DEBUG_OUTPUT);
-    glDebugMessageCallbackARB((GLDEBUGPROCARB)debugCallback, NULL);
+    if (mExtensions.extGL_ARB_debug_output)
+    {
+        glEnable(GL_DEBUG_OUTPUT);
+        glDebugMessageCallbackARB((GLDEBUGPROCARB)debugCallback, NULL);
+    } else
+    {
+        std::cout <<
+        "Warning: GL_ARB_debug_output is not supported. Debugging will be a lot harder."
+        << std::endl;
+    }
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
@@ -253,13 +261,13 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
 
     glDepthFunc(toGLDepthFunc[material->mDepthFunc]);
 
-    glBlendEquationSeparate(toGLBlendEquation[material->mRGBBlendEquation],
-                            toGLBlendEquation[material->mAlphaBlendEquation]);
-
     glBlendFuncSeparate(toGLBlendFactor[material->mRGBSrcBlendFactor],
                         toGLBlendFactor[material->mRGBDstBlendFactor],
                         toGLBlendFactor[material->mAlphaSrcBlendFactor],
                         toGLBlendFactor[material->mAlphaDstBlendFactor]);
+
+    glBlendEquationSeparate(toGLBlendEquation[material->mRGBBlendEquation],
+                            toGLBlendEquation[material->mAlphaBlendEquation]);
 
     CompiledShader *fragmentShader = material->mFragmentShader->getShader(material->mDefines);
     CompiledShader *vertexShader = mesh->mVertexShader->getShader();
@@ -272,10 +280,14 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
 
     GLuint program = getProgram(vertexShader, fragmentShader, geometryShader);
 
+    glUseProgram(program);
+
     GLuint vao = getVAO(program, mesh);
 
-    glUseProgram(program);
-    glBindVertexArray(vao);
+    if (mExtensions.extGL_ARB_vertex_array_object)
+    {
+        glBindVertexArray(vao);
+    }
 
     setUniforms(program, material);
 
@@ -400,6 +412,13 @@ GLuint GLBackend::getVAO(GLuint program, ResPtr<Mesh> mesh)
 {
     VAO vao = (VAO){program, mesh};
 
+    if (not mExtensions.extGL_ARB_vertex_array_object)
+    {
+        createVAO(vao);
+
+        return 0;
+    }
+
     UnorderedNoHashMap<VAO, GLuint>::iterator pos = mVAOs.find(vao);
 
     if (pos == mVAOs.end())
@@ -419,10 +438,14 @@ GLuint GLBackend::createVAO(const VAO& vao)
     ResPtr<Mesh> mesh = vao.mesh;
 
     GLuint glVAO;
-    glGenVertexArrays(1, &glVAO);
 
-    glUseProgram(program);
-    glBindVertexArray(glVAO);
+    if (mExtensions.extGL_ARB_vertex_array_object)
+    {
+        glGenVertexArrays(1, &glVAO);
+
+        glUseProgram(program);
+        glBindVertexArray(glVAO);
+    }
 
     if (mesh->hasPositions())
     {

@@ -1,6 +1,5 @@
 #include "awm.h"
 
-#include <SDL2/SDL_rwops.h>
 #include <glm/glm.hpp>
 
 #include <iostream>
