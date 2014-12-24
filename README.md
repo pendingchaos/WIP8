@@ -17,7 +17,7 @@ sudo yum install SDL2-devel SOIL-devel glm-devel jsoncpp-devel
 
 The rest should already be installed.
 
-To compile go to the directory (in a terminal) containing all the files then run ():
+To compile go to the directory (in a terminal) containing the python scripts then run:
 
 ```
 python compile.py
