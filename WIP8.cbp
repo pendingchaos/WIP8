@@ -16,8 +16,6 @@
 					<Add option="-g" />
 					<Add option="-m64" />
 					<Add option="-DTRACK_MEMORY" />
-					<Add directory="include" />
-					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-m64" />
@@ -34,8 +32,6 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-m64" />
-					<Add directory="include" />
-					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -54,8 +50,6 @@
 					<Add option="-g" />
 					<Add option="-m32" />
 					<Add option="-DTRACK_MEMORY" />
-					<Add directory="include" />
-					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-m32" />
@@ -72,8 +66,6 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-m32" />
-					<Add directory="include" />
-					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -92,8 +84,6 @@
 					<Add option="-g" />
 					<Add option="-m64" />
 					<Add option="-DTRACK_MEMORY" />
-					<Add directory="include" />
-					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-m64" />
@@ -110,8 +100,6 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-m64" />
-					<Add directory="include" />
-					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -130,8 +118,6 @@
 					<Add option="-g" />
 					<Add option="-m32" />
 					<Add option="-DTRACK_MEMORY" />
-					<Add directory="include" />
-					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-m32" />
@@ -148,8 +134,6 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-m32" />
-					<Add directory="include" />
-					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -211,7 +195,6 @@
 		<Unit filename="include/utils/memory.h" />
 		<Unit filename="include/utils/utils.h" />
 		<Unit filename="include/vertexbuffer.h" />
-		<Unit filename="notes.md" />
 		<Unit filename="src/GL/glbackend.cpp" />
 		<Unit filename="src/GL/glextensions.cpp" />
 		<Unit filename="src/GL/glpersistentvertexbuffer.cpp" />
