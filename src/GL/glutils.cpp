@@ -7,12 +7,12 @@
 
 void getOpenGLVersion(unsigned int& major, unsigned int& minor)
 {
-    std::sscanf((const char *)glGetString(GL_VERSION), "%d.%d", &major, &minor);
+    std::sscanf((const char *)glGetString(GL_VERSION), "%u.%u", &major, &minor);
 }
 
 void getGLSLVersion(unsigned int& major, unsigned int& minor)
 {
-    std::sscanf((const char *)glGetString(GL_SHADING_LANGUAGE_VERSION), "%d.%d", &major, &minor);
+    std::sscanf((const char *)glGetString(GL_SHADING_LANGUAGE_VERSION), "%u.%u", &major, &minor);
 
     minor /= 10;
 }
