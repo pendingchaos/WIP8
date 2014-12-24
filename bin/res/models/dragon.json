@@ -10,7 +10,9 @@
     },
     
     "model":
-    {   
+    {
+        "stippledLODs": true,
+        
         "lods":
         [
             {

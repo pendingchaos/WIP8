@@ -755,7 +755,7 @@
 	"material.h"
 	"resource.h"
 
-1419371869 source:/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp
+1419373100 source:/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp
 	"GL/glbackend.h"
 	<iostream>
 	"utils/memory.h"
@@ -874,7 +874,7 @@
 1419244991 source:/home/rugrats/Documents/github/WIP8/src/resource.cpp
 	"resource.h"
 
-1419358257 source:/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp
+1419379932 source:/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp
 	"resourcemanager.h"
 	<iostream>
 	<cstdio>
@@ -940,7 +940,7 @@
 1419161289 source:/home/rugrats/Documents/github/WIP8/src/vertexbuffer.cpp
 	"vertexbuffer.h"
 
-1419372777 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
+1419379754 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
 	<glm/glm.hpp>
 	<SDL2/SDL.h>
 	<cstdio>

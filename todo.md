@@ -1,3 +1,4 @@
+- Remove the specular lighting bugs.
 - Teach my program that it is not über-fast. (the fps sometimes flickers to 1000)
 - Something like Horde3D's pipelines.
 - Allow the mesh to define stuff.

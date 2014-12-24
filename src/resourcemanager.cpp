@@ -437,6 +437,11 @@ Model *ResourceManager::loadModel(const Json::Value& value,
 
     Model *model = NEW(Model);
 
+    if (value.isMember("stippledLODs"))
+    {
+        model->mStippledLODs = value["stippledLODs"].asBool();
+    }
+
     for (Json::Value::iterator it = lods.begin(); it != lods.end(); ++it)
     {
         Json::Value lod = *it;
