@@ -1,6 +1,6 @@
 #include "GL/glextensions.h"
 
-#include "glutils.h"
+#include "GL/glutils.h"
 
 GLExtensions::GLExtensions()
 {

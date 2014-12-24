@@ -7,6 +7,8 @@ The program requires a c++11 compiler, SDL2, SOIL, glm, JsonCPP, libdl, a c stan
 
 The binaries do not require SOIL.
 
+The scripts require Python 2.7 but they might work with a different one.
+
 Most of them can be install by running this command:
 
 ```
@@ -15,7 +17,7 @@ sudo yum install SDL2-devel SOIL-devel glm-devel jsoncpp-devel
 
 The rest should already be installed.
 
-To compile go to the directory (in a terminal) containing all the files then run:
+To compile go to the directory (in a terminal) containing all the files then run ():
 
 ```
 python scripts/compile.py

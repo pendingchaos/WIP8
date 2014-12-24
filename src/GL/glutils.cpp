@@ -1,4 +1,4 @@
-#include "glutils.h"
+#include "GL/glutils.h"
 
 #include <GL/gl.h>
 
