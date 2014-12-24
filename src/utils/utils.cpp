@@ -7,6 +7,7 @@
 #include <endian.h>
 #include <cstring>
 
+//TODO: res.push_back seems to sometimes crash.
 std::vector<std::string> getBacktrace()
 {
     std::vector<std::string> res;
@@ -19,12 +20,17 @@ std::vector<std::string> getBacktrace()
     {
         Dl_info info;
 
-        if (dladdr(trace[i] , &info) == 0)
+        if (dladdr(trace[i], &info) == 0)
         {
             continue;
         }
 
         const char *name = info.dli_sname;
+
+        if (name == NULL)
+        {
+            res.push_back("error");
+        }
 
         int status;
 

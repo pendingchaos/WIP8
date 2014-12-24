@@ -17,6 +17,7 @@
 					<Add option="-m64" />
 					<Add option="-DTRACK_MEMORY" />
 					<Add directory="include" />
+					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add directory="/usr/lib64" />
@@ -32,6 +33,7 @@
 					<Add option="-O2" />
 					<Add option="-m64" />
 					<Add directory="include" />
+					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -49,6 +51,7 @@
 					<Add option="-m32" />
 					<Add option="-DTRACK_MEMORY" />
 					<Add directory="include" />
+					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-m32" />
@@ -65,6 +68,7 @@
 					<Add option="-O2" />
 					<Add option="-m32" />
 					<Add directory="include" />
+					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -83,6 +87,7 @@
 					<Add option="-m64" />
 					<Add option="-DTRACK_MEMORY" />
 					<Add directory="include" />
+					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add directory="/usr/lib64" />
@@ -98,6 +103,7 @@
 					<Add option="-O2" />
 					<Add option="-m64" />
 					<Add directory="include" />
+					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -115,6 +121,7 @@
 					<Add option="-m32" />
 					<Add option="-DTRACK_MEMORY" />
 					<Add directory="include" />
+					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-m32" />
@@ -131,6 +138,7 @@
 					<Add option="-O2" />
 					<Add option="-m32" />
 					<Add directory="include" />
+					<Add directory="include/GL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -143,6 +151,7 @@
 			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add option="SOIL.a" />
 			<Add option="-DGL_GLEXT_PROTOTYPES" />
 			<Add directory="include" />
 		</Compiler>
@@ -170,6 +179,7 @@
 		<Unit filename="include/GL/glshader.h" />
 		<Unit filename="include/GL/gltexture.h" />
 		<Unit filename="include/GL/glubo.h" />
+		<Unit filename="include/GL/glutils.h" />
 		<Unit filename="include/GL/glvertexbuffer.h" />
 		<Unit filename="include/awm.h" />
 		<Unit filename="include/backend.h" />
@@ -199,6 +209,7 @@
 		<Unit filename="src/GL/glshader.cpp" />
 		<Unit filename="src/GL/gltexture.cpp" />
 		<Unit filename="src/GL/glubo.cpp" />
+		<Unit filename="src/GL/glutils.cpp" />
 		<Unit filename="src/GL/glvertexbuffer.cpp" />
 		<Unit filename="src/awm.cpp" />
 		<Unit filename="src/backend.cpp" />
