@@ -755,13 +755,12 @@
 	"material.h"
 	"resource.h"
 
-1419373100 source:/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp
+1419593000 source:/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp
 	"GL/glbackend.h"
 	<iostream>
 	"utils/memory.h"
 	"scene.h"
 	"GL/glvertexbuffer.h"
-	"GL/glpersistentvertexbuffer.h"
 	"GL/glshader.h"
 	"GL/gltexture.h"
 	"GL/glrendertarget.h"
@@ -815,8 +814,10 @@
 	"renderer.h"
 	<GL/gltexture.h>
 
-1419181052 source:/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp
+1419590359 source:/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp
 	"GL/glshader.h"
+	<iostream>
+	"utils/memory.h"
 	<GL/gltexture.h>
 	<GL/glubo.h>
 
@@ -844,7 +845,7 @@
 	"model.h"
 	<algorithm>
 
-1419361960 source:/home/rugrats/Documents/github/WIP8/src/renderer.cpp
+1419593985 source:/home/rugrats/Documents/github/WIP8/src/renderer.cpp
 	"renderer.h"
 	<sstream>
 	<SOIL/SOIL.h>
@@ -940,7 +941,7 @@
 1419161289 source:/home/rugrats/Documents/github/WIP8/src/vertexbuffer.cpp
 	"vertexbuffer.h"
 
-1419379754 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
+1419594200 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
 	<glm/glm.hpp>
 	<SDL2/SDL.h>
 	<cstdio>

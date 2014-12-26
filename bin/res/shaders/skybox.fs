@@ -31,6 +31,7 @@ uniform samplerCube skyBoxTexture;
 void main()
 {
     out0 = TO_LINEAR(textureCube(skyBoxTexture, frag_position_worldSpace));
+    out1 = frag_position_worldSpace.z;
 
     out3 = vec2(0.0);
 }

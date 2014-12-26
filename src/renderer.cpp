@@ -29,17 +29,17 @@ Renderer::~Renderer()
 
 void Renderer::render(RenderTarget *target, Scene *scene)
 {
-    for (std::vector<Entity *>::const_iterator it = scene->getEntities().begin();
-         it != scene->getEntities().end(); ++it)
-    {
-        renderEntity(*it, scene);
-    }
-
     if (scene->mSkyboxTexture != nullRes<Texture>())
     {
         mSkyboxMaterial->mUniforms["skyBoxTexture"] = scene->mSkyboxTexture;
 
         mBackend->submitDrawCall(DrawCall(scene, mSkyboxMesh, mSkyboxMaterial, glm::mat4(1.0f), 1.0f));
+    }
+
+    for (std::vector<Entity *>::const_iterator it = scene->getEntities().begin();
+         it != scene->getEntities().end(); ++it)
+    {
+        renderEntity(*it, scene);
     }
 
     mBackend->executeDrawCalls(target);
@@ -49,8 +49,6 @@ CompiledShader *Renderer::createShader(CompiledShader::Type type,
                                        std::string source,
                                        std::map<std::string, std::string> defines)
 {
-    const char **sources = NEW_ARRAY(const char *, defines.size()+2);
-
     unsigned int glslMajor;
     unsigned int glslMinor;
 
@@ -65,47 +63,28 @@ CompiledShader *Renderer::createShader(CompiledShader::Type type,
     ss << glslMinor;
     ss << "\n";
 
-    if (glslMajor >= 1 and glslMinor >= 4)
-    {
-        ss << "#define CORE 1\n";
-    } else
+    if (glslMajor == 1 and glslMinor < 4)
     {
         ss << "#define CORE 0\n";
+    } else
+    {
+        ss << "#define CORE 1\n";
     }
 
-    std::string source0 = ss.str();
-
-    sources[0] = source0.c_str();
-
-    unsigned int i=0;
     for (std::map<std::string, std::string>::iterator it = defines.begin();
          it != defines.end(); ++it)
     {
-        unsigned int size = it->first.size()+it->second.size()+11;
-        char *define = (char *)ALLOCATE(size);
-        std::memset(define, 0, size);
-
-        std::snprintf(define, size, "#define %s %s\n", it->first.c_str(), it->second.c_str());
-
-        sources[i+1] = define;
-
-        ++i;
+        ss << "#define " << it->first << ' ' << it->second << std::endl;
     }
 
-    sources[defines.size()+1] = source.c_str();
+    ss << source;
 
-    CompiledShader *shader = createShader(type, defines.size()+2, sources);
+    std::string str = ss.str();
+    const char *c_str = str.c_str();
 
-    for (unsigned int i=0; i<defines.size(); ++i)
-    {
-        DEALLOCATE(sources[i+1]);
-    }
+    CompiledShader *shader = createShader(type, 1, &c_str);
 
-    DELETE_ARRAY(const char *, sources);
-
-    source.size();
-
-    source0.clear();
+    str.clear();
 
     return shader;
 }
@@ -294,7 +273,7 @@ void Renderer::createSkybox()
     buffer->unmap();
 
     mSkyboxMaterial = NEW(Material, mResMgr->load("res/shaders/skybox fragment.json").cast<Shader>());
-    mSkyboxMaterial->mDepthFunc = Material::LessEqual;
+    mSkyboxMaterial->mWriteDepth = false;
 }
 
 void Renderer::renderEntity(const Entity *entity, Scene *scene)

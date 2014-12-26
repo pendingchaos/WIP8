@@ -1,5 +1,8 @@
 #include "GL/glshader.h"
 
+#include <iostream>
+
+#include "utils/memory.h"
 #include <GL/gltexture.h>
 #include <GL/glubo.h>
 
@@ -29,6 +32,16 @@ GLCompiledShader::GLCompiledShader(CompiledShader::Type type,
     glShaderSource(mShader, numSources, sources, NULL);
 
     glCompileShader(mShader);
+
+    GLint logLength;
+    glGetShaderiv(mShader, GL_INFO_LOG_LENGTH, &logLength);
+    char *infoLog = (char *)ALLOCATE(logLength);
+
+    glGetShaderInfoLog(mShader, logLength, NULL, infoLog);
+
+    std::cout << infoLog << std::endl;
+
+    DEALLOCATE(infoLog);
 }
 
 GLCompiledShader::~GLCompiledShader()

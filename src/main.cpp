@@ -119,7 +119,7 @@ int main()
 
     SDL_GLContext context = createContext(window);
 
-    SDL_GL_SetSwapInterval(0);
+    SDL_GL_SetSwapInterval(1);
 
     bool running = true;
     float frametime = 0.0f;

@@ -9,6 +9,14 @@ layout (location = 0) out vec4 out0; //out_color;
 #define out0 gl_FragData[0]
 #endif
 
+#if CORE
+#define texture2D(tex, uv) texture(tex, uv)
+#define textureCube(tex, dir) texture(tex, dir)
+
+#define texture2DLod(tex, uv, lod) textureLod(tex, uv, lod)
+#define textureCubeLod(tex, dir, lod) textureLod(tex, dir, lod)
+#endif
+
 in vec2 frag_uv;
 
 uniform sampler2D colorTexture;

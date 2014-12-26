@@ -5,7 +5,6 @@
 #include "utils/memory.h"
 #include "scene.h"
 #include "GL/glvertexbuffer.h"
-#include "GL/glpersistentvertexbuffer.h"
 #include "GL/glshader.h"
 #include "GL/gltexture.h"
 #include "GL/glrendertarget.h"
@@ -111,13 +110,7 @@ GLBackend::~GLBackend()
 
 VertexBuffer *GLBackend::createVertexBuffer()
 {
-    if (mExtensions.extGL_ARB_buffer_storage)
-    {
-        return NEW(GLPersistentVertexBuffer);
-    } else
-    {
-        return NEW(GLVertexBuffer);
-    }
+    return NEW(GLVertexBuffer);
 }
 
 CompiledShader *GLBackend::createShader(CompiledShader::Type type,
