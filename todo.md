@@ -13,3 +13,4 @@
 - More mesh formats on mesh aabb calculation.
 - Terrain rendering.
 - A C api.
+- Über-awesome features like tesselation, subroutines, and pipeline objects.
