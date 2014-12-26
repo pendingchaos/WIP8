@@ -31,7 +31,8 @@ inline bool operator > (const glm::vec3& v1, const glm::vec3& v2)
     return v1.x > v2.x and v1.y > v2.y and v1.z > v2.z;
 }
 
-std::vector<std::string> getBacktrace();
+char **getBacktrace(unsigned int& depth);
+void freeBacktrace(char **theBacktrace, unsigned int depth);
 
 void writeInt8(FILE *file, char i);
 void writeUInt8(FILE *file, unsigned char i);

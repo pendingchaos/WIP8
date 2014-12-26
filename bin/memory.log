@@ -1,0 +1,1940 @@
+/home/rugrats/Documents/github/WIP8/src/main.cpp:132:int main() Allocated a GLBackend (704 bytes) at 0x1e98f10
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/renderer.cpp:16:Renderer::Renderer(Backend*) Allocated a ResourceManager (64 bytes) at 0x1f5ff30
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 128 bytes at 0x1f51b50
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f51b50
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 508 bytes at 0x1f521c0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f521c0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:495:Shader* ResourceManager::loadShader(const Json::Value&, const std::unordered_map<std::basic_string<char>, ResPtr<Resource> >&) Allocated a Shader (96 bytes) at 0x1e98ea0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:134:ResPtr<Mesh> ResourceManager::createMesh(ResPtr<Shader>, Mesh::Primitive, unsigned int, unsigned int) Allocated a Mesh (136 bytes) at 0x1f514a0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::createMesh(ResPtr<Shader>, Mesh::Primitive, unsigned int, unsigned int)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:48:MeshComponent* Mesh::addPositions(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f51c40
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f51690
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 130 bytes at 0x1f51960
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f51960
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 1047 bytes at 0x1f499e0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f499e0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:498:Shader* ResourceManager::loadShader(const Json::Value&, const std::unordered_map<std::basic_string<char>, ResPtr<Resource> >&) Allocated a Shader (96 bytes) at 0x1f497a0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:147:ResPtr<Material> ResourceManager::createMaterial(ResPtr<Shader>) Allocated a Material (160 bytes) at 0x1f51ae0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::createMaterial(ResPtr<Shader>)
+    Renderer::createSkybox()
+    Renderer::Renderer(Backend*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:132:int main() Allocated a Renderer (40 bytes) at 0x1e98d10
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:134:int main() Allocated a Scene (256 bytes) at 0x1f52930
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:135:int main() Allocated a Scene (256 bytes) at 0x1f51d40
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:137:int main() Allocated a RenderTarget (32 bytes) at 0x1f519c0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:139:int main() Allocated a RenderTarget (32 bytes) at 0x1f52c00
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:130:virtual Framebuffer* GLBackend::createFramebuffer() Allocated a GLFramebuffer (80 bytes) at 0x1f52540
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createFramebuffer()
+    Renderer::createFramebuffer()
+    RenderTarget::addFramebuffer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x1f51bf0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    ResourceManager::createTexture(Texture::Type)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x1f52a40
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    ResourceManager::createTexture(Texture::Type)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x1f52af0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    ResourceManager::createTexture(Texture::Type)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x1f51a70
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    ResourceManager::createTexture(Texture::Type)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x1f51ee0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    ResourceManager::createTexture(Texture::Type)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x1f49cc0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    ResourceManager::createTexture(Texture::Type)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 797 bytes at 0x1f6c950
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f6c950
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 324 bytes at 0x1f6e060
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f6e060
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 128 bytes at 0x1f6ed90
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f6ed90
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 967 bytes at 0x1f6f430
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f6f430
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:495:Shader* ResourceManager::loadShader(const Json::Value&, const std::unordered_map<std::basic_string<char>, ResPtr<Resource> >&) Allocated a Shader (96 bytes) at 0x1f6f8c0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/awm.cpp:39:Mesh* loadAWM(Renderer*, ResPtr<Shader>, const char*) Allocated a Mesh (136 bytes) at 0x1f6f930
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:48:MeshComponent* Mesh::addPositions(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6e7a0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f6f0e0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:65:MeshComponent* Mesh::addNormals(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6f1f0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addNormals(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f6f100
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addNormals(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:82:MeshComponent* Mesh::addUVs(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6f250
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addUVs(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f6e610
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addUVs(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:99:MeshComponent* Mesh::addColors(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6f280
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addColors(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f6ede0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addColors(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:116:MeshComponent* Mesh::addTangents(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6f2b0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addTangents(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f6fbf0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addTangents(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:133:MeshComponent* Mesh::addIndices(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6f2e0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addIndices(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f6fbd0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addIndices(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 324 bytes at 0x1f6de20
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f6de20
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/awm.cpp:39:Mesh* loadAWM(Renderer*, ResPtr<Shader>, const char*) Allocated a Mesh (136 bytes) at 0x1f70e80
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:48:MeshComponent* Mesh::addPositions(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6f4e0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f71240
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:65:MeshComponent* Mesh::addNormals(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f706e0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addNormals(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f71260
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addNormals(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:82:MeshComponent* Mesh::addUVs(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f70760
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addUVs(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f71280
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addUVs(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:99:MeshComponent* Mesh::addColors(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6eab0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addColors(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f70710
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addColors(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:116:MeshComponent* Mesh::addTangents(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6eb00
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addTangents(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f70790
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addTangents(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:133:MeshComponent* Mesh::addIndices(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6eb50
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addIndices(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f6eae0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addIndices(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 324 bytes at 0x1f6e940
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f6e940
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/awm.cpp:39:Mesh* loadAWM(Renderer*, ResPtr<Shader>, const char*) Allocated a Mesh (136 bytes) at 0x1f6e940
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:48:MeshComponent* Mesh::addPositions(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f720a0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f720d0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:65:MeshComponent* Mesh::addNormals(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f72390
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addNormals(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f724d0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addNormals(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:82:MeshComponent* Mesh::addUVs(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f72510
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addUVs(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f724f0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addUVs(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:99:MeshComponent* Mesh::addColors(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f72540
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addColors(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f723c0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addColors(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:116:MeshComponent* Mesh::addTangents(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f72590
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addTangents(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f72780
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addTangents(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:133:MeshComponent* Mesh::addIndices(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f72360
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addIndices(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f72570
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addIndices(Renderer*, MeshComponent const&)
+    loadAWM(Renderer*, ResPtr<Shader>, char const*)
+    ResourceManager::loadMesh(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 1659 bytes at 0x1f73c00
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f73c00
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 354 bytes at 0x1f753e0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f753e0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x1f76580
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    Renderer::createTexture(char const*)
+    ResourceManager::loadTexture(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 130 bytes at 0x1f78500
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f78500
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 4727 bytes at 0x2008370
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x2008370
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:498:Shader* ResourceManager::loadShader(const Json::Value&, const std::unordered_map<std::basic_string<char>, ResPtr<Resource> >&) Allocated a Shader (96 bytes) at 0x1f75950
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 688 bytes at 0x1f75ad0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f75ad0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x1eea0e0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    Renderer::createCubemap(char const*, char const*, char const*, char const*, char const*, char const*)
+    ResourceManager::loadTexture(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 354 bytes at 0x200ccc0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x200ccc0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x1f70800
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    Renderer::createTexture(char const*)
+    ResourceManager::loadTexture(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 356 bytes at 0x1f74f90
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f74f90
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:125:virtual Texture* GLBackend::createTexture(Texture::Type) Allocated a GLTexture (64 bytes) at 0x4371670
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createTexture(Texture::Type)
+    Renderer::createTexture(Texture::Type)
+    Renderer::createTexture(char const*)
+    ResourceManager::loadTexture(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:558:Material* ResourceManager::loadMaterial(const Json::Value&, const std::unordered_map<std::basic_string<char>, ResPtr<Resource> >&) Allocated a Material (160 bytes) at 0x1f20ca0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::loadMaterial(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:461:Model* ResourceManager::loadModel(const Json::Value&, const std::unordered_map<std::basic_string<char>, ResPtr<Resource> >&) Allocated a Model (56 bytes) at 0x1f72490
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::loadModel(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 126 bytes at 0x1f6d050
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f6d050
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 209 bytes at 0x1f6dac0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f6dac0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:495:Shader* ResourceManager::loadShader(const Json::Value&, const std::unordered_map<std::basic_string<char>, ResPtr<Resource> >&) Allocated a Shader (96 bytes) at 0x1f6dac0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:134:ResPtr<Mesh> ResourceManager::createMesh(ResPtr<Shader>, Mesh::Primitive, unsigned int, unsigned int) Allocated a Mesh (136 bytes) at 0x1f6da20
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::createMesh(ResPtr<Shader>, Mesh::Primitive, unsigned int, unsigned int)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:48:MeshComponent* Mesh::addPositions(Renderer*, const MeshComponent&) Allocated a MeshComponent (32 bytes) at 0x1f6e410
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:113:virtual VertexBuffer* GLBackend::createVertexBuffer() Allocated a GLVertexBuffer (16 bytes) at 0x1f6c7e0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createVertexBuffer()
+    Renderer::createVertexBuffer()
+    Mesh::addPositions(Renderer*, MeshComponent const&)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 128 bytes at 0x1f746e0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x1f746e0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:174:std::string readFile(std::string) Allocated 2175 bytes at 0x44c82d0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:183:std::string readFile(std::string) Deallocated 0x44c82d0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    readFile(std::string)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:498:Shader* ResourceManager::loadShader(const Json::Value&, const std::unordered_map<std::basic_string<char>, ResPtr<Resource> >&) Allocated a Shader (96 bytes) at 0x1f6c420
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::loadShader(Json::Value const&, std::unordered_map<std::string, ResPtr<Resource>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<std::string const, ResPtr<Resource> > > > const&)
+    ResourceManager::_load(std::string)
+    ResourceManager::load(std::string)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:147:ResPtr<Material> ResourceManager::createMaterial(ResPtr<Shader>) Allocated a Material (160 bytes) at 0x1f723e0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::createMaterial(ResPtr<Shader>)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:105:ResPtr<Model> ResourceManager::createModel() Allocated a Model (56 bytes) at 0x1f6d210
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::createModel()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/scene.cpp:22:Entity* Scene::createEntity(ResPtr<Model>) Allocated a Entity (120 bytes) at 0x1f72020
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Scene::createEntity(ResPtr<Model>)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/scene.cpp:22:Entity* Scene::createEntity(ResPtr<Model>) Allocated a Entity (120 bytes) at 0x1f6cd40
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Scene::createEntity(ResPtr<Model>)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:38:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Allocated 1 bytes at 0x1eea630
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:44:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Deallocated 0x1eea630
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:120:virtual CompiledShader* GLBackend::createShader(CompiledShader::Type, unsigned int, const char**) Allocated a GLCompiledShader (16 bytes) at 0x1f75100
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:38:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Allocated 1 bytes at 0x2009ac0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:44:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Deallocated 0x2009ac0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:120:virtual CompiledShader* GLBackend::createShader(CompiledShader::Type, unsigned int, const char**) Allocated a GLCompiledShader (16 bytes) at 0x4371600
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:38:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Allocated 1 bytes at 0x1f6ca30
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:44:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Deallocated 0x1f6ca30
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:120:virtual CompiledShader* GLBackend::createShader(CompiledShader::Type, unsigned int, const char**) Allocated a GLCompiledShader (16 bytes) at 0x1f753e0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:38:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Allocated 1 bytes at 0x1f4b010
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:44:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Deallocated 0x1f4b010
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:120:virtual CompiledShader* GLBackend::createShader(CompiledShader::Type, unsigned int, const char**) Allocated a GLCompiledShader (16 bytes) at 0x1f6ca30
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:38:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Allocated 1 bytes at 0x4ff9d40
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:44:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Deallocated 0x4ff9d40
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:120:virtual CompiledShader* GLBackend::createShader(CompiledShader::Type, unsigned int, const char**) Allocated a GLCompiledShader (16 bytes) at 0x1f746f0
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:38:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Allocated 1 bytes at 0x1eeada0
+    getBacktrace(unsigned int&)
+    __track_allocate(void*, unsigned long, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp:44:GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, const char**) Deallocated 0x1eeada0
+    getBacktrace(unsigned int&)
+    __track_deallocate(void*, char const*, unsigned int, char const*)
+    GLCompiledShader::GLCompiledShader(CompiledShader::Type, unsigned int, char const**)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp:120:virtual CompiledShader* GLBackend::createShader(CompiledShader::Type, unsigned int, const char**) Allocated a GLCompiledShader (16 bytes) at 0x4ff9d40
+    getBacktrace(unsigned int&)
+    __track_new(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    GLBackend::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, unsigned int, char const**)
+    Renderer::createShader(CompiledShader::Type, std::string, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    Shader::getShader(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >)
+    GLBackend::executeDrawCall(DrawCall const&)
+    GLBackend::executeDrawCalls(RenderTarget*)
+    Renderer::render(RenderTarget*, Scene*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/rendertarget.cpp:33:void RenderTarget::removeFramebuffer() Deallocated a Framebuffer (8 bytes) at 0x1f52540
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    RenderTarget::removeFramebuffer()
+    RenderTarget::~RenderTarget()
+    RenderTarget::~RenderTarget()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:315:int main() Deallocated a RenderTarget (32 bytes) at 0x1f52c00
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:316:int main() Deallocated a RenderTarget (32 bytes) at 0x1f519c0
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/scene.cpp:16:virtual Scene::~Scene() Deallocated a Entity (120 bytes) at 0x1f72020
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Scene::~Scene()
+    Scene::~Scene()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:318:int main() Deallocated a Scene (256 bytes) at 0x1f51d40
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/scene.cpp:16:virtual Scene::~Scene() Deallocated a Entity (120 bytes) at 0x1f6cd40
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Scene::~Scene()
+    Scene::~Scene()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:319:int main() Deallocated a Scene (256 bytes) at 0x1f52930
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/renderer.cpp:26:virtual Renderer::~Renderer() Deallocated a Backend (8 bytes) at 0x1e98f10
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:58:void ResourceManager::deleteUnusedResources() Deallocated a Resource (24 bytes) at 0x1f51ae0
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::deleteUnusedResources()
+    ResourceManager::~ResourceManager()
+    ResourceManager::~ResourceManager()
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:57:void Mesh::removePositions() Deallocated a VertexBuffer (8 bytes) at 0x1f51690
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::removePositions()
+    Mesh::~Mesh()
+    Mesh::~Mesh()
+    ResourceManager::deleteUnusedResources()
+    ResourceManager::~ResourceManager()
+    ResourceManager::~ResourceManager()
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/mesh.cpp:60:void Mesh::removePositions() Deallocated a MeshComponent (32 bytes) at 0x1f51c40
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Mesh::removePositions()
+    Mesh::~Mesh()
+    Mesh::~Mesh()
+    ResourceManager::deleteUnusedResources()
+    ResourceManager::~ResourceManager()
+    ResourceManager::~ResourceManager()
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:58:void ResourceManager::deleteUnusedResources() Deallocated a Resource (24 bytes) at 0x1f514a0
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::deleteUnusedResources()
+    ResourceManager::~ResourceManager()
+    ResourceManager::~ResourceManager()
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/shader.cpp:23:virtual Shader::~Shader() Deallocated a CompiledShader (16 bytes) at 0x4371600
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Shader::~Shader()
+    Shader::~Shader()
+    ResourceManager::deleteUnusedResources()
+    ResourceManager::~ResourceManager()
+    ResourceManager::~ResourceManager()
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:58:void ResourceManager::deleteUnusedResources() Deallocated a Resource (24 bytes) at 0x1e98ea0
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::deleteUnusedResources()
+    ResourceManager::~ResourceManager()
+    ResourceManager::~ResourceManager()
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/shader.cpp:23:virtual Shader::~Shader() Deallocated a CompiledShader (16 bytes) at 0x1f75100
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Shader::~Shader()
+    Shader::~Shader()
+    ResourceManager::deleteUnusedResources()
+    ResourceManager::~ResourceManager()
+    ResourceManager::~ResourceManager()
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp:58:void ResourceManager::deleteUnusedResources() Deallocated a Resource (24 bytes) at 0x1f497a0
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    ResourceManager::deleteUnusedResources()
+    ResourceManager::~ResourceManager()
+    ResourceManager::~ResourceManager()
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/renderer.cpp:27:virtual Renderer::~Renderer() Deallocated a ResourceManager (64 bytes) at 0x1f5ff30
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error
+
+/home/rugrats/Documents/github/WIP8/src/main.cpp:321:int main() Deallocated a Renderer (40 bytes) at 0x1e98d10
+    getBacktrace(unsigned int&)
+    __track_delete(void*, char const*, unsigned long, char const*, unsigned int, char const*)
+    main
+    __libc_start_main
+    error
+

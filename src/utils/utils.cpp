@@ -7,14 +7,13 @@
 #include <endian.h>
 #include <cstring>
 
-//TODO: res.push_back seems to sometimes crash.
-std::vector<std::string> getBacktrace()
-{
-    std::vector<std::string> res;
+char *theBacktrace[256];
 
+char **getBacktrace(unsigned int& depth)
+{
     void *trace[256];
 
-    unsigned int depth = backtrace(trace, 256);
+    depth = backtrace(trace, 256);
 
     for (unsigned int i=0; i<depth; ++i)
     {
@@ -22,6 +21,8 @@ std::vector<std::string> getBacktrace()
 
         if (dladdr(trace[i], &info) == 0)
         {
+            theBacktrace[i] = (char *)std::malloc(6);
+            std::memcpy(theBacktrace[i], "error", 6);
             continue;
         }
 
@@ -29,7 +30,9 @@ std::vector<std::string> getBacktrace()
 
         if (name == NULL)
         {
-            res.push_back("error");
+            theBacktrace[i] = (char *)std::malloc(6);
+            std::memcpy(theBacktrace[i], "error", 6);
+            continue;
         }
 
         int status;
@@ -38,19 +41,24 @@ std::vector<std::string> getBacktrace()
 
         if (status == 0 and demangled != NULL)
         {
-            res.push_back(demangled);
-        } else if (name != NULL)
+            theBacktrace[i] = demangled;
+        } else
         {
-            res.push_back(name);
-        }
-
-        if (status == 0)
-        {
-            std::free(demangled);
+            unsigned int len = std::strlen(name);
+            theBacktrace[i] = (char *)std::malloc(len+1);
+            std::memcpy(theBacktrace[i], name, len+1);
         }
     }
 
-    return res;
+    return theBacktrace;
+}
+
+void freeBacktrace(char **theBacktrace, unsigned int depth)
+{
+    for (unsigned int i=0; i<depth; ++i)
+    {
+        std::free(theBacktrace[i]);
+    }
 }
 
 void writeInt8(FILE *file, char i)

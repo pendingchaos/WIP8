@@ -11,13 +11,15 @@ void outputBacktrace(void *address, const char *signal)
 
     std::fprintf(file, "Signal: %s\nAddress: %p\nBacktrace:\n", signal, address);
 
-    std::vector<std::string> backtrace = getBacktrace();
+    unsigned int depth;
+    char **backtrace = getBacktrace(depth);
 
-    for (std::vector<std::string>::iterator it = backtrace.begin();
-         it != backtrace.end(); ++it)
+    for (unsigned int i=0; i<depth; ++i)
     {
-        std::fprintf(file, "    %s\n", it->c_str());
+        std::fprintf(file, "    %s\n", backtrace[i]);
     }
+
+    freeBacktrace(backtrace, depth);
 
     std::fclose(file);
 }

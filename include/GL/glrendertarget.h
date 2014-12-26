@@ -6,7 +6,8 @@
 #include <vector>
 
 #include "rendertarget.h"
-#include "backend.h"
+
+class Backend;
 
 class GLFramebuffer : public Framebuffer
 {
@@ -14,8 +15,8 @@ class GLFramebuffer : public Framebuffer
         GLFramebuffer(Backend *backend);
         virtual ~GLFramebuffer();
 
-        virtual ResPtr<Texture> addDepth(Texture::InternalFormat format);
-        virtual ResPtr<Texture> addColor(Texture::InternalFormat format, const::glm::vec2& scale=glm::vec2(1.0f));
+        virtual ResPtr<Texture> addDepth(ResPtr<Texture> texture, Texture::InternalFormat format);
+        virtual ResPtr<Texture> addColor(ResPtr<Texture> texture, Texture::InternalFormat format, const::glm::vec2& scale=glm::vec2(1.0f));
         virtual void finish(bool depth=true);
 
         virtual void setWidth(unsigned int width);
@@ -34,14 +35,14 @@ class GLFramebuffer : public Framebuffer
 
         bool mFinished;
 
-        Texture *mDepthTexture;
+        ResPtr<Texture> mDepthTexture;
         Texture::InternalFormat mDepthFormat;
 
         GLuint mDepthRBO;
 
         typedef struct ColorTexture
         {
-            Texture *texture;
+            ResPtr<Texture> texture;
             Texture::InternalFormat format;
             glm::vec2 scale;
         } ColorTexture;

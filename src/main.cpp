@@ -65,7 +65,12 @@ typedef struct Version
     unsigned int minor;
 } Version;
 
-static const Version versions[] = {{3, 3},
+static const Version versions[] = {{4, 4},
+                                   {4, 3},
+                                   {4, 2},
+                                   {4, 1},
+                                   {4, 0},
+                                   {3, 3},
                                    {3, 2},
                                    {3, 1},
                                    {3, 0},
@@ -133,12 +138,12 @@ int main()
 
     RenderTarget *textureTarget = NEW(RenderTarget, renderer);
     Framebuffer *framebuffer = textureTarget->addFramebuffer();
-    framebuffer->addColor(Texture::RGBAU8_Norm_InternalFormat);
-    framebuffer->addColor(Texture::Red32F_InternalFormat);
-    framebuffer->addColor(Texture::RGBU8_Norm_InternalFormat);
-    framebuffer->addColor(Texture::RGBAU8_Norm_InternalFormat);
-    framebuffer->addColor(Texture::RGBU8_Norm_InternalFormat);
-    framebuffer->addColor(Texture::RGBU8_Norm_InternalFormat);
+    framebuffer->addColor(resMgr->createTexture(Texture::Texture2D), Texture::RGBAU8_Norm_InternalFormat);
+    framebuffer->addColor(resMgr->createTexture(Texture::Texture2D), Texture::Red32F_InternalFormat);
+    framebuffer->addColor(resMgr->createTexture(Texture::Texture2D), Texture::RGBU8_Norm_InternalFormat);
+    framebuffer->addColor(resMgr->createTexture(Texture::Texture2D), Texture::RGBAU8_Norm_InternalFormat);
+    framebuffer->addColor(resMgr->createTexture(Texture::Texture2D), Texture::RGBU8_Norm_InternalFormat);
+    framebuffer->addColor(resMgr->createTexture(Texture::Texture2D), Texture::RGBU8_Norm_InternalFormat);
     framebuffer->finish();
 
     ResPtr<Model> model = resMgr->load("res/models/dragon.json").cast<Model>();
@@ -306,6 +311,11 @@ int main()
         std::snprintf(title, 256, "Frametime: %.4f, Framerate: %.0f", frametime, 1.0f/frametime);
         SDL_SetWindowTitle(window, title);
     }
+
+    model = nullRes<Model>();
+    quadMesh = nullRes<Mesh>();
+    quadMaterial = nullRes<Material>();
+    quadModel = nullRes<Model>();
 
     DELETE(RenderTarget, textureTarget);
     DELETE(RenderTarget, target);

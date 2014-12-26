@@ -168,7 +168,6 @@
 		<Unit filename="bin/res/shaders/skybox.vs" />
 		<Unit filename="include/GL/glbackend.h" />
 		<Unit filename="include/GL/glextensions.h" />
-		<Unit filename="include/GL/glpersistentvertexbuffer.h" />
 		<Unit filename="include/GL/glrendertarget.h" />
 		<Unit filename="include/GL/glshader.h" />
 		<Unit filename="include/GL/gltexture.h" />
@@ -197,7 +196,6 @@
 		<Unit filename="include/vertexbuffer.h" />
 		<Unit filename="src/GL/glbackend.cpp" />
 		<Unit filename="src/GL/glextensions.cpp" />
-		<Unit filename="src/GL/glpersistentvertexbuffer.cpp" />
 		<Unit filename="src/GL/glrendertarget.cpp" />
 		<Unit filename="src/GL/glshader.cpp" />
 		<Unit filename="src/GL/gltexture.cpp" />

@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <string>
 #include <sstream>
+#include <vector>
 
 #include "utils/memory.h"
 #include "texture.h"
@@ -18,27 +19,44 @@ ResourceManager::ResourceManager(Renderer *renderer) : mRenderer(renderer) {}
 
 ResourceManager::~ResourceManager()
 {
+    for (unsigned int i=0; i<256; ++i)
+    {
+        deleteUnusedResources();
+
+        if (mResources.size() == 0)
+        {
+            break;
+        }
+    }
+
     for (std::unordered_map<std::string, Resource *>::iterator it = mResources.begin();
          it != mResources.end(); ++it)
     {
-        DELETE(Resource, it->second);
+        std::cout << "Warning: Unfreed resource: " << it->first << std::endl;
     }
 }
 
 void ResourceManager::deleteUnusedResources()
 {
+    std::vector<std::string> toDelete;
+
     for (std::unordered_map<std::string, Resource *>::iterator it = mResources.begin();
-         it != mResources.end();)
+         it != mResources.end(); ++it)
     {
         if (it->second->getRefCount() <= 0)
         {
-            DELETE(Resource, it->second);
-            mResources.erase(it);
-            return;
-        } else
-        {
-            ++it;
+            toDelete.push_back(it->first);
         }
+    }
+
+    for (std::vector<std::string>::iterator it
+         = toDelete.begin(); it != toDelete.end(); ++it)
+    {
+        std::unordered_map<std::string, Resource *>::iterator pos
+        = mResources.find(*it);
+
+        DELETE(Resource, pos->second);
+        mResources.erase(pos);
     }
 }
 
@@ -74,6 +92,7 @@ ResPtr<Texture> ResourceManager::createTexture(Texture::Type type)
     Texture *texture = mRenderer->createTexture(type);
 
     std::stringstream name;
+    name << "Texture ";
     name << texture;
 
     mResources.emplace(name.str(), texture);
@@ -86,6 +105,7 @@ ResPtr<Model> ResourceManager::createModel()
     Model *model = NEW(Model);
 
     std::stringstream name;
+    name << "Model ";
     name << model;
 
     mResources.emplace(name.str(), model);
@@ -98,6 +118,7 @@ ResPtr<Shader> ResourceManager::createShader(CompiledShader::Type type, std::str
     Shader *shader = NEW(Shader, mRenderer, type, source);
 
     std::stringstream name;
+    name << "Shader ";
     name << shader;
 
     mResources.emplace(name.str(), shader);
@@ -113,6 +134,7 @@ ResPtr<Mesh> ResourceManager::createMesh(ResPtr<Shader> shader,
     Mesh *mesh = NEW(Mesh, shader, primitive, numVertices, numIndices);
 
     std::stringstream name;
+    name << "Mesh ";
     name << mesh;
 
     mResources.emplace(name.str(), mesh);
@@ -125,6 +147,7 @@ ResPtr<Material> ResourceManager::createMaterial(ResPtr<Shader> shader)
     Material *material = NEW(Material, shader);
 
     std::stringstream name;
+    name << "Material ";
     name << material;
 
     mResources.emplace(name.str(), material);

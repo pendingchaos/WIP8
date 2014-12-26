@@ -20,11 +20,11 @@ Renderer::Renderer(Backend *backend) : mBackend(backend)
 
 Renderer::~Renderer()
 {
+    mSkyboxMesh = nullRes<Mesh>();
+    mSkyboxMaterial = nullRes<Material>();
+
     DELETE(Backend, mBackend);
     DELETE(ResourceManager, mResMgr);
-
-    DELETE(Material, mSkyboxMaterial);
-    DELETE(Mesh, mSkyboxMesh);
 }
 
 void Renderer::render(RenderTarget *target, Scene *scene)
@@ -222,7 +222,7 @@ Texture *Renderer::createCubemap(const char *posX, const char *negX,
 
 void Renderer::createSkybox()
 {
-    mSkyboxMesh = NEW(Mesh, mResMgr->load("res/shaders/skybox vertex.json").cast<Shader>(), Mesh::Triangles, 36);
+    mSkyboxMesh = mResMgr->createMesh(mResMgr->load("res/shaders/skybox vertex.json").cast<Shader>(), Mesh::Triangles, 36);
     VertexBuffer *buffer = mSkyboxMesh->addPositions(this, MeshComponent(3, MeshComponent::Float32))->getVertexBuffer();
 
     buffer->alloc(sizeof(glm::vec3)*36);
@@ -272,7 +272,7 @@ void Renderer::createSkybox()
 
     buffer->unmap();
 
-    mSkyboxMaterial = NEW(Material, mResMgr->load("res/shaders/skybox fragment.json").cast<Shader>());
+    mSkyboxMaterial = mResMgr->createMaterial(mResMgr->load("res/shaders/skybox fragment.json").cast<Shader>());
     mSkyboxMaterial->mWriteDepth = false;
 }
 

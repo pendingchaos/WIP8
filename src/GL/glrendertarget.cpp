@@ -23,22 +23,14 @@ GLFramebuffer::~GLFramebuffer()
         glDeleteRenderbuffers(1, &mDepthRBO);
     }
 
-    DELETE(Texture, mDepthTexture);
-
-    for (std::vector<ColorTexture>::iterator it = mColorTextures.begin();
-         it != mColorTextures.end(); ++it)
-    {
-        DELETE(Texture, it->texture);
-    }
-
     glDeleteFramebuffers(1, &mFramebuffer);
 }
 
-ResPtr<Texture> GLFramebuffer::addDepth(Texture::InternalFormat format)
+ResPtr<Texture> GLFramebuffer::addDepth(ResPtr<Texture> texture, Texture::InternalFormat format)
 {
     if (mDepthTexture == NULL and not mFinished)
     {
-        mDepthTexture = mBackend->createTexture(Texture::Texture2D);
+        mDepthTexture = texture;
         mDepthFormat = format;
 
         mDepthTexture->setMinFilter(Texture::NearestMinFilter);
@@ -47,15 +39,13 @@ ResPtr<Texture> GLFramebuffer::addDepth(Texture::InternalFormat format)
         mDepthTexture->setVWrap(Texture::Clamp);
     }
 
-    return ResPtr<Texture>(mDepthTexture);
+    return mDepthTexture;
 }
 
-ResPtr<Texture> GLFramebuffer::addColor(Texture::InternalFormat format, const glm::vec2& scale)
+ResPtr<Texture> GLFramebuffer::addColor(ResPtr<Texture> texture, Texture::InternalFormat format, const glm::vec2& scale)
 {
     if (not mFinished)
     {
-        Texture *texture = mBackend->createTexture(Texture::Texture2D);
-
         texture->setMinFilter(Texture::NearestMinFilter);
         texture->setMagFilter(Texture::NearestMagFilter);
         texture->setUWrap(Texture::Clamp);
@@ -63,7 +53,7 @@ ResPtr<Texture> GLFramebuffer::addColor(Texture::InternalFormat format, const gl
 
         mColorTextures.push_back((ColorTexture){texture, format, scale});
 
-        return ResPtr<Texture>(texture);
+        return texture;
     }
 
     return nullRes<Texture>();
@@ -124,7 +114,7 @@ void GLFramebuffer::setWidthAndHeight(unsigned int width, unsigned int height)
 
     if (mDepthTexture != NULL)
     {
-        GLTexture *glDepthTex = (GLTexture *)mDepthTexture;
+        GLTexture *glDepthTex = (GLTexture *)mDepthTexture.cast<Texture>().getPointer();
 
         glBindTexture(GL_TEXTURE_2D, glDepthTex->mTexture);
 
@@ -148,7 +138,7 @@ void GLFramebuffer::setWidthAndHeight(unsigned int width, unsigned int height)
     for (std::vector<ColorTexture>::iterator it = mColorTextures.begin();
          it != mColorTextures.end(); ++it)
     {
-        GLTexture *glTexture = (GLTexture *)it->texture;
+        GLTexture *glTexture = (GLTexture *)it->texture.cast<Texture>().getPointer();
 
         glBindTexture(GL_TEXTURE_2D, glTexture->mTexture);
 

@@ -13,8 +13,8 @@ class Framebuffer
     public:
         virtual ~Framebuffer();
 
-        virtual ResPtr<Texture> addDepth(Texture::InternalFormat format)=0;
-        virtual ResPtr<Texture> addColor(Texture::InternalFormat format, const glm::vec2& scale=glm::vec2(1.0f))=0;
+        virtual ResPtr<Texture> addDepth(ResPtr<Texture> texture, Texture::InternalFormat format)=0;
+        virtual ResPtr<Texture> addColor(ResPtr<Texture> texture, Texture::InternalFormat format, const glm::vec2& scale=glm::vec2(1.0f))=0;
         virtual void finish(bool depth=true)=0;
 
         virtual void setWidth(unsigned int width)=0;

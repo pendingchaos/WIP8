@@ -63,8 +63,8 @@ class Renderer
         void renderEntity(const Entity *entity, Scene *scene);
         void renderLOD(const Entity *entity, Scene *scene, LOD *lod, float weight);
 
-        Mesh *mSkyboxMesh;
-        Material *mSkyboxMaterial;
+        ResPtr<Mesh> mSkyboxMesh;
+        ResPtr<Material> mSkyboxMaterial;
 };
 
 #endif // RENDERER_H

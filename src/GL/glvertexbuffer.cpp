@@ -10,7 +10,6 @@ GLVertexBuffer::~GLVertexBuffer()
     glDeleteBuffers(1, &mBuffer);
 }
 
-
 void *GLVertexBuffer::map(bool read, bool write)
 {
     GLuint lastBuffer;

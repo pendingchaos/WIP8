@@ -14,7 +14,7 @@ class Resource
         inline void incRefCount() {++mRefCount;}
         inline void decRefCount() {--mRefCount;}
 
-        inline std::type_index getType() const {return mType;}
+        inline std::type_index getResType() const {return mType;}
     protected:
         Resource(std::type_index type);
 
@@ -148,7 +148,7 @@ class ResPtr
         template <typename T2>
         inline ResPtr<T2> cast() const
         {
-            return mPtr->getType() == typeid(T2) ? ResPtr<T2>((T2 *)mPtr) : ResPtr<T2>();
+            return mPtr->getResType() == typeid(T2) ? ResPtr<T2>((T2 *)mPtr) : ResPtr<T2>();
         }
     private:
         T *mPtr;

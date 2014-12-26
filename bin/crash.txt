@@ -1,0 +1,16 @@
+Signal: Segmentation fault
+Address: 0x8
+Backtrace:
+    getBacktrace(unsigned int&)
+    outputBacktrace(void*, char const*)
+    segFault
+    error
+    Resource::getRefCount() const
+    ResourceManager::deleteUnusedResources()
+    ResourceManager::~ResourceManager()
+    ResourceManager::~ResourceManager()
+    Renderer::~Renderer()
+    Renderer::~Renderer()
+    main
+    __libc_start_main
+    error

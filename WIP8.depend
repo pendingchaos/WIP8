@@ -645,7 +645,7 @@
 1419202325 /home/rugrats/Documents/github/WIP8/include/geometry/aabb.h
 	<glm/glm.hpp>
 
-1419351286 /home/rugrats/Documents/github/WIP8/include/utils/utils.h
+1419619382 /home/rugrats/Documents/github/WIP8/include/utils/utils.h
 	<vector>
 	<string>
 	<cstdio>
@@ -689,7 +689,7 @@
 1419161462 /home/rugrats/Documents/github/WIP8/include/utils/memory.h
 	<cstdlib>
 
-1419203636 /home/rugrats/Documents/github/WIP8/include/renderer.h
+1419628510 /home/rugrats/Documents/github/WIP8/include/renderer.h
 	<map>
 	<string>
 	"resource.h"
@@ -698,7 +698,7 @@
 	"material.h"
 	"backend.h"
 
-1419245791 /home/rugrats/Documents/github/WIP8/include/resource.h
+1419628210 /home/rugrats/Documents/github/WIP8/include/resource.h
 	<cstddef>
 	<typeindex>
 
@@ -790,13 +790,12 @@
 	<GL/gl.h>
 	"texture.h"
 
-1419180433 /home/rugrats/Documents/github/WIP8/include/GL/glrendertarget.h
+1419628063 /home/rugrats/Documents/github/WIP8/include/GL/glrendertarget.h
 	<GL/gl.h>
 	<vector>
 	"rendertarget.h"
-	"backend.h"
 
-1419180375 /home/rugrats/Documents/github/WIP8/include/rendertarget.h
+1419628153 /home/rugrats/Documents/github/WIP8/include/rendertarget.h
 	<glm/glm.hpp>
 	"resource.h"
 	"texture.h"
@@ -807,7 +806,7 @@
 1419161248 /home/rugrats/Documents/github/WIP8/include/ubo.h
 	<glm/glm.hpp>
 
-1419180469 source:/home/rugrats/Documents/github/WIP8/src/GL/glrendertarget.cpp
+1419628181 source:/home/rugrats/Documents/github/WIP8/src/GL/glrendertarget.cpp
 	"GL/glrendertarget.h"
 	<algorithm>
 	"utils/memory.h"
@@ -829,7 +828,7 @@
 	<GL/gl.h>
 	"GL/glvertexbuffer.h"
 
-1419092193 source:/home/rugrats/Documents/github/WIP8/src/GL/glvertexbuffer.cpp
+1419619256 source:/home/rugrats/Documents/github/WIP8/src/GL/glvertexbuffer.cpp
 	"GL/glvertexbuffer.h"
 
 1419194316 source:/home/rugrats/Documents/github/WIP8/src/material.cpp
@@ -845,7 +844,7 @@
 	"model.h"
 	<algorithm>
 
-1419593985 source:/home/rugrats/Documents/github/WIP8/src/renderer.cpp
+1419628590 source:/home/rugrats/Documents/github/WIP8/src/renderer.cpp
 	"renderer.h"
 	<sstream>
 	<SOIL/SOIL.h>
@@ -875,12 +874,13 @@
 1419244991 source:/home/rugrats/Documents/github/WIP8/src/resource.cpp
 	"resource.h"
 
-1419379932 source:/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp
+1419628833 source:/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp
 	"resourcemanager.h"
 	<iostream>
 	<cstdio>
 	<string>
 	<sstream>
+	<vector>
 	"utils/memory.h"
 	"texture.h"
 	"model.h"
@@ -912,7 +912,7 @@
 1418641458 source:/home/rugrats/Documents/github/WIP8/src/ubo.cpp
 	"ubo.h"
 
-1419175167 source:/home/rugrats/Documents/github/WIP8/src/utils/crash.cpp
+1419619315 source:/home/rugrats/Documents/github/WIP8/src/utils/crash.cpp
 	"utils/crash.h"
 	<cstdio>
 	<signal.h>
@@ -920,7 +920,7 @@
 
 1419171162 /home/rugrats/Documents/github/WIP8/include/utils/crash.h
 
-1419351135 source:/home/rugrats/Documents/github/WIP8/src/utils/memory.cpp
+1419619307 source:/home/rugrats/Documents/github/WIP8/src/utils/memory.cpp
 	"utils/memory.h"
 	<cstdio>
 	"utils/utils.h"
@@ -929,7 +929,7 @@
 	<cstring>
 	<endian.h>
 
-1419380627 source:/home/rugrats/Documents/github/WIP8/src/utils/utils.cpp
+1419619505 source:/home/rugrats/Documents/github/WIP8/src/utils/utils.cpp
 	"utils/utils.h"
 	<execinfo.h>
 	<cxxabi.h>
@@ -941,7 +941,7 @@
 1419161289 source:/home/rugrats/Documents/github/WIP8/src/vertexbuffer.cpp
 	"vertexbuffer.h"
 
-1419594200 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
+1419628238 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
 	<glm/glm.hpp>
 	<SDL2/SDL.h>
 	<cstdio>
