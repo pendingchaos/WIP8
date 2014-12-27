@@ -1,8 +1,4 @@
-#if CORE
-#define attribute in
-#else
-#define out varying
-#endif
+#include res/shaders/lib/glsl compat.glsl
 
 attribute vec3 position;
 

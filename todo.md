@@ -4,7 +4,6 @@ Ordered:
 Unordered:
 - Something like Horde3D's pipelines.
 - Lighting.
-- Allow #includes in GLSL.
 - Scene loading.
 - Instanced rendering.
 - Texture compression.

@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "utils/memory.h"
+#include "utils/utils.h"
 #include "texture.h"
 #include "model.h"
 #include "mesh.h"
@@ -153,36 +154,6 @@ ResPtr<Material> ResourceManager::createMaterial(ResPtr<Shader> shader)
     mResources.emplace(name.str(), material);
 
     return ResPtr<Material>(material);
-}
-
-std::string readFile(std::string filename)
-{
-    FILE *file = std::fopen(filename.c_str(), "r");
-
-    if (file == NULL)
-    {
-        std::cout << "Unable to find \"" << filename << "\"" << std::endl;
-        return "";
-    }
-
-    std::fseek(file, 0, SEEK_END);
-
-    std::size_t size = std::ftell(file);
-
-    std::fseek(file, 0, SEEK_SET);
-
-    char *cData = (char *)ALLOCATE(size+1);
-    std::memset(cData, 0, size+1);
-
-    std::fread(cData, 1, size, file);
-
-    std::fclose(file);
-
-    std::string data(cData);
-
-    DEALLOCATE(cData);
-
-    return data;
 }
 
 const Json::Value& getMember(Json::Value object, const char *name)

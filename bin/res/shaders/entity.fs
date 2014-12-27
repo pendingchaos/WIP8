@@ -1,28 +1,13 @@
 #define TO_LINEAR(color) pow((color), vec4(2.2, 2.2, 2.2, 1.0))
 
-#if CORE
-layout (location = 0) out vec4 out0; //out_color;
-layout (location = 1) out float out1; //out_depth;
-layout (location = 2) out vec3 out2; //out_normal;
-layout (location = 3) out vec2 out3; //out_material;
-layout (location = 4) out vec3 out4; //out_ambient;
-layout (location = 5) out vec3 out5; //out_specular;
+#include res/shaders/lib/glsl compat.glsl
 
-#define texture2D(tex, uv) texture(tex, uv)
-#define textureCube(tex, dir) texture(tex, dir)
-
-#define texture2DLod(tex, uv, lod) textureLod(tex, uv, lod)
-#define textureCubeLod(tex, dir, lod) textureLod(tex, dir, lod)
-#else
-#define out0 gl_FragData[0]
-#define out1 gl_FragData[1].x
-#define out2 gl_FragData[2].xyz
-#define out3 gl_FragData[3].xy
-#define out4 gl_FragData[4].xyz
-#define out5 gl_FragData[5].xyz
-
-#define in varying
-#endif
+DECL_RT0(vec4);
+DECL_RT1(float);
+DECL_RT2(vec3);
+DECL_RT3(vec2);
+DECL_RT4(vec3);
+DECL_RT5(vec3);
 
 in vec4 frag_color;
 in vec2 frag_uv;
@@ -119,26 +104,26 @@ void main()
     stipple(lodStipple);
 
     #if ALBEDO_TEXTURE
-    out0 = TO_LINEAR(texture2D(albedoTexture, frag_uv)) * frag_color * vec4(diffuseColor, 1.0);
+    RT0 = TO_LINEAR(texture2D(albedoTexture, frag_uv)) * frag_color * vec4(diffuseColor, 1.0);
     #else
-    out0 = frag_color * vec4(diffuseColor, 1.0);
+    RT0 = frag_color * vec4(diffuseColor, 1.0);
     #endif
 
     #if STIPPLED_ALPHA
-    out0.a *= alpha;
+    RT0.a *= alpha;
 
-    if (out0.a != 1.0f)
+    if (RT0.a != 1.0f)
     {
-        stipple(out0.a);
+        stipple(RT0.a);
     }
     #endif
 
-    out1 = frag_position_viewSpace.z;
+    RT1 = frag_position_viewSpace.z;
 
     vec3 normal_worldSpace = getNormalWorldSpace();
     vec3 normal_viewSpace = normalize(vec3(viewNormalMatrix * vec4(normal_worldSpace, 1.0)));
 
-    out2 = (normal_viewSpace + 1.0) / 2.0;
+    RT2.xyz = (normal_viewSpace + 1.0) / 2.0;
 
     #if SPECULAR_TEXTURE
     float specular = texture2D(specularTexture, frag_uv).r;
@@ -146,23 +131,23 @@ void main()
     float specular = 1.0f;
     #endif
 
-    out3 = vec2(specularExponent / 256.0, 1.0);
+    RT3.xy = vec2(specularExponent / 256.0, 1.0);
 
     #if ENVIROMENT_TEXTURE
     vec3 viewDir = normalize(frag_position_worldSpace - vec3(inverse(viewMatrix) * vec4(0.0, 0.0, 0.0, 1.0)));
 
-    //out0 = TO_LINEAR(textureCube(enviromentMap, normalize(reflect(viewDir, normal_worldSpace))));
+    //RT0 = TO_LINEAR(textureCube(enviromentMap, normalize(reflect(viewDir, normal_worldSpace))));
 
     float IOR = 1.05;
 
-    out0 = TO_LINEAR(textureCube(enviromentMap, normalize(refract(viewDir, normal_worldSpace, 1.0 / IOR))));
+    RT0 = TO_LINEAR(textureCube(enviromentMap, normalize(refract(viewDir, normal_worldSpace, 1.0 / IOR))));
 
-    out4 = vec3(ambientAmount);
+    RT4.xyz = vec3(ambientAmount);
 
-    out5 = mix(TO_LINEAR(textureCubeLod(enviromentMap, normalize(reflect(viewDir, normal_worldSpace)), 15.0)).rgb, vec3(1.0), 0.25) * specular;
+    RT5.xyz = mix(TO_LINEAR(textureCubeLod(enviromentMap, normalize(reflect(viewDir, normal_worldSpace)), 15.0)).rgb, vec3(1.0), 0.25) * specular;
     #else
-    out4 = vec3(ambientAmount);
+    RT4.xyz = vec3(ambientAmount);
 
-    out5 = vec3(specular);
+    RT5.xyz = vec3(specular);
     #endif
 }

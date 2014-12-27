@@ -62,4 +62,8 @@ unsigned int readUInt32(FILE *file);
 long long readInt64(FILE *file);
 unsigned long long readUInt64(FILE *file);
 
+std::string trim(std::string str);
+
+std::string readFile(std::string filename);
+
 #endif // UTILS_H

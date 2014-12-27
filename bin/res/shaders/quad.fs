@@ -1,21 +1,9 @@
 #define TO_LINEAR(color) pow((color), vec3(2.2, 2.2, 2.2))
 #define FROM_LINEAR(color) pow((color), 1.0/vec3(2.2, 2.2, 2.2))
 
-#if CORE
-layout (location = 0) out vec4 out0; //out_color;
-#else
-#define in varying
+#include res/shaders/lib/glsl compat.glsl
 
-#define out0 gl_FragData[0]
-#endif
-
-#if CORE
-#define texture2D(tex, uv) texture(tex, uv)
-#define textureCube(tex, dir) texture(tex, dir)
-
-#define texture2DLod(tex, uv, lod) textureLod(tex, uv, lod)
-#define textureCubeLod(tex, dir, lod) textureLod(tex, dir, lod)
-#endif
+DECL_RT0(vec4);
 
 in vec2 frag_uv;
 
@@ -72,11 +60,11 @@ void main()
 
         vec3 position = vec3(frag_uv * 2.0 - 1.0, depth);
 
-        out0 = vec4(FROM_LINEAR(  diffuse(normal, lightDirection, albedo)
-                                + ambient(albedo, ambientColor)
-                                + specular(normal, lightDirection, position, specularExponent) * specularColor), 1.0);
+        RT0 = vec4(FROM_LINEAR(  diffuse(normal, lightDirection, albedo)
+                               + ambient(albedo, ambientColor)
+                               + specular(normal, lightDirection, position, specularExponent) * specularColor), 1.0);
     } else
     {
-        out0 = vec4(FROM_LINEAR(albedo), 1.0);
+        RT0 = vec4(FROM_LINEAR(albedo), 1.0);
     }
 }

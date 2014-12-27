@@ -63,6 +63,8 @@ class Renderer
         void renderEntity(const Entity *entity, Scene *scene);
         void renderLOD(const Entity *entity, Scene *scene, LOD *lod, float weight);
 
+        std::string handleIncludes(std::string source) const;
+
         ResPtr<Mesh> mSkyboxMesh;
         ResPtr<Material> mSkyboxMaterial;
 };

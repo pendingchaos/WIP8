@@ -1,10 +1,12 @@
 #include "renderer.h"
 
 #include <sstream>
+#include <iostream>
 
 #include <SOIL/SOIL.h>
 
 #include "utils/memory.h"
+#include "utils/utils.h"
 #include "GL/glutils.h"
 #include "scene.h"
 #include "resourcemanager.h"
@@ -71,15 +73,35 @@ CompiledShader *Renderer::createShader(CompiledShader::Type type,
         ss << "#define CORE 1\n";
     }
 
+    switch (type)
+    {
+        case CompiledShader::Vertex:
+        {
+            ss << "#define VERTEX_SHADER 1\n";
+            break;
+        }
+        case CompiledShader::Fragment:
+        {
+            ss << "#define FRAGMENT_SHADER 1\n";
+            break;
+        }
+        case CompiledShader::Geometry:
+        {
+            ss << "#define GEOMETRY_SHADER 1\n";
+            break;
+        }
+    }
+
     for (std::map<std::string, std::string>::iterator it = defines.begin();
          it != defines.end(); ++it)
     {
         ss << "#define " << it->first << ' ' << it->second << std::endl;
     }
 
-    ss << source;
+    ss << handleIncludes(source);
 
     std::string str = ss.str();
+
     const char *c_str = str.c_str();
 
     CompiledShader *shader = createShader(type, 1, &c_str);
@@ -348,4 +370,34 @@ void Renderer::renderLOD(const Entity *entity, Scene *scene, LOD *lod, float wei
     {
         mBackend->submitDrawCall(DrawCall(scene, mesh, material, entity->mTransform.getMatrix(), weight));
     }
+}
+
+std::string Renderer::handleIncludes(std::string source) const
+{
+    std::stringstream sourceStream(source);
+    std::stringstream outputStream;
+    std::string line;
+
+    unsigned int includeLen = sizeof("#include") - 1;
+
+    while (std::getline(sourceStream, line))
+    {
+        if (line.size() >= includeLen)
+        {
+            if (std::string(line.begin(), line.begin()+includeLen) == "#include")
+            {
+                std::string filename = trim(std::string(line.begin()+includeLen, line.end()));
+
+                outputStream << readFile(filename) << std::endl;
+            } else
+            {
+                outputStream << line << std::endl;
+            }
+        } else
+        {
+            outputStream << line << std::endl;
+        }
+    }
+
+    return outputStream.str();
 }

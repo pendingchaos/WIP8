@@ -6,6 +6,9 @@
 #include <cstdlib>
 #include <endian.h>
 #include <cstring>
+#include <iostream>
+
+#include "utils/memory.h"
 
 char *theBacktrace[256];
 
@@ -171,4 +174,59 @@ unsigned long long readUInt64(FILE *file)
     unsigned long long i;
     std::fread(&i, 8, 1, file);
     return le64toh(i);
+}
+
+std::string trim(std::string str)
+{
+    std::string::iterator begin = str.begin();
+
+    for (; begin != str.end(); ++begin)
+    {
+        if (*begin != ' ')
+        {
+            break;
+        }
+    }
+
+    std::string::iterator end = str.end() - 1;
+
+    for (; end != begin; --end)
+    {
+        if (*end != ' ')
+        {
+            break;
+        }
+    }
+
+    return std::string(begin, end+1);
+}
+
+std::string readFile(std::string filename)
+{
+    FILE *file = std::fopen(filename.c_str(), "r");
+
+    if (file == NULL)
+    {
+        std::cout << "Unable to find \"" << filename << "\"" << std::endl;
+        return "";
+    }
+
+    std::fseek(file, 0, SEEK_END);
+
+    std::size_t size = std::ftell(file);
+
+    std::fseek(file, 0, SEEK_SET);
+
+    char *cData = (char *)ALLOCATE(size+1);
+    std::memset(cData, 0, size+1);
+
+    std::fread(cData, 1, size, file);
+
+    std::fclose(file);
+
+    std::string data(cData);
+
+    DEALLOCATE(cData);
+
+    return data;
 }

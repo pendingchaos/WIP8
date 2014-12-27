@@ -74,7 +74,8 @@ static const Version versions[] = {{4, 4},
                                    {3, 2},
                                    {3, 1},
                                    {3, 0},
-                                   {2, 1}};
+                                   {2, 1},
+                                   {2, 0}};
 
 SDL_GLContext createContext(SDL_Window *window, unsigned int versionIndex=0)
 {
