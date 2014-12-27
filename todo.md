@@ -1,5 +1,4 @@
 Ordered:
-- Allow the mesh to define stuff and set uniforms.
 - More flexible meshes.
 
 Unordered:

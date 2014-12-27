@@ -702,23 +702,22 @@
 	<cstddef>
 	<typeindex>
 
-1419181064 /home/rugrats/Documents/github/WIP8/include/shader.h
+1419676466 /home/rugrats/Documents/github/WIP8/include/shader.h
 	<glm/glm.hpp>
 	<map>
 	<string>
-	"texture.h"
 	"resource.h"
+	"texture.h"
 
 1419161159 /home/rugrats/Documents/github/WIP8/include/texture.h
 	"resource.h"
 
-1419194147 /home/rugrats/Documents/github/WIP8/include/material.h
+1419676501 /home/rugrats/Documents/github/WIP8/include/material.h
 	<map>
 	<cstring>
 	<glm/glm.hpp>
 	"shader.h"
 	"resource.h"
-	"texture.h"
 
 1419160098 /home/rugrats/Documents/github/WIP8/include/backend.h
 	<glm/glm.hpp>
@@ -727,7 +726,7 @@
 	"material.h"
 	"resource.h"
 
-1419160223 /home/rugrats/Documents/github/WIP8/include/mesh.h
+1419676507 /home/rugrats/Documents/github/WIP8/include/mesh.h
 	<string>
 	"resource.h"
 	"shader.h"
@@ -755,7 +754,7 @@
 	"material.h"
 	"resource.h"
 
-1419593000 source:/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp
+1419676723 source:/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp
 	"GL/glbackend.h"
 	<iostream>
 	"utils/memory.h"
@@ -766,7 +765,7 @@
 	"GL/glrendertarget.h"
 	"GL/glubo.h"
 
-1419161700 /home/rugrats/Documents/github/WIP8/include/GL/glbackend.h
+1419676576 /home/rugrats/Documents/github/WIP8/include/GL/glbackend.h
 	<vector>
 	<GL/gl.h>
 	"backend.h"
@@ -831,7 +830,7 @@
 1419619256 source:/home/rugrats/Documents/github/WIP8/src/GL/glvertexbuffer.cpp
 	"GL/glvertexbuffer.h"
 
-1419194316 source:/home/rugrats/Documents/github/WIP8/src/material.cpp
+1419676436 source:/home/rugrats/Documents/github/WIP8/src/material.cpp
 	"material.h"
 
 1419163029 source:/home/rugrats/Documents/github/WIP8/src/mesh.cpp
@@ -855,7 +854,7 @@
 	"entity.h"
 	"vertexbuffer.h"
 
-1419333878 /home/rugrats/Documents/github/WIP8/include/resourcemanager.h
+1419677313 /home/rugrats/Documents/github/WIP8/include/resourcemanager.h
 	<unordered_map>
 	<string>
 	<jsoncpp/json/reader.h>
@@ -874,7 +873,7 @@
 1419244991 source:/home/rugrats/Documents/github/WIP8/src/resource.cpp
 	"resource.h"
 
-1419628833 source:/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp
+1419677339 source:/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp
 	"resourcemanager.h"
 	<iostream>
 	<cstdio>
@@ -897,7 +896,7 @@
 	"renderer.h"
 	"entity.h"
 
-1419358489 source:/home/rugrats/Documents/github/WIP8/src/shader.cpp
+1419676493 source:/home/rugrats/Documents/github/WIP8/src/shader.cpp
 	"shader.h"
 	"utils/memory.h"
 	"renderer.h"
@@ -941,7 +940,7 @@
 1419161289 source:/home/rugrats/Documents/github/WIP8/src/vertexbuffer.cpp
 	"vertexbuffer.h"
 
-1419628238 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
+1419677451 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
 	<glm/glm.hpp>
 	<SDL2/SDL.h>
 	<cstdio>

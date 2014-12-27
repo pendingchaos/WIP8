@@ -12,6 +12,10 @@
         "awm filename": "res/meshes/dragonlod2.awm",
         
         "cull face": "back",
-        "front face winding": "clockwise"
+        "front face winding": "clockwise",
+        
+        "uniforms": {},
+        
+        "defines": {}
     }
 }

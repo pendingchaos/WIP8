@@ -128,6 +128,9 @@ class Mesh : public Resource
 
         Winding mFrontFaceWinding;
         CullFace mCullFace;
+
+        std::map<std::string, std::string> mDefines;
+        std::map<std::string, UniformValue> mUniforms;
     private:
         MeshComponent *mPositions;
         MeshComponent *mNormals;

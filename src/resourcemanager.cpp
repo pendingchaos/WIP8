@@ -512,6 +512,9 @@ Mesh *ResourceManager::loadMesh(const Json::Value& json,
 
     Mesh *mesh = loadAWM(mRenderer, shader, json["awm filename"].asCString());
 
+    loadUniforms(getMember(json, "uniforms"), mesh->mUniforms, externalResources);
+    loadDefines(getMember(json, "defines"), mesh->mDefines);
+
     if (json.isMember("cull face"))
     {
         std::string cullFace = json["cull face"].asString();
@@ -557,85 +560,94 @@ Material *ResourceManager::loadMaterial(const Json::Value& json,
 
     Material *material = NEW(Material, shader);
 
-    Json::Value uniforms = json["uniforms"];
-    Json::Value::Members uniformMembers = uniforms.getMemberNames();
+    loadUniforms(getMember(json, "uniforms"), material->mUniforms, externalResources);
+    loadDefines(getMember(json, "defines"), material->mDefines);
 
-    for (Json::Value::Members::iterator it = uniformMembers.begin();
-         it != uniformMembers.end(); ++it)
+    return material;
+}
+
+void ResourceManager::loadUniforms(const Json::Value& json, std::map<std::string, UniformValue>& uniforms,
+                                   const std::unordered_map<std::string, ResPtr<Resource> >& externalResources)
+{
+    Json::Value::Members members = json.getMemberNames();
+
+    for (Json::Value::Members::iterator it = members.begin();
+         it != members.end(); ++it)
     {
         std::string name = *it;
-        Json::Value uniform = uniforms[name];
+        Json::Value uniform = json[name];
 
         std::string type = uniform["type"].asString();
 
         if (type == "float")
         {
-            material->mUniforms[name].setFloat(uniform["value"].asFloat());
+            uniforms[name].setFloat(uniform["value"].asFloat());
         } else if (type == "vec2")
         {
             Json::Value vec2 = uniform["value"];
 
-            material->mUniforms[name].setVec2(glm::vec2(vec2[0].asFloat(),
-                                                        vec2[1].asFloat()));
+            uniforms[name].setVec2(glm::vec2(vec2[0].asFloat(),
+                                             vec2[1].asFloat()));
         } else if (type == "vec3")
         {
             Json::Value vec3 = uniform["value"];
 
-            material->mUniforms[name].setVec3(glm::vec3(vec3[0].asFloat(),
-                                                        vec3[1].asFloat(),
-                                                        vec3[2].asFloat()));
+            uniforms[name].setVec3(glm::vec3(vec3[0].asFloat(),
+                                             vec3[1].asFloat(),
+                                             vec3[2].asFloat()));
         } else if (type == "vec4")
         {
             Json::Value vec4 = uniform["value"];
 
-            material->mUniforms[name].setVec4(glm::vec4(vec4[0].asFloat(),
-                                                        vec4[1].asFloat(),
-                                                        vec4[2].asFloat(),
-                                                        vec4[3].asFloat()));
+            uniforms[name].setVec4(glm::vec4(vec4[0].asFloat(),
+                                             vec4[1].asFloat(),
+                                             vec4[2].asFloat(),
+                                             vec4[3].asFloat()));
         } else if (type == "int")
         {
-            material->mUniforms[name].setInt(uniform["value"].asInt());
+            uniforms[name].setInt(uniform["value"].asInt());
         } else if (type == "ivec2")
         {
             Json::Value ivec2 = uniform["value"];
 
-            material->mUniforms[name].setIVec2(glm::ivec2(ivec2[0].asInt(),
-                                                          ivec2[1].asInt()));
+            uniforms[name].setIVec2(glm::ivec2(ivec2[0].asInt(),
+                                               ivec2[1].asInt()));
         } else if (type == "ivec3")
         {
             Json::Value ivec3 = uniform["value"];
 
-            material->mUniforms[name].setIVec3(glm::ivec3(ivec3[0].asInt(),
-                                                          ivec3[1].asInt(),
-                                                          ivec3[2].asInt()));
+            uniforms[name].setIVec3(glm::ivec3(ivec3[0].asInt(),
+                                               ivec3[1].asInt(),
+                                               ivec3[2].asInt()));
         } else if (type == "ivec4")
         {
             Json::Value ivec4 = uniform["value"];
 
-            material->mUniforms[name].setIVec4(glm::ivec4(ivec4[0].asInt(),
-                                                          ivec4[1].asInt(),
-                                                          ivec4[2].asInt(),
-                                                          ivec4[3].asInt()));
+            uniforms[name].setIVec4(glm::ivec4(ivec4[0].asInt(),
+                                               ivec4[1].asInt(),
+                                               ivec4[2].asInt(),
+                                               ivec4[3].asInt()));
         } else if (type == "texture")
         {
-            material->mUniforms[name].setTexture(externalResources.at(uniform["value"].asString()).cast<Texture>());
+            uniforms[name].setTexture(externalResources.at(uniform["value"].asString()).cast<Texture>());
         } else
         {
             throw std::runtime_error("Unknown uniform type.");
         }
     }
+}
 
-    Json::Value defines = json["defines"];
-    Json::Value::Members defineMembers = defines.getMemberNames();
+void ResourceManager::loadDefines(const Json::Value& json, std::map<std::string, std::string>& defines)
+{
+    Json::Value::Members members = json.getMemberNames();
 
-    for (Json::Value::Members::iterator it = defineMembers.begin();
-         it != defineMembers.end(); ++it)
+    for (Json::Value::Members::iterator it = members.begin();
+         it != members.end(); ++it)
     {
         std::string name = *it;
-        std::string value = defines[name].asString();
+        std::string value = json[name].asString();
 
-        material->mDefines.emplace(name, value);
+        defines.emplace(name, value);
     }
 
-    return material;
 }

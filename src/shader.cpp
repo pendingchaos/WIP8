@@ -3,6 +3,69 @@
 #include "utils/memory.h"
 #include "renderer.h"
 
+UniformValue::UniformValue() : mType(Nothing)
+{
+    mTexture = nullRes<Texture>();
+}
+
+UniformValue::UniformValue(float value) : mType(Float)
+{
+    mFloatData[0] = value;
+}
+
+UniformValue::UniformValue(const glm::vec2& value) : mType(Vec2)
+{
+    mFloatData[0] = value.x;
+    mFloatData[1] = value.y;
+}
+
+UniformValue::UniformValue(const glm::vec3& value) : mType(Vec3)
+{
+    mFloatData[0] = value.x;
+    mFloatData[1] = value.y;
+    mFloatData[2] = value.z;
+}
+
+UniformValue::UniformValue(const glm::vec4& value) : mType(Vec4)
+{
+    mFloatData[0] = value.x;
+    mFloatData[1] = value.y;
+    mFloatData[2] = value.z;
+    mFloatData[3] = value.w;
+}
+
+UniformValue::UniformValue(int value) : mType(Int)
+{
+    mIntData[0] = value;
+}
+
+UniformValue::UniformValue(const glm::ivec2& value) : mType(IVec2)
+{
+    mIntData[0] = value.x;
+    mIntData[1] = value.y;
+}
+
+UniformValue::UniformValue(const glm::ivec3& value) : mType(IVec3)
+{
+    mIntData[0] = value.x;
+    mIntData[1] = value.y;
+    mIntData[2] = value.z;
+}
+
+UniformValue::UniformValue(const glm::ivec4& value) : mType(IVec4)
+{
+    mIntData[0] = value.x;
+    mIntData[1] = value.y;
+    mIntData[2] = value.z;
+    mIntData[3] = value.w;
+}
+
+UniformValue::UniformValue(ResPtr<Texture> value) : mType(TextureType)
+{
+    mTexture = value;
+}
+
+
 CompiledShader::CompiledShader(Type type) : mType(type) {}
 
 CompiledShader::~CompiledShader() {}

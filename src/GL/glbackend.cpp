@@ -262,13 +262,17 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
     glBlendEquationSeparate(toGLBlendEquation[material->mRGBBlendEquation],
                             toGLBlendEquation[material->mAlphaBlendEquation]);
 
-    CompiledShader *fragmentShader = material->mFragmentShader->getShader(material->mDefines);
-    CompiledShader *vertexShader = mesh->mVertexShader->getShader();
+    std::map<std::string, std::string> defines;
+    defines.insert(material->mDefines.begin(), material->mDefines.end());
+    defines.insert(mesh->mDefines.begin(), mesh->mDefines.end());
+
+    CompiledShader *fragmentShader = material->mFragmentShader->getShader(defines);
+    CompiledShader *vertexShader = mesh->mVertexShader->getShader(defines);
     CompiledShader *geometryShader = NULL;
 
     if (mesh->mGeometryShader != nullRes<Shader>())
     {
-        geometryShader = mesh->mGeometryShader->getShader();
+        geometryShader = mesh->mGeometryShader->getShader(defines);
     }
 
     GLuint program = getProgram(vertexShader, fragmentShader, geometryShader);
@@ -282,7 +286,8 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
         glBindVertexArray(vao);
     }
 
-    setUniforms(program, material);
+    setUniforms(program, material->mUniforms);
+    setUniforms(program, mesh->mUniforms);
 
     GLint modelMatrixIndex = glGetUniformLocation(program, "modelMatrix");
     GLint viewMatrixIndex = glGetUniformLocation(program, "viewMatrix");
@@ -511,14 +516,14 @@ void GLBackend::vertexAttrib(GLuint program, const char *name, const MeshCompone
     }
 }
 
-void GLBackend::setUniforms(GLuint program, ResPtr<Material> material)
+void GLBackend::setUniforms(GLuint program, const std::map<std::string, UniformValue>& uniforms)
 {
     unsigned int textureUnit = 0;
 
-    for (std::map<std::string, MaterialUniform>::iterator it = material->mUniforms.begin();
-         it != material->mUniforms.end(); ++it)
+    for (std::map<std::string, UniformValue>::const_iterator it = uniforms.begin();
+         it != uniforms.end(); ++it)
     {
-        const MaterialUniform& uniform = it->second;
+        const UniformValue& uniform = it->second;
 
         GLint index = glGetUniformLocation(program, it->first.c_str());
 
@@ -529,33 +534,33 @@ void GLBackend::setUniforms(GLuint program, ResPtr<Material> material)
 
         switch (uniform.getType())
         {
-            case MaterialUniform::Nothing:
+            case UniformValue::Nothing:
             {
                 break;
             }
 
-            case MaterialUniform::Float:
+            case UniformValue::Float:
             {
                 float value = uniform.getFloat();
 
                 glUniform1f(index, value);
                 break;
             }
-            case MaterialUniform::Vec2:
+            case UniformValue::Vec2:
             {
                 glm::vec2 value = uniform.getVec2();
 
                 glUniform2f(index, value.x, value.y);
                 break;
             }
-            case MaterialUniform::Vec3:
+            case UniformValue::Vec3:
             {
                 glm::vec3 value = uniform.getVec3();
 
                 glUniform3f(index, value.x, value.y, value.z);
                 break;
             }
-            case MaterialUniform::Vec4:
+            case UniformValue::Vec4:
             {
                 glm::vec4 value = uniform.getVec4();
 
@@ -563,28 +568,28 @@ void GLBackend::setUniforms(GLuint program, ResPtr<Material> material)
                 break;
             }
 
-            case MaterialUniform::Int:
+            case UniformValue::Int:
             {
                 int value = uniform.getInt();
 
                 glUniform1i(index, value);
                 break;
             }
-            case MaterialUniform::IVec2:
+            case UniformValue::IVec2:
             {
                 glm::ivec2 value = uniform.getIVec2();
 
                 glUniform2i(index, value.x, value.y);
                 break;
             }
-            case MaterialUniform::IVec3:
+            case UniformValue::IVec3:
             {
                 glm::ivec3 value = uniform.getIVec3();
 
                 glUniform3i(index, value.x, value.y, value.z);
                 break;
             }
-            case MaterialUniform::IVec4:
+            case UniformValue::IVec4:
             {
                 glm::ivec4 value = uniform.getIVec4();
 
@@ -592,7 +597,7 @@ void GLBackend::setUniforms(GLuint program, ResPtr<Material> material)
                 break;
             }
 
-            case MaterialUniform::TextureType:
+            case UniformValue::TextureType:
             {
                 GLTexture *texture = (GLTexture *)uniform.getTexture().getPointer();
 

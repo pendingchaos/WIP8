@@ -113,7 +113,7 @@ class GLBackend : public Backend
         GLuint createVAO(const VAO& vao);
 
         void vertexAttrib(GLuint program, const char *name, const MeshComponent *component);
-        void setUniforms(GLuint program, ResPtr<Material> material);
+        void setUniforms(GLuint program, const std::map<std::string, UniformValue>& uniforms);
 
 };
 

@@ -63,6 +63,10 @@ class ResourceManager
 
         Material *loadMaterial(const Json::Value& json,
                                const std::unordered_map<std::string, ResPtr<Resource> >& externalResources);
+
+        void loadUniforms(const Json::Value& json, std::map<std::string, UniformValue>& uniforms,
+                          const std::unordered_map<std::string, ResPtr<Resource> >& externalResources);
+        void loadDefines(const Json::Value& json, std::map<std::string, std::string>& defines);
 };
 
 #endif // RESOURCEMANAGER_H
