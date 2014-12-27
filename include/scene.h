@@ -14,7 +14,6 @@ class Renderer;
 class Entity;
 class UniformAccess;
 class VertexBuffer;
-class UBO;
 
 class Scene
 {

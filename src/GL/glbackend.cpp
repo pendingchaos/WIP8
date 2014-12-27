@@ -8,7 +8,6 @@
 #include "GL/glshader.h"
 #include "GL/gltexture.h"
 #include "GL/glrendertarget.h"
-#include "GL/glubo.h"
 
 void debugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const char *message, const void *userParam)
 {
@@ -128,11 +127,6 @@ Texture *GLBackend::createTexture(Texture::Type type)
 Framebuffer *GLBackend::createFramebuffer()
 {
     return NEW(GLFramebuffer, this);
-}
-
-UBO *GLBackend::createUBO(VertexBuffer *buffer)
-{
-    return NEW(GLUBO, buffer);
 }
 
 float GLBackend::getMaxAnisotropy()

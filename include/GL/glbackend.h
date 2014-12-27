@@ -24,8 +24,6 @@ class GLBackend : public Backend
 
         virtual Framebuffer *createFramebuffer();
 
-        virtual UBO *createUBO(VertexBuffer *buffer);
-
         virtual float getMaxAnisotropy();
 
         virtual void submitDrawCall(const DrawCall& drawCall);

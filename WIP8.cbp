@@ -170,6 +170,7 @@
 		</Linker>
 		<Unit filename="bin/res/shaders/entity.fs" />
 		<Unit filename="bin/res/shaders/entity.vs" />
+		<Unit filename="bin/res/shaders/lib/glsl compat.glsl" />
 		<Unit filename="bin/res/shaders/quad.fs" />
 		<Unit filename="bin/res/shaders/quad.vs" />
 		<Unit filename="bin/res/shaders/skybox.fs" />

@@ -228,7 +228,6 @@ class UniformValue
 
 
 class Renderer;
-class UBO;
 
 class CompiledShader
 {
@@ -262,6 +261,7 @@ class Shader : public Resource
                                   =std::map<std::string, std::string>());
 
         inline CompiledShader::Type getType() const {return mType;}
+        inline const std::string& getSource() const {return mSource;}
 
         inline Renderer *getRenderer() const {return mRenderer;}
     private:

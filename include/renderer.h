@@ -14,7 +14,6 @@ class Scene;
 class ResourceManager;
 class VertexBuffer;
 class Framebuffer;
-class UBO;
 class Mesh;
 class RenderTarget;
 class Entity;
@@ -46,8 +45,6 @@ class Renderer
                                const char *posZ, const char *negZ);
 
         inline Framebuffer *createFramebuffer() {return mBackend->createFramebuffer();}
-
-        inline UBO *createUBO(VertexBuffer *buffer) {return mBackend->createUBO(buffer);}
 
         inline float getMaxAnisotropy() {return mBackend->getMaxAnisotropy();}
 

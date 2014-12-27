@@ -7,8 +7,6 @@
 #include "shader.h"
 #include "texture.h"
 
-class UBO;
-
 class GLCompiledShader : public CompiledShader
 {
     public:

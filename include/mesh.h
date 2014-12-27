@@ -84,7 +84,8 @@ class Mesh : public Resource
              unsigned int numVertices,
              unsigned int numIndices=0);
         virtual ~Mesh();
-
+        
+        //TODO: These should not need the Renderer.
         MeshComponent *addPositions(Renderer *renderer, const MeshComponent& positionComponent);
         void removePositions();
         inline bool hasPositions() {return mPositions != NULL;}

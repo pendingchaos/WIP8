@@ -25,7 +25,7 @@ Renderer::~Renderer()
     mSkyboxMesh = nullRes<Mesh>();
     mSkyboxMaterial = nullRes<Material>();
 
-    DELETE(Backend, mBackend);
+    DELETE(Backend, mBackend); //TODO: The Renderer should not manage the backend.
     DELETE(ResourceManager, mResMgr);
 }
 

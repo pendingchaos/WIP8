@@ -13,7 +13,6 @@ class Scene;
 class VertexBuffer;
 class Texture;
 class Framebuffer;
-class UBO;
 class RenderTarget;
 
 class DrawCall
@@ -48,8 +47,6 @@ class Backend
         virtual Texture *createTexture(Texture::Type type)=0;
 
         virtual Framebuffer *createFramebuffer()=0;
-
-        virtual UBO *createUBO(VertexBuffer *buffer)=0;
 
         virtual float getMaxAnisotropy()=0;
 

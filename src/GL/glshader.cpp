@@ -3,8 +3,7 @@
 #include <iostream>
 
 #include "utils/memory.h"
-#include <GL/gltexture.h>
-#include <GL/glubo.h>
+#include "GL/gltexture.h"
 
 GLCompiledShader::GLCompiledShader(CompiledShader::Type type,
                                    unsigned int numSources,

@@ -9,8 +9,6 @@ class AABB
         AABB();
         AABB(const glm::vec3& center, const glm::vec3& extents);
 
-        AABB operator * (const glm::mat4& matrix) const;
-
         glm::vec3 mCenter;
         glm::vec3 mExtents;
 };
