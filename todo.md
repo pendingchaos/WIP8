@@ -1,6 +1,5 @@
 Ordered:
 - Allow the mesh to define stuff and set uniforms.
-- Dirty flags to reduce shader and VAO lookups in the GLBackend.
 - More flexible meshes.
 
 Unordered:
