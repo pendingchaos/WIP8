@@ -1,8 +1,11 @@
-- Something like Horde3D's pipelines.
+Ordered:
 - Allow the mesh to define stuff and set uniforms.
 - Dirty flags to reduce shader and VAO lookups in the GLBackend.
-- Lighting.
 - More flexible meshes.
+
+Unordered:
+- Something like Horde3D's pipelines.
+- Lighting.
 - Allow #includes in GLSL.
 - Scene loading.
 - Instanced rendering.
