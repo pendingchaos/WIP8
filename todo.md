@@ -14,3 +14,4 @@ Unordered:
 - Terrain rendering.
 - A C api.
 - Über-awesome features like tesselation, subroutines, and pipeline objects.
+- Use a new mesh format that works better with the Mesh class.
