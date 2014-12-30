@@ -8,6 +8,7 @@
 
 #include "utils/memory.h"
 #include "utils/utils.h"
+#include "GL/glutils.h"
 #include "texture.h"
 #include "model.h"
 #include "mesh.h"
@@ -55,6 +56,8 @@ void ResourceManager::deleteUnusedResources()
     {
         std::unordered_map<std::string, Resource *>::iterator pos
         = mResources.find(*it);
+
+        std::cout << "Deleting " << pos->first << std::endl;
 
         DELETE(Resource, pos->second);
         mResources.erase(pos);
@@ -116,7 +119,7 @@ ResPtr<Model> ResourceManager::createModel()
 
 ResPtr<Shader> ResourceManager::createShader(CompiledShader::Type type, std::string source)
 {
-    Shader *shader = NEW(Shader, mRenderer, type, source);
+    Shader *shader = NEW(Shader, mRenderer, "", type, source);
 
     std::stringstream name;
     name << "Shader ";
@@ -178,7 +181,7 @@ const Json::Value& getMember(Json::Value object, const char *name)
     throw std::runtime_error(ss.str());
 }
 
-Resource *ResourceManager::_load(std::string filename)
+Resource *ResourceManager::_load(std::string& filename)
 {
     Json::Reader reader(Json::Features::strictMode());
 
@@ -223,6 +226,9 @@ Resource *ResourceManager::_load(std::string filename)
     } else if (resourceType == "material")
     {
         return loadMaterial(getMember(root, "material"), externalResources);
+    } else if (resourceType == "redirection")
+    {
+        return loadRedirection(getMember(root, "redirection"), externalResources, filename);
     } else
     {
         throw std::runtime_error("Unknown resource type.");
@@ -463,13 +469,19 @@ Shader *ResourceManager::loadShader(const Json::Value& json,
 
     if (type == "vertex")
     {
-        return NEW(Shader, mRenderer, CompiledShader::Vertex, readFile(filename));
+        return NEW(Shader, mRenderer, filename, CompiledShader::Vertex, readFile(filename));
     } else if (type == "fragment")
     {
-        return NEW(Shader, mRenderer, CompiledShader::Fragment, readFile(filename));
+        return NEW(Shader, mRenderer, filename, CompiledShader::Fragment, readFile(filename));
     } else if (type == "geometry")
     {
-        return NEW(Shader, mRenderer, CompiledShader::Geometry, readFile(filename));
+        return NEW(Shader, mRenderer, filename, CompiledShader::Geometry, readFile(filename));
+    } else if (type == "tessellation control")
+    {
+        return NEW(Shader, mRenderer, filename, CompiledShader::TessControl, readFile(filename));
+    } else if (type == "tessellation evaluation")
+    {
+        return NEW(Shader, mRenderer, filename, CompiledShader::TessEval, readFile(filename));
     } else
     {
         throw std::runtime_error("Unknown shader type.");
@@ -479,9 +491,24 @@ Shader *ResourceManager::loadShader(const Json::Value& json,
 Mesh *ResourceManager::loadMesh(const Json::Value& json,
                                 const std::unordered_map<std::string, ResPtr<Resource> >& externalResources)
 {
-    ResPtr<Shader> shader = externalResources.at(json["shader"].asString()).cast<Shader>();
+    ResPtr<Shader> shader = externalResources.at(getMember(json, "vertex shader").asString()).cast<Shader>();
 
-    Mesh *mesh = loadAWM(mRenderer, shader, json["awm filename"].asCString());
+    Mesh *mesh = loadAWM(mRenderer, shader, getMember(json, "awm filename").asCString());
+
+    if (json.isMember("geometry shader"))
+    {
+        mesh->mGeometryShader = externalResources.at(json["geometry shader"].asString()).cast<Shader>();
+    }
+
+    if (json.isMember("tessellation control shader"))
+    {
+        mesh->mTessControlShader = externalResources.at(json["tessellation control shader"].asString()).cast<Shader>();
+    }
+
+    if (json.isMember("tessellation evaluation shader"))
+    {
+        mesh->mTessEvalShader = externalResources.at(json["tessellation evaluation shader"].asString()).cast<Shader>();
+    }
 
     loadUniforms(getMember(json, "uniforms"), mesh->mUniforms, externalResources);
     loadDefines(getMember(json, "defines"), mesh->mDefines);
@@ -521,6 +548,12 @@ Mesh *ResourceManager::loadMesh(const Json::Value& json,
         }
     }
 
+    if (json.isMember("patch size"))
+    {
+        mesh->mPrimitive = Mesh::Patches;
+        mesh->mPatchSize = json["patch size"].asUInt();
+    }
+
     return mesh;
 }
 
@@ -535,6 +568,165 @@ Material *ResourceManager::loadMaterial(const Json::Value& json,
     loadDefines(getMember(json, "defines"), material->mDefines);
 
     return material;
+}
+
+//TODO: Complete this to support graphics card and drivers.
+bool isFeatureSetSupported(const Json::Value& featureSet)
+{
+    GraphicsCard card = getGraphicsCard();
+    GraphicsDriver driver = getGraphicsDriver();
+    unsigned int glslMajor, glslMinor;
+    getGLSLVersion(glslMajor, glslMinor);
+
+    switch (glslMajor*10+glslMinor)
+    {
+        case 11:
+        {
+            if (featureSet.isMember("glsl 1.1 supported"))
+            {
+                if (not featureSet["glsl 1.1 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 12:
+        {
+            if (featureSet.isMember("glsl 1.2 supported"))
+            {
+                if (not featureSet["glsl 1.2 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 13:
+        {
+            if (featureSet.isMember("glsl 1.3 supported"))
+            {
+                if (not featureSet["glsl 1.3 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 14:
+        {
+            if (featureSet.isMember("glsl 1.4 supported"))
+            {
+                if (not featureSet["glsl 1.4 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 15:
+        {
+            if (featureSet.isMember("glsl 1.5 supported"))
+            {
+                if (not featureSet["glsl 1.5 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 33:
+        {
+            if (featureSet.isMember("glsl 3.3 supported"))
+            {
+                if (not featureSet["glsl 3.3 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 40:
+        {
+            if (featureSet.isMember("glsl 4.0 supported"))
+            {
+                if (not featureSet["glsl 4.0 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 41:
+        {
+            if (featureSet.isMember("glsl 4.1 supported"))
+            {
+                if (not featureSet["glsl 4.1 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 42:
+        {
+            if (featureSet.isMember("glsl 4.2 supported"))
+            {
+                if (not featureSet["glsl 4.2 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 43:
+        {
+            if (featureSet.isMember("glsl 4.3 supported"))
+            {
+                if (not featureSet["glsl 4.3 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 44:
+        {
+            if (featureSet.isMember("glsl 4.4 supported"))
+            {
+                if (not featureSet["glsl 4.4 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+        case 45:
+        {
+            if (featureSet.isMember("glsl 4.5 supported"))
+            {
+                if (not featureSet["glsl 4.5 supported"])
+                {
+                    return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+Resource *ResourceManager::loadRedirection(const Json::Value& json,
+                                           const std::unordered_map<std::string, ResPtr<Resource> >& externalResources,
+                                           std::string& filename)
+{
+    Json::Value targets = getMember(json, "targets");
+
+    GraphicsCard card = getGraphicsCard();
+    GraphicsDriver driver = getGraphicsDriver();
+    unsigned int glslMajor, glslMinor;
+    getGLSLVersion(glslMajor, glslMinor);
+
+    for (Json::Value::iterator it = targets.begin(); it != targets.end(); ++it)
+    {
+        if (isFeatureSetSupported(getMember(*it, "feature set")))
+        {
+            filename = getMember(*it, "resource").asString();
+
+            return load(filename).getPointer();
+        }
+    }
+
+    throw std::runtime_error("Unable to find a feature set that works.");
 }
 
 void ResourceManager::loadUniforms(const Json::Value& json, std::map<std::string, UniformValue>& uniforms,

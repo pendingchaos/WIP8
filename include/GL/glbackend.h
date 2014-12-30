@@ -2,6 +2,7 @@
 #define GLBACKEND_H
 
 #include <vector>
+#include <string>
 
 #include <GL/gl.h>
 
@@ -16,7 +17,8 @@ class GLBackend : public Backend
 
         virtual VertexBuffer *createVertexBuffer();
 
-        virtual CompiledShader *createShader(CompiledShader::Type type,
+        virtual CompiledShader *createShader(std::string filename,
+                                             CompiledShader::Type type,
                                              unsigned int numSources,
                                              const char **sources);
 
@@ -25,6 +27,11 @@ class GLBackend : public Backend
         virtual Framebuffer *createFramebuffer();
 
         virtual float getMaxAnisotropy();
+
+        virtual bool isGeometryShadersSupported();
+
+        virtual bool isTessellationSupported();
+        virtual unsigned int getMaxPatchSize();
 
         virtual void submitDrawCall(const DrawCall& drawCall);
         virtual void executeDrawCalls(RenderTarget *target);
@@ -78,12 +85,16 @@ class GLBackend : public Backend
             CompiledShader *vertex;
             CompiledShader *fragment;
             CompiledShader *geometry;
+            CompiledShader *tessControl;
+            CompiledShader *tessEval;
 
             bool operator == (const Program& other) const
             {
-                return     vertex   == other.vertex
-                       and fragment == other.fragment
-                       and geometry == other.geometry;
+                return     vertex      == other.vertex
+                       and fragment    == other.fragment
+                       and geometry    == other.geometry
+                       and tessControl == other.tessControl
+                       and tessEval    == other.tessEval;
             }
         } Program;
 
@@ -104,7 +115,9 @@ class GLBackend : public Backend
 
         GLuint getProgram(CompiledShader *vertex,
                           CompiledShader *fragment,
-                          CompiledShader *geometry);
+                          CompiledShader *geometry,
+                          CompiledShader *tessControl,
+                          CompiledShader *tessEval);
         GLuint createProgram(const Program& program);
 
         GLuint getVAO(GLuint program, ResPtr<Mesh> mesh);
@@ -112,6 +125,8 @@ class GLBackend : public Backend
 
         void vertexAttrib(GLuint program, const char *name, const MeshComponent *component);
         void setUniforms(GLuint program, const std::map<std::string, UniformValue>& uniforms);
+
+        unsigned int mTextureUnit;
 
 };
 

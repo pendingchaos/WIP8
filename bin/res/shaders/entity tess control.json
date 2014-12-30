@@ -1,0 +1,9 @@
+{
+    "type": "shader",
+    
+    "shader":
+    {
+        "type": "tessellation control",
+        "filename": "res/shaders/entity.tcs"
+    }
+}

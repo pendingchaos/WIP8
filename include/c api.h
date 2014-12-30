@@ -371,16 +371,17 @@ void submitDrawCall(CBackend backend,
                     CMaterial material,
                     CMatrix4x4 matrix,
                     float lodStipple);
-void executeDrawCalls(CBackend backend);
+void executeDrawCalls(CBackend backend, CRenderTarget renderTarget);
 
 CScene createScene(CRenderer renderer);
-CEntity createEntity(CScene scene);
-void destroyEntity(CEntity entity);
+CEntity createEntity(CScene scene, CModel model);
+void destroyEntity(CScene scene, CEntity entity);
 unsigned int getNumEntities(CScene scene);
 CEntity *getEntities(CScene scene);
-CTransform *getViewTransform(CScene scene);
-CTransform *getProjectionTransform(CScene scene);
-CTexture *getSkyboxTexture(CScene scene);
+CTransform getViewTransform(CScene scene);
+CTransform getProjectionTransform(CScene scene);
+CTexture getSkyboxTexture(CScene scene);
+void setSkyboxTexture(CScene scene, CTexture texture);
 
 CTransform getTransform(CEntity entity);
 CModel getModel(CEntity entity);

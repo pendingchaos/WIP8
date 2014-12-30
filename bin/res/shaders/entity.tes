@@ -1,0 +1,76 @@
+#include res/shaders/lib/glsl compat.glsl
+
+layout (triangles) in;
+
+in vec4 eval_color[];
+in vec2 eval_uv[];
+in vec3 eval_normal_worldSpace[];
+in vec3 eval_position_worldSpace[];
+in vec3 eval_tangent_worldSpace[];
+
+out vec4 frag_color;
+out vec2 frag_uv;
+out vec3 frag_normal_worldSpace;
+out vec3 frag_position_viewSpace;
+out vec3 frag_position_worldSpace;
+out vec3 frag_tangent_worldSpace;
+
+uniform mat4 modelMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 projectionMatrix;
+uniform mat4 modelNormalMatrix;
+uniform mat4 viewNormalMatrix;
+uniform mat4 projectionNormalMatrix;
+
+uniform sampler2D displacementTexture;
+uniform float displacementStrength;
+
+vec2 interpolateVec2(vec2 v0, vec2 v1, vec2 v2)
+{
+    return   v0 * gl_TessCoord.x
+           + v1 * gl_TessCoord.y
+           + v2 * gl_TessCoord.z;
+}
+
+vec3 interpolateVec3(vec3 v0, vec3 v1, vec3 v2)
+{
+    return   v0 * gl_TessCoord.x
+           + v1 * gl_TessCoord.y
+           + v2 * gl_TessCoord.z;
+}
+
+vec4 interpolateVec4(vec4 v0, vec4 v1, vec4 v2)
+{
+    return   v0 * gl_TessCoord.x
+           + v1 * gl_TessCoord.y
+           + v2 * gl_TessCoord.z;
+}
+
+void main()
+{
+    //TODO: Normals are incorrect after displacment.
+    frag_uv = interpolateVec2(eval_uv[0], eval_uv[1], eval_uv[2]);
+
+    float disp = 0.0f; //(texture2D(displacementTexture, frag_uv).r) * 0.1;
+
+    frag_color = interpolateVec4(eval_color[0], eval_color[1], eval_color[2]);
+
+    frag_normal_worldSpace = interpolateVec3(eval_normal_worldSpace[0],
+                                             eval_normal_worldSpace[1],
+                                             eval_normal_worldSpace[2]);
+
+    vec3 normal_viewSpace = normalize(vec3(viewNormalMatrix * vec4(frag_normal_worldSpace, 1.0)));
+    vec3 normal_screenSpace = normalize(vec3(projectionNormalMatrix * vec4(normal_viewSpace, 1.0)));
+
+    frag_position_worldSpace = interpolateVec3(eval_position_worldSpace[0],
+                                               eval_position_worldSpace[1],
+                                               eval_position_worldSpace[2]) + frag_normal_worldSpace * disp;
+
+    frag_position_viewSpace = vec3(viewMatrix * vec4(frag_position_worldSpace, 1.0));
+
+    frag_tangent_worldSpace = interpolateVec3(eval_tangent_worldSpace[0],
+                                              eval_tangent_worldSpace[1],
+                                              eval_tangent_worldSpace[2]);
+
+    gl_Position = projectionMatrix * vec4(frag_position_viewSpace, 1.0);
+}

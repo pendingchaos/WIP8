@@ -47,7 +47,7 @@ class ResourceManager
 
         std::unordered_map<std::string, Resource *> mResources;
 
-        Resource *_load(std::string filename);
+        Resource *_load(std::string& filename);
 
         Texture *loadTexture(const Json::Value& json,
                              const std::unordered_map<std::string, ResPtr<Resource> >& externalResources);
@@ -63,6 +63,10 @@ class ResourceManager
 
         Material *loadMaterial(const Json::Value& json,
                                const std::unordered_map<std::string, ResPtr<Resource> >& externalResources);
+
+        Resource *loadRedirection(const Json::Value& json,
+                                  const std::unordered_map<std::string, ResPtr<Resource> >& externalResources,
+                                  std::string& filename);
 
         void loadUniforms(const Json::Value& json, std::map<std::string, UniformValue>& uniforms,
                           const std::unordered_map<std::string, ResPtr<Resource> >& externalResources);

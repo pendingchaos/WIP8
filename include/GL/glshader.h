@@ -1,6 +1,8 @@
 #ifndef GLSHADER_H
 #define GLSHADER_H
 
+#include <string>
+
 #include <GL/gl.h>
 
 #include "resource.h"
@@ -10,7 +12,8 @@
 class GLCompiledShader : public CompiledShader
 {
     public:
-        GLCompiledShader(Type type,
+        GLCompiledShader(std::string filename,
+                         Type type,
                          unsigned int numSources,
                          const char **sources);
 

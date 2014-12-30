@@ -689,7 +689,7 @@
 1419161462 /home/rugrats/Documents/github/WIP8/include/utils/memory.h
 	<cstdlib>
 
-1419720116 /home/rugrats/Documents/github/WIP8/include/renderer.h
+1419862243 /home/rugrats/Documents/github/WIP8/include/renderer.h
 	<map>
 	<string>
 	"resource.h"
@@ -702,7 +702,7 @@
 	<cstddef>
 	<typeindex>
 
-1419720122 /home/rugrats/Documents/github/WIP8/include/shader.h
+1419862291 /home/rugrats/Documents/github/WIP8/include/shader.h
 	<glm/glm.hpp>
 	<map>
 	<string>
@@ -719,14 +719,15 @@
 	"shader.h"
 	"resource.h"
 
-1419720113 /home/rugrats/Documents/github/WIP8/include/backend.h
+1419862183 /home/rugrats/Documents/github/WIP8/include/backend.h
+	<string>
 	<glm/glm.hpp>
 	"shader.h"
 	"mesh.h"
 	"material.h"
 	"resource.h"
 
-1419719125 /home/rugrats/Documents/github/WIP8/include/mesh.h
+1419861758 /home/rugrats/Documents/github/WIP8/include/mesh.h
 	<string>
 	"resource.h"
 	"shader.h"
@@ -743,7 +744,7 @@
 	"model.h"
 	"resource.h"
 
-1419161225 /home/rugrats/Documents/github/WIP8/include/transform.h
+1419809844 /home/rugrats/Documents/github/WIP8/include/transform.h
 	<vector>
 	<glm/glm.hpp>
 	<glm/gtx/transform.hpp>
@@ -754,7 +755,7 @@
 	"material.h"
 	"resource.h"
 
-1419717644 source:/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp
+1419978008 source:/home/rugrats/Documents/github/WIP8/src/GL/glbackend.cpp
 	"GL/glbackend.h"
 	<iostream>
 	"utils/memory.h"
@@ -764,8 +765,9 @@
 	"GL/gltexture.h"
 	"GL/glrendertarget.h"
 
-1419716842 /home/rugrats/Documents/github/WIP8/include/GL/glbackend.h
+1419974284 /home/rugrats/Documents/github/WIP8/include/GL/glbackend.h
 	<vector>
+	<string>
 	<GL/gl.h>
 	"backend.h"
 	"GL/glextensions.h"
@@ -778,7 +780,8 @@
 	"transform.h"
 	"texture.h"
 
-1419720109 /home/rugrats/Documents/github/WIP8/include/GL/glshader.h
+1419862147 /home/rugrats/Documents/github/WIP8/include/GL/glshader.h
+	<string>
 	<GL/gl.h>
 	"resource.h"
 	"shader.h"
@@ -809,7 +812,7 @@
 	"renderer.h"
 	<GL/gltexture.h>
 
-1419717652 source:/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp
+1419862366 source:/home/rugrats/Documents/github/WIP8/src/GL/glshader.cpp
 	"GL/glshader.h"
 	<iostream>
 	"utils/memory.h"
@@ -839,7 +842,7 @@
 	"model.h"
 	<algorithm>
 
-1419717746 source:/home/rugrats/Documents/github/WIP8/src/renderer.cpp
+1419868064 source:/home/rugrats/Documents/github/WIP8/src/renderer.cpp
 	"renderer.h"
 	<sstream>
 	<iostream>
@@ -852,7 +855,7 @@
 	"entity.h"
 	"vertexbuffer.h"
 
-1419677313 /home/rugrats/Documents/github/WIP8/include/resourcemanager.h
+1419955658 /home/rugrats/Documents/github/WIP8/include/resourcemanager.h
 	<unordered_map>
 	<string>
 	<jsoncpp/json/reader.h>
@@ -871,7 +874,7 @@
 1419244991 source:/home/rugrats/Documents/github/WIP8/src/resource.cpp
 	"resource.h"
 
-1419699153 source:/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp
+1419977999 source:/home/rugrats/Documents/github/WIP8/src/resourcemanager.cpp
 	"resourcemanager.h"
 	<iostream>
 	<cstdio>
@@ -880,6 +883,7 @@
 	<vector>
 	"utils/memory.h"
 	"utils/utils.h"
+	"GL/glutils.h"
 	"texture.h"
 	"model.h"
 	"mesh.h"
@@ -895,7 +899,7 @@
 	"renderer.h"
 	"entity.h"
 
-1419676493 source:/home/rugrats/Documents/github/WIP8/src/shader.cpp
+1419862264 source:/home/rugrats/Documents/github/WIP8/src/shader.cpp
 	"shader.h"
 	"utils/memory.h"
 	"renderer.h"
@@ -903,7 +907,7 @@
 1419163011 source:/home/rugrats/Documents/github/WIP8/src/texture.cpp
 	"texture.h"
 
-1419161235 source:/home/rugrats/Documents/github/WIP8/src/transform.cpp
+1419809900 source:/home/rugrats/Documents/github/WIP8/src/transform.cpp
 	"transform.h"
 	<algorithm>
 
@@ -941,7 +945,7 @@
 1419161289 source:/home/rugrats/Documents/github/WIP8/src/vertexbuffer.cpp
 	"vertexbuffer.h"
 
-1419702564 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
+1419976961 source:/home/rugrats/Documents/github/WIP8/src/main.cpp
 	<glm/glm.hpp>
 	<SDL2/SDL.h>
 	<cstdio>
@@ -965,17 +969,42 @@
 	"utils/crash.h"
 	"utils/utils.h"
 	"GL/glbackend.h"
+	"GL/glutils.h"
 
-1419416044 source:/home/rugrats/Documents/github/WIP8/src/GL/glutils.cpp
+1419938473 source:/home/rugrats/Documents/github/WIP8/src/GL/glutils.cpp
 	"GL/glutils.h"
 	<GL/gl.h>
 	<cstdio>
 	<cstring>
+	<ctype.h>
+	<string>
+	<algorithm>
 
-1419350247 /home/rugrats/Documents/github/WIP8/include/GL/glutils.h
+1419937508 /home/rugrats/Documents/github/WIP8/include/GL/glutils.h
 
-1419716631 source:/home/rugrats/Documents/github/WIP8/src/c api.cpp
+1419809906 source:/home/rugrats/Documents/github/WIP8/src/c api.cpp
 	"c api.h"
+	"utils/memory.h"
+	"GL/glbackend.h"
+	"renderer.h"
+	"backend.h"
+	"scene.h"
+	"entity.h"
+	"transform.h"
+	"resourcemanager.h"
+	"resource.h"
+	"material.h"
+	"mesh.h"
+	"model.h"
+	"texture.h"
+	"shader.h"
+	"vertexbuffer.h"
+	"rendertarget.h"
 
-1419722569 /home/rugrats/Documents/github/WIP8/include/c api.h
+1419803508 /home/rugrats/Documents/github/WIP8/include/c api.h
+
+1419936726 source:/home/rugrats/Documents/github/WIP8/src/featureset.cpp
+	"featureset.h"
+
+1419938978 /home/rugrats/Documents/github/WIP8/include/featureset.h
 

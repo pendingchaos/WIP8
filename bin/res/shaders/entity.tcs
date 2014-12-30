@@ -1,0 +1,64 @@
+layout (vertices = 3) out;
+
+in vec4 control_color[];
+in vec2 control_uv[];
+in vec3 control_normal_worldSpace[];
+in vec3 control_position_worldSpace[];
+in vec3 control_tangent_worldSpace[];
+
+out vec4 eval_color[];
+out vec2 eval_uv[];
+out vec3 eval_normal_worldSpace[];
+out vec3 eval_position_worldSpace[];
+out vec3 eval_tangent_worldSpace[];
+
+uniform mat4 modelMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 projectionMatrix;
+uniform mat4 modelNormalMatrix;
+uniform mat4 viewNormalMatrix;
+uniform mat4 projectionNormalMatrix;
+
+float remap(float value, float old_min, float old_max, float new_min, float new_max)
+{
+    return   (value - old_min) / (old_max - old_min) //Map value from old_min-old_max to 0-1
+           * (new_max - new_min) + new_min; //Map value from 0-1 to new_min-new_max
+}
+
+const float maxTessLevel = 5.0;
+const float tessStartDistance = 50.0;
+
+float getTessLevel(float distance)
+{
+    if (distance < tessStartDistance)
+    {
+        return max(maxTessLevel - remap(distance, 0.0, tessStartDistance, 0.0, maxTessLevel), 1.0);
+    }
+
+    return 1.0;
+}
+
+void main()
+{
+    float distance0 = abs((viewMatrix * vec4(control_position_worldSpace[0], 1.0)).z);
+    float distance1 = abs((viewMatrix * vec4(control_position_worldSpace[1], 1.0)).z);
+    float distance2 = abs((viewMatrix * vec4(control_position_worldSpace[2], 1.0)).z);
+
+    float tessLevel0 = getTessLevel((distance1 + distance2) / 2.0);
+    float tessLevel1 = getTessLevel((distance2 + distance0) / 2.0);
+    float tessLevel2 = getTessLevel((distance0 + distance1) / 2.0);
+
+    gl_TessLevelOuter[0] = tessLevel0;
+    gl_TessLevelOuter[1] = tessLevel1;
+    gl_TessLevelOuter[2] = tessLevel2;
+
+    gl_TessLevelInner[0] = (tessLevel0 + tessLevel1 + tessLevel2) / 3.0;
+
+    gl_out[gl_InvocationID].gl_Position = gl_in[gl_InvocationID].gl_Position;
+
+    eval_color[gl_InvocationID] = control_color[gl_InvocationID];
+    eval_uv[gl_InvocationID] = control_uv[gl_InvocationID];
+    eval_normal_worldSpace[gl_InvocationID] = control_normal_worldSpace[gl_InvocationID];
+    eval_position_worldSpace[gl_InvocationID] = control_position_worldSpace[gl_InvocationID];
+    eval_tangent_worldSpace[gl_InvocationID] = control_tangent_worldSpace[gl_InvocationID];
+}

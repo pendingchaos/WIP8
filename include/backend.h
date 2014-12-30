@@ -1,6 +1,8 @@
 #ifndef BACKEND_H
 #define BACKEND_H
 
+#include <string>
+
 #include <glm/glm.hpp>
 
 #include "shader.h"
@@ -40,7 +42,8 @@ class Backend
 
         virtual VertexBuffer *createVertexBuffer()=0;
 
-        virtual CompiledShader *createShader(CompiledShader::Type type,
+        virtual CompiledShader *createShader(std::string filename,
+                                             CompiledShader::Type type,
                                              unsigned int numSources,
                                              const char **sources)=0;
 
@@ -49,6 +52,11 @@ class Backend
         virtual Framebuffer *createFramebuffer()=0;
 
         virtual float getMaxAnisotropy()=0;
+
+        virtual bool isGeometryShadersSupported()=0;
+
+        virtual bool isTessellationSupported()=0;
+        virtual unsigned int getMaxPatchSize()=0;
 
         virtual void submitDrawCall(const DrawCall& drawCall)=0;
         virtual void executeDrawCalls(RenderTarget *target)=0;

@@ -112,11 +112,12 @@ VertexBuffer *GLBackend::createVertexBuffer()
     return NEW(GLVertexBuffer);
 }
 
-CompiledShader *GLBackend::createShader(CompiledShader::Type type,
+CompiledShader *GLBackend::createShader(std::string filename,
+                                        CompiledShader::Type type,
                                         unsigned int numSources,
                                         const char **sources)
 {
-    return NEW(GLCompiledShader, type, numSources, sources);
+    return NEW(GLCompiledShader, filename, type, numSources, sources);
 }
 
 Texture *GLBackend::createTexture(Texture::Type type)
@@ -134,6 +135,24 @@ float GLBackend::getMaxAnisotropy()
     float anisotropy;
     glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &anisotropy);
     return anisotropy;
+}
+
+bool GLBackend::isGeometryShadersSupported()
+{
+    return mExtensions.extGL_ARB_geometry_shader4;
+}
+
+bool GLBackend::isTessellationSupported()
+{
+    return mExtensions.extGL_ARB_tessellation_shader;
+}
+
+unsigned int GLBackend::getMaxPatchSize()
+{
+    GLint maxPatchSize;
+    glGetIntegerv(GL_MAX_PATCH_VERTICES, &maxPatchSize);
+
+    return maxPatchSize;
 }
 
 void GLBackend::submitDrawCall(const DrawCall& drawCall)
@@ -263,13 +282,35 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
     CompiledShader *fragmentShader = material->mFragmentShader->getShader(defines);
     CompiledShader *vertexShader = mesh->mVertexShader->getShader(defines);
     CompiledShader *geometryShader = NULL;
+    CompiledShader *tessControlShader = NULL;
+    CompiledShader *tessEvalShader = NULL;
 
-    if (mesh->mGeometryShader != nullRes<Shader>())
+    if (mesh->mGeometryShader != nullRes<Shader>() and isGeometryShadersSupported())
     {
         geometryShader = mesh->mGeometryShader->getShader(defines);
     }
 
-    GLuint program = getProgram(vertexShader, fragmentShader, geometryShader);
+    if (mesh->mTessControlShader != nullRes<Shader>()
+        and mesh->mTessEvalShader != nullRes<Shader>()
+        and isTessellationSupported())
+    {
+        tessControlShader = mesh->mTessControlShader->getShader(defines);
+        tessEvalShader = mesh->mTessEvalShader->getShader(defines);
+
+        glPatchParameteri(GL_PATCH_VERTICES, mesh->mPatchSize);
+
+        //TODO: A wireframe option for meshes.
+        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    } else
+    {
+        //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
+
+    GLuint program = getProgram(vertexShader,
+                                fragmentShader,
+                                geometryShader,
+                                tessControlShader,
+                                tessEvalShader);
 
     glUseProgram(program);
 
@@ -280,6 +321,7 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
         glBindVertexArray(vao);
     }
 
+    mTextureUnit = 0;
     setUniforms(program, material->mUniforms);
     setUniforms(program, mesh->mUniforms);
 
@@ -288,6 +330,7 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
     GLint projectionMatrixIndex = glGetUniformLocation(program, "projectionMatrix");
     GLint viewNormalMatrixIndex = glGetUniformLocation(program, "viewNormalMatrix");
     GLint modelNormalMatrixIndex = glGetUniformLocation(program, "modelNormalMatrix");
+    GLint projectionNormalMatrixIndex = glGetUniformLocation(program, "projectionNormalMatrix");
     GLint lodStippleIndex = glGetUniformLocation(program, "lodStipple");
 
     if (modelMatrixIndex != -1)
@@ -306,17 +349,23 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
 
         glUniformMatrix4fv(projectionMatrixIndex, 1, GL_FALSE, (const GLfloat *)&modelMatrix);
     }
+    if (modelNormalMatrixIndex != -1)
+    {
+        glm::mat4 modelNormalMatrix = glm::transpose(glm::inverse(modelMatrix));
+
+        glUniformMatrix4fv(modelNormalMatrixIndex, 1, GL_FALSE, (const GLfloat *)&modelNormalMatrix);
+    }
     if (viewNormalMatrixIndex != -1)
     {
         glm::mat4 viewNormalMatrix = glm::transpose(glm::inverse(scene->mViewTransform.getMatrix()));
 
         glUniformMatrix4fv(viewNormalMatrixIndex, 1, GL_FALSE, (const GLfloat *)&viewNormalMatrix);
     }
-    if (modelNormalMatrixIndex != -1)
+    if (projectionNormalMatrixIndex != -1)
     {
-        glm::mat4 modelNormalMatrix = glm::transpose(glm::inverse(modelMatrix));
+        glm::mat4 projectionNormalMatrix = glm::transpose(glm::inverse(scene->mProjectionTransform.getMatrix()));
 
-        glUniformMatrix4fv(modelNormalMatrixIndex, 1, GL_FALSE, (const GLfloat *)&modelNormalMatrix);
+        glUniformMatrix4fv(projectionNormalMatrixIndex, 1, GL_FALSE, (const GLfloat *)&projectionNormalMatrix);
     }
     if (lodStippleIndex != -1)
     {
@@ -333,6 +382,7 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
         case Mesh::TriangleStrip: {glPrimitive = GL_TRIANGLE_STRIP; break;}
         case Mesh::TriangleFan: {glPrimitive = GL_TRIANGLE_FAN; break;}
         case Mesh::Triangles: {glPrimitive = GL_TRIANGLES; break;}
+        case Mesh::Patches: {glPrimitive = GL_PATCHES; break;}
     }
 
     if (mesh->hasIndices())
@@ -357,10 +407,12 @@ void GLBackend::executeDrawCall(const DrawCall& drawCall)
 }
 
 GLuint GLBackend::getProgram(CompiledShader *vertex,
-                              CompiledShader *fragment,
-                              CompiledShader *geometry)
+                             CompiledShader *fragment,
+                             CompiledShader *geometry,
+                             CompiledShader *tessControl,
+                             CompiledShader *tessEval)
 {
-    Program program = (Program){vertex, fragment, geometry};
+    Program program = (Program){vertex, fragment, geometry, tessControl, tessEval};
 
     UnorderedNoHashMap<Program, GLuint>::iterator pos = mPrograms.find(program);
 
@@ -389,9 +441,19 @@ GLuint GLBackend::createProgram(const Program& program)
         glAttachShader(glProgram, ((GLCompiledShader *)program.fragment)->mShader);
     }
 
-    if (program.geometry != NULL)
+    if (program.geometry != NULL and isGeometryShadersSupported())
     {
         glAttachShader(glProgram, ((GLCompiledShader *)program.geometry)->mShader);
+    }
+
+    if (program.tessControl != NULL and isTessellationSupported())
+    {
+        glAttachShader(glProgram, ((GLCompiledShader *)program.tessControl)->mShader);
+    }
+
+    if (program.tessEval != NULL and isTessellationSupported())
+    {
+        glAttachShader(glProgram, ((GLCompiledShader *)program.tessEval)->mShader);
     }
 
     glLinkProgram(glProgram);
@@ -512,8 +574,6 @@ void GLBackend::vertexAttrib(GLuint program, const char *name, const MeshCompone
 
 void GLBackend::setUniforms(GLuint program, const std::map<std::string, UniformValue>& uniforms)
 {
-    unsigned int textureUnit = 0;
-
     for (std::map<std::string, UniformValue>::const_iterator it = uniforms.begin();
          it != uniforms.end(); ++it)
     {
@@ -595,11 +655,11 @@ void GLBackend::setUniforms(GLuint program, const std::map<std::string, UniformV
             {
                 GLTexture *texture = (GLTexture *)uniform.getTexture().getPointer();
 
-                glActiveTexture(GL_TEXTURE0+textureUnit);
+                glActiveTexture(GL_TEXTURE0+mTextureUnit);
                 glBindTexture(texture->mTarget, texture->mTexture);
-                glUniform1i(index, textureUnit);
+                glUniform1i(index, mTextureUnit);
 
-                ++textureUnit;
+                ++mTextureUnit;
                 break;
             }
         }

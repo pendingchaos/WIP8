@@ -28,36 +28,7 @@
 #include "utils/utils.h"
 
 #include "GL/glbackend.h"
-
-class DeferredShadingMaterial : public Material
-{
-    public:
-        DeferredShadingMaterial(ResourceManager *resMgr,
-                                ResPtr<Texture> colorTexture,
-                                ResPtr<Texture> depthTexture,
-                                ResPtr<Texture> normalTexture,
-                                ResPtr<Texture> materialTexture,
-                                ResPtr<Texture> ambientTexture,
-                                ResPtr<Texture> specularTexture,
-                                Scene *scene) : Material(resMgr->load("res/shaders/quad fragment.json").cast<Shader>()),
-                                                mScene(scene)
-        {
-            mUniforms["colorTexture"] = colorTexture;
-            mUniforms["depthTexture"] = depthTexture;
-            mUniforms["normalTexture"] = normalTexture;
-            mUniforms["materialTexture"] = materialTexture;
-            mUniforms["ambientTexture"] = ambientTexture;
-            mUniforms["specularTexture"] = specularTexture;
-            mUniforms["lightDirection"] = glm::vec3(0.0f);
-        }
-
-        void setLightDirection(glm::vec3 dir)
-        {
-            mUniforms["lightDirection"] = glm::vec3(mScene->mViewTransform.getMatrix()*glm::vec4(dir, 1.0f));
-        }
-    private:
-        Scene *mScene;
-};
+#include "GL/glutils.h"
 
 typedef struct Version
 {
@@ -65,7 +36,8 @@ typedef struct Version
     unsigned int minor;
 } Version;
 
-static const Version versions[] = {{4, 4},
+static const Version versions[] = {{4, 5},
+                                   {4, 4},
                                    {4, 3},
                                    {4, 2},
                                    {4, 1},
@@ -83,8 +55,6 @@ SDL_GLContext createContext(SDL_Window *window, unsigned int versionIndex=0)
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, versions[versionIndex].minor);
 
     SDL_GLContext context = SDL_GL_CreateContext(window);
-
-    return context;
 
     if (context == NULL)
     {

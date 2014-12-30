@@ -72,9 +72,11 @@ CompiledShader::~CompiledShader() {}
 
 
 Shader::Shader(Renderer *renderer,
+               std::string filename,
                CompiledShader::Type type,
                std::string source) : Resource(typeid(Shader)),
                                      mRenderer(renderer),
+                                     mFilename(filename),
                                      mType(type),
                                      mSource(source) {}
 
@@ -94,7 +96,7 @@ CompiledShader *Shader::getShader(std::map<std::string, std::string> defines)
 
     if (pos == mShaders.end())
     {
-        CompiledShader *shader = mRenderer->createShader(mType, mSource.c_str(), defines);
+        CompiledShader *shader = mRenderer->createShader(mFilename, mType, mSource.c_str(), defines);
 
         mShaders.emplace(defines, shader);
 

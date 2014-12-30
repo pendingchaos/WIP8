@@ -3,17 +3,17 @@
     
     "external resources":
     {
-        "entity shader": "res/shaders/entity vertex.json"
+        "vertex shader": "res/shaders/entity vertex.json"
     },
     
     "mesh":
     {
-        "shader": "entity shader",
+        "vertex shader": "vertex shader",
         "awm filename": "res/meshes/dragonlod3.awm",
         
         "cull face": "back",
         "front face winding": "clockwise",
-        
+    
         "uniforms": {},
         
         "defines": {}

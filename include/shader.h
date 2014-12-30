@@ -238,7 +238,9 @@ class CompiledShader
         {
             Vertex,
             Fragment,
-            Geometry
+            Geometry,
+            TessControl,
+            TessEval
         } Type;
 
         virtual ~CompiledShader();
@@ -254,7 +256,7 @@ class CompiledShader
 class Shader : public Resource
 {
     public:
-        Shader(Renderer *renderer, CompiledShader::Type type, std::string source);
+        Shader(Renderer *renderer, std::string filename, CompiledShader::Type type, std::string source);
         virtual ~Shader();
 
         CompiledShader *getShader(std::map<std::string, std::string> defines
@@ -266,6 +268,8 @@ class Shader : public Resource
         inline Renderer *getRenderer() const {return mRenderer;}
     private:
         Renderer *mRenderer;
+
+        std::string mFilename;
 
         CompiledShader::Type mType;
         std::string mSource;

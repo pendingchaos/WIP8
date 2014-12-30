@@ -5,7 +5,8 @@
 #include "utils/memory.h"
 #include "GL/gltexture.h"
 
-GLCompiledShader::GLCompiledShader(CompiledShader::Type type,
+GLCompiledShader::GLCompiledShader(std::string filename,
+                                   CompiledShader::Type type,
                                    unsigned int numSources,
                                    const char **sources) : CompiledShader(type)
 {
@@ -26,6 +27,16 @@ GLCompiledShader::GLCompiledShader(CompiledShader::Type type,
             mShader = glCreateShader(GL_GEOMETRY_SHADER);
             break;
         }
+        case TessControl:
+        {
+            mShader = glCreateShader(GL_TESS_CONTROL_SHADER);
+            break;
+        }
+        case TessEval:
+        {
+            mShader = glCreateShader(GL_TESS_EVALUATION_SHADER);
+            break;
+        }
     }
 
     glShaderSource(mShader, numSources, sources, NULL);
@@ -38,7 +49,7 @@ GLCompiledShader::GLCompiledShader(CompiledShader::Type type,
 
     glGetShaderInfoLog(mShader, logLength, NULL, infoLog);
 
-    std::cout << infoLog << std::endl;
+    std::cout << filename << ": " << infoLog << std::endl;
 
     DEALLOCATE(infoLog);
 }

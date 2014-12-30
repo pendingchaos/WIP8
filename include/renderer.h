@@ -29,11 +29,16 @@ class Renderer
 
         inline VertexBuffer *createVertexBuffer() {return mBackend->createVertexBuffer();}
 
-        inline CompiledShader *createShader(CompiledShader::Type type,
-                                             unsigned int numSources,
-                                             const char **sources) {return mBackend->createShader(type, numSources, sources);}
+        inline CompiledShader *createShader(std::string filename,
+                                            CompiledShader::Type type,
+                                            unsigned int numSources,
+                                            const char **sources)
+        {
+            return mBackend->createShader(filename, type, numSources, sources);
+        }
 
-        CompiledShader *createShader(CompiledShader::Type type,
+        CompiledShader *createShader(std::string filename,
+                                     CompiledShader::Type type,
                                      std::string source,
                                      std::map<std::string, std::string> defines
                                      =std::map<std::string, std::string>());

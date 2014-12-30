@@ -31,9 +31,18 @@ void Transform::setParent(Transform *parent)
 
 void Transform::removeChild(std::vector<Transform *>::iterator pos)
 {
-    mChildren.erase(pos);
-
     (*pos)->mParent = NULL;
+
+    mChildren.erase(pos);
+}
+
+void Transform::removeChild(unsigned int pos)
+{
+    std::vector<Transform *>::iterator it = mChildren.begin()+pos;
+
+    (*it)->mParent = NULL;
+
+    mChildren.erase(it);
 }
 
 glm::mat4 Transform::getMatrix() const

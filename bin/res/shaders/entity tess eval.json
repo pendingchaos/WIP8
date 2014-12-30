@@ -1,0 +1,9 @@
+{
+    "type": "shader",
+    
+    "shader":
+    {
+        "type": "tessellation evaluation",
+        "filename": "res/shaders/entity.tes"
+    }
+}

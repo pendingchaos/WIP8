@@ -21,7 +21,6 @@
 				<Linker>
 					<Add option="-m64" />
 					<Add option="/usr/lib64/libSOIL.a" />
-					<Add directory="/usr/lib64" />
 				</Linker>
 			</Target>
 			<Target title="Release 64 bit gcc">
@@ -39,7 +38,6 @@
 					<Add option="-s" />
 					<Add option="-m64" />
 					<Add option="/usr/lib64/libSOIL.a" />
-					<Add directory="/usr/lib64" />
 				</Linker>
 			</Target>
 			<Target title="Debug 32 bit gcc">
@@ -93,7 +91,6 @@
 				<Linker>
 					<Add option="-m64" />
 					<Add option="/usr/lib64/libSOIL.a" />
-					<Add directory="/usr/lib64" />
 				</Linker>
 			</Target>
 			<Target title="Release 64 bit clang">
@@ -111,7 +108,6 @@
 					<Add option="-s" />
 					<Add option="-m64" />
 					<Add option="/usr/lib64/libSOIL.a" />
-					<Add directory="/usr/lib64" />
 				</Linker>
 			</Target>
 			<Target title="Debug 32 bit clang">
@@ -169,6 +165,8 @@
 			<Add library="dl" />
 		</Linker>
 		<Unit filename="bin/res/shaders/entity.fs" />
+		<Unit filename="bin/res/shaders/entity.tcs" />
+		<Unit filename="bin/res/shaders/entity.tes" />
 		<Unit filename="bin/res/shaders/entity.vs" />
 		<Unit filename="bin/res/shaders/lib/glsl compat.glsl" />
 		<Unit filename="bin/res/shaders/quad.fs" />
@@ -180,12 +178,13 @@
 		<Unit filename="include/GL/glrendertarget.h" />
 		<Unit filename="include/GL/glshader.h" />
 		<Unit filename="include/GL/gltexture.h" />
-		<Unit filename="include/GL/glubo.h" />
 		<Unit filename="include/GL/glutils.h" />
 		<Unit filename="include/GL/glvertexbuffer.h" />
 		<Unit filename="include/awm.h" />
 		<Unit filename="include/backend.h" />
+		<Unit filename="include/c api.h" />
 		<Unit filename="include/entity.h" />
+		<Unit filename="include/featureset.h" />
 		<Unit filename="include/geometry/aabb.h" />
 		<Unit filename="include/material.h" />
 		<Unit filename="include/mesh.h" />
@@ -198,7 +197,6 @@
 		<Unit filename="include/shader.h" />
 		<Unit filename="include/texture.h" />
 		<Unit filename="include/transform.h" />
-		<Unit filename="include/ubo.h" />
 		<Unit filename="include/utils/crash.h" />
 		<Unit filename="include/utils/memory.h" />
 		<Unit filename="include/utils/utils.h" />
@@ -208,12 +206,13 @@
 		<Unit filename="src/GL/glrendertarget.cpp" />
 		<Unit filename="src/GL/glshader.cpp" />
 		<Unit filename="src/GL/gltexture.cpp" />
-		<Unit filename="src/GL/glubo.cpp" />
 		<Unit filename="src/GL/glutils.cpp" />
 		<Unit filename="src/GL/glvertexbuffer.cpp" />
 		<Unit filename="src/awm.cpp" />
 		<Unit filename="src/backend.cpp" />
+		<Unit filename="src/c api.cpp" />
 		<Unit filename="src/entity.cpp" />
+		<Unit filename="src/featureset.cpp" />
 		<Unit filename="src/geometry/aabb.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/material.cpp" />
@@ -227,7 +226,6 @@
 		<Unit filename="src/shader.cpp" />
 		<Unit filename="src/texture.cpp" />
 		<Unit filename="src/transform.cpp" />
-		<Unit filename="src/ubo.cpp" />
 		<Unit filename="src/utils/crash.cpp" />
 		<Unit filename="src/utils/memory.cpp" />
 		<Unit filename="src/utils/utils.cpp" />

@@ -47,7 +47,8 @@ void Renderer::render(RenderTarget *target, Scene *scene)
     mBackend->executeDrawCalls(target);
 }
 
-CompiledShader *Renderer::createShader(CompiledShader::Type type,
+CompiledShader *Renderer::createShader(std::string filename,
+                                       CompiledShader::Type type,
                                        std::string source,
                                        std::map<std::string, std::string> defines)
 {
@@ -90,6 +91,16 @@ CompiledShader *Renderer::createShader(CompiledShader::Type type,
             ss << "#define GEOMETRY_SHADER 1\n";
             break;
         }
+        case CompiledShader::TessControl:
+        {
+            ss << "#define TESS_CONTROL_SHADER 1\n";
+            break;
+        }
+        case CompiledShader::TessEval:
+        {
+            ss << "#define TESS_EVAL_SHADER 1\n";
+            break;
+        }
     }
 
     for (std::map<std::string, std::string>::iterator it = defines.begin();
@@ -104,7 +115,7 @@ CompiledShader *Renderer::createShader(CompiledShader::Type type,
 
     const char *c_str = str.c_str();
 
-    CompiledShader *shader = createShader(type, 1, &c_str);
+    CompiledShader *shader = createShader(filename, type, 1, &c_str);
 
     str.clear();
 

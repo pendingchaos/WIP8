@@ -10,7 +10,7 @@ class Transform
 {
     public:
         Transform();
-        virtual ~Transform();
+        ~Transform();
 
         inline void reset() {mMatrix = glm::mat4();}
 
@@ -42,6 +42,7 @@ class Transform
 
         inline const std::vector<Transform *>& getChildren() const {return mChildren;}
         void removeChild(std::vector<Transform *>::iterator pos);
+        void removeChild(unsigned int pos);
         inline void addChild(Transform *child) {mChildren.push_back(child);}
     private:
         glm::mat4 mMatrix;

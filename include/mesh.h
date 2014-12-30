@@ -63,7 +63,8 @@ class Mesh : public Resource
             LineLoop,
             TriangleStrip,
             TriangleFan,
-            Triangles
+            Triangles,
+            Patches
         } Primitive;
 
         typedef enum Winding
@@ -84,7 +85,7 @@ class Mesh : public Resource
              unsigned int numVertices,
              unsigned int numIndices=0);
         virtual ~Mesh();
-        
+
         //TODO: These should not need the Renderer.
         MeshComponent *addPositions(Renderer *renderer, const MeshComponent& positionComponent);
         void removePositions();
@@ -122,10 +123,13 @@ class Mesh : public Resource
 
         ResPtr<Shader> mVertexShader;
         ResPtr<Shader> mGeometryShader;
+        ResPtr<Shader> mTessControlShader;
+        ResPtr<Shader> mTessEvalShader;
 
         Primitive mPrimitive;
         unsigned int mNumVertices;
         unsigned int mNumIndices;
+        unsigned int mPatchSize;
 
         Winding mFrontFaceWinding;
         CullFace mCullFace;
