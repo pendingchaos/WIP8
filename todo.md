@@ -1,4 +1,3 @@
-- Get feature sets working. (look in res/models/dragon.json)
 - More flexible meshes and a new mesh file format to go with it.
 - Models should be able to define stuff and set uniforms
 - Something like Horde3D's pipelines.
@@ -12,4 +11,4 @@
 - More mesh formats on mesh aabb calculation.
 - Terrain rendering.
 - A C api.
-- Über-awesome features like tesselation, subroutines, and pipeline objects.
+- Über-awesome features like subroutines, and pipeline objects.
